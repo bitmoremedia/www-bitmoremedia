@@ -1,10 +1,19 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const IndexPage = () => (
-  <div className="text-center">
-    <h2 className="bg-yellow inline-block my-8 p-3">HOME PAGE</h2>
-  </div>
-)
+import bgImgSrc from '../images/architecture-bay-blonde.jpg'
+import PageBackground from '../components/common/PageBackground'
+import ScrollDownButton from '../components/common/ScrollDownButton'
+
+const IndexPage = () => {
+  return (
+    <PageBackground bgImgSrc={bgImgSrc}>
+      <div />
+      <div className="text-center pb-6">
+        <ScrollDownButton />
+      </div>
+    </PageBackground>
+  )
+}
 
 export default IndexPage

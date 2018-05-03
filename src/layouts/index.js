@@ -6,22 +6,23 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './index.css'
 
-const TemplateWrapper = ({ children }) => (
-  <div className="flex flex-col font-sans min-h-screen text-grey-darkest">
-    <Helmet
-      title="Gatsby Starter Tailwind"
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <Header />
-    <div className="flex flex-col flex-1 md:justify-center max-w-xl mx-auto px-4 py-8 md:p-8 w-full">
+const TemplateWrapper = props => {
+  const { location, children } = props
+  return (
+    <div>
+      <Helmet
+        title="BitMoreMedia"
+        meta={[
+          { name: 'description', content: 'Sample' },
+          { name: 'keywords', content: 'sample, something' },
+        ]}
+      />
+      <Header location={location} />
       {children()}
+      <Footer />
     </div>
-    <Footer />
-  </div>
-)
+  )
+}
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
