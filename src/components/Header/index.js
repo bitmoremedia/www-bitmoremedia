@@ -4,9 +4,18 @@ import Link from 'gatsby-link'
 import logoSrc from '../../images/bitmoremedia-logo.png'
 
 const links = [
-  { title: 'What We Do', path: '/what-we-do' },
-  { title: 'About', path: '/about' },
-  { title: 'Contact', path: '/contact' },
+  {
+    title: 'What We Do',
+    path: '/what-we-do',
+  },
+  {
+    title: 'About',
+    path: '/about',
+  },
+  {
+    title: 'Contact',
+    path: '/contact',
+  },
 ]
 
 const HeaderLink = ({ title, path }) => {
@@ -38,7 +47,7 @@ const Header = ({ location }) => {
         <Link to="/" className="block mt-4 md:inline-block md:mt-0 mr-6 no-underline">
           <img style={style.img} src={logoSrc} />
         </Link>
-        <div>{links.map(link => <HeaderLink key={link.path} {...link} />)}</div>
+        <div> {links.map(link => <HeaderLink key={link.path} {...link} />)}</div>
       </div>
     </nav>
   )
