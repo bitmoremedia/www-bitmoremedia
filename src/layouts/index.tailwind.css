@@ -4,6 +4,23 @@
 
 @tailwind utilities;
 
-.text-shadow {
+._text-shadow {
   text-shadow: 1px 1px #908f8f;
+}
+
+._grid-only {
+  display: none;
+}
+
+._grid-fallback {
+  display: none;
+}
+
+@supports (display: grid) {
+  ._grid-only {
+    display: grid;
+  }
+  ._grid-fallback {
+    display: none;
+  }
 }

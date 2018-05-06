@@ -39,10 +39,10 @@ const Header = ({ location }) => {
     },
   }
   const bgClass = location.pathname === '/' ? '' : 'bg-white'
-  const pClass = location.pathname === '/' ? 'p-4' : ''
+  const pClass = location.pathname === '/' ? 'py-4' : ''
   return (
     <nav className={`fixed z-10 w-full ${bgClass} ${pClass}`} style={style.nav}>
-      <div className="flex flex-wrap items-center justify-between max-w-3xl mx-auto py-2 px-8">
+      <div className="flex flex-wrap items-center justify-between container mx-auto py-2 px-4">
         <Link to="/" className="no-underline">
           <img style={style.img} src={logoSrc} />
         </Link>
