@@ -36,7 +36,6 @@ const Header = ({ location }) => {
     },
     img: {
       width: '192px',
-      height: '37.6px',
     },
   }
   const bgClass = location.pathname === '/' ? '' : 'bg-white'
@@ -44,10 +43,12 @@ const Header = ({ location }) => {
   return (
     <nav className={`fixed z-10 w-full ${bgClass} ${pClass}`} style={style.nav}>
       <div className="flex flex-wrap items-center justify-between max-w-3xl mx-auto py-2 px-8">
-        <Link to="/" className="block mt-4 md:inline-block md:mt-0 mr-6 no-underline">
+        <Link to="/" className="no-underline">
           <img style={style.img} src={logoSrc} />
         </Link>
-        <div> {links.map(link => <HeaderLink key={link.path} {...link} />)}</div>
+        <div className="hidden md:inline">
+          {links.map(link => <HeaderLink key={link.path} {...link} />)}
+        </div>
       </div>
     </nav>
   )

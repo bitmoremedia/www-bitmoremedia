@@ -3,11 +3,11 @@ import React from 'react'
 const PageBackground = ({ bgImgSrc, children }) => {
   const style = {
     backgroundImage: `url(${bgImgSrc})`,
-    height: '600px',
+    paddingTop: '100px', // this accounts for the header nav
   }
   return (
     <div
-      className="min-h-screen relative bg-center bg-no-repeat bg-cover h-full flex flex-col justify-between"
+      className="min-h-screen relative bg-center bg-no-repeat bg-cover h-full flex flex-col"
       style={style}
     >
       {children}
