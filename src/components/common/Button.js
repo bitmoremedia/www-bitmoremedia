@@ -5,10 +5,11 @@ const style = {
   outline: 'none',
 }
 
-const Button = ({ label }) => {
+const Button = ({ label, fullWidth }) => {
+  const widthClass = fullWidth ? 'w-full' : 'px-6'
   return (
     <button
-      className="border border-orange hover:bg-orange text-orange hover:text-white uppercase py-2 px-6 rounded"
+      className={`border border-orange hover:bg-orange text-orange hover:text-white uppercase py-2 ${widthClass} rounded`}
       style={style}
     >
       {label}

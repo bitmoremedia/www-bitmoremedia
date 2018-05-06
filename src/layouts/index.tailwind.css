@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 ._text-shadow {
-  text-shadow: 1px 1px #908f8f;
+  text-shadow: 1px 1px #303132;
 }
 
 ._grid-only {
@@ -14,6 +14,10 @@
 
 ._grid-fallback {
   display: none;
+}
+
+._transition-all {
+  transition: all 0.2s ease;
 }
 
 @supports (display: grid) {

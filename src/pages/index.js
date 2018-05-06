@@ -7,6 +7,10 @@ import PageBackground from '../components/common/PageBackground'
 import ScrollDownButton from '../components/common/ScrollDownButton'
 import Button from '../components/common/Button'
 
+import servicesImgSrc from '../images/services-tile.jpg'
+import productsImgSrc from '../images/products-tile.jpg'
+import partnershipsImgSrc from '../images/partnerships-tile.jpg'
+
 const IndexPage = () => {
   return (
     <div>
@@ -47,6 +51,29 @@ const whatWeDo = [
 
 const whatWeDo_gridOrder = [whatWeDo[0], whatWeDo[3], whatWeDo[1], whatWeDo[4], whatWeDo[2]]
 
+const whatWeDoItems = [
+  {
+    title: 'Services',
+    summary:
+      'Our 3 key offerings of how we can work with you: Software Development, UX & Marketing.',
+    to: 'what-we-do',
+    imgSrc: servicesImgSrc,
+  },
+  {
+    title: 'Products',
+    summary: 'Our shop window for products we have built and some thoughts on what’s coming up.',
+    to: 'what-we-do',
+    imgSrc: productsImgSrc,
+  },
+  {
+    title: 'Partnerships',
+    summary:
+      'Got a project you would like to build, but need a technical partner? Chat to us. We can be your trusted advisors and build something great together.',
+    to: 'what-we-do',
+    imgSrc: partnershipsImgSrc,
+  },
+]
+
 const gridStyle = {
   gridTemplateColumns: '46% 46%',
   gridGap: '0px 8%',
@@ -55,8 +82,8 @@ const gridStyle = {
 const FindOutMore = () => {
   return (
     <div className="flex justify-center items-center">
-      <Link to="/what-we-do">
-        <Button label="Find Out More" />
+      <Link to="/what-we-do" className="w-full">
+        <Button label="Find Out More" fullWidth />
       </Link>
     </div>
   )
@@ -71,8 +98,8 @@ const WhatWeDoSection = () => {
       <h2 className="pt-8 pb-6 font-serif text-2xl font-light">
         Digital Services & Solutions Agency
       </h2>
-      <div className="hidden md:inline">
-        <div className="_grid-only woo" style={gridStyle}>
+      <div className="hidden md:inline  py-4">
+        <div className="_grid-only" style={gridStyle}>
           {whatWeDo_gridOrder.map((p, i) => (
             <p key={i} className="text-sm text-grey-dark font-thin py-3">
               {p}
@@ -81,7 +108,7 @@ const WhatWeDoSection = () => {
           <FindOutMore />
         </div>
       </div>
-      <div className="_grid-fallback" className="inline md:hidden">
+      <div className="_grid-fallback" className="inline md:hidden py-4">
         {whatWeDo.map((p, i) => (
           <p key={i} className="text-sm text-grey-dark font-thin py-2">
             {p}
@@ -91,29 +118,37 @@ const WhatWeDoSection = () => {
           <FindOutMore />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <div className="flex justify-between py-8">
+        {whatWeDoItems.map((item, i) => (
+          <Link
+            to={item.to}
+            className="relative no-underline text-white text-center _text-shadow"
+            style={{
+              width: 'calc(33.33% - 16px)',
+            }}
+          >
+            <img src={item.imgSrc} />
+            <div
+              className="absolute pin flex flex-col content-center align-center justify-center bg-transparent-dark hover:bg-transparent-darker _transition-all"
+              style={{
+                bottom: '3px',
+              }}
+            >
+              <div>
+                <div className="text-2xl pb-6">{item.title}</div>
+                <div
+                  className="mx-auto"
+                  style={{
+                    maxWidth: '220px',
+                  }}
+                >
+                  {item.summary}
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }

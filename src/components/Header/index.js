@@ -22,7 +22,7 @@ const HeaderLink = ({ title, path }) => {
   return (
     <Link
       to={path}
-      className="block md:inline-block mt-4 md:mt-0 mr-6 no-underline text-m text-orange"
+      className="block md:inline-block mt-4 md:mt-0 mr-6 no-underline text-m text-orange hover:text-orange-dark _transition-all"
     >
       {title}
     </Link>
