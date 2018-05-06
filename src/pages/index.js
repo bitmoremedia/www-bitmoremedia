@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import { Link as ScrollLink, Element } from 'react-scroll'
 
 import bgImgSrc from '../images/architecture-bay-blonde.jpg'
 import PageBackground from '../components/common/PageBackground'
@@ -25,7 +26,9 @@ const IndexPage = () => {
             </div>
           </div>
           <div className="text-center py-4">
-            <ScrollDownButton />
+            <ScrollLink to="what-we-do" smooth={true} duration={500} offset={-75}>
+              <ScrollDownButton />
+            </ScrollLink>
           </div>
         </div>
       </PageBackground>
@@ -62,24 +65,55 @@ const FindOutMore = () => {
 const WhatWeDoSection = () => {
   return (
     <div className="container mx-auto font-sans px-8 py-8">
-      <h1 className="text-grey text-sm uppercase font-light">What we do</h1>
+      <Element name="what-we-do">
+        <h1 className="text-grey text-sm uppercase font-light">What we do</h1>
+      </Element>
       <h2 className="pt-8 pb-6 font-serif text-2xl font-light">
         Digital Services & Solutions Agency
       </h2>
       <div className="hidden md:inline">
         <div className="_grid-only woo" style={gridStyle}>
-          {whatWeDo_gridOrder.map(p => (
-            <p className="text-sm text-grey-dark font-thin py-3">{p}</p>
+          {whatWeDo_gridOrder.map((p, i) => (
+            <p key={i} className="text-sm text-grey-dark font-thin py-3">
+              {p}
+            </p>
           ))}
           <FindOutMore />
         </div>
       </div>
       <div className="_grid-fallback" className="inline md:hidden">
-        {whatWeDo.map(p => <p className="text-sm text-grey-dark font-thin py-2">{p}</p>)}
+        {whatWeDo.map((p, i) => (
+          <p key={i} className="text-sm text-grey-dark font-thin py-2">
+            {p}
+          </p>
+        ))}
         <div className="py-6">
           <FindOutMore />
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   )
 }
