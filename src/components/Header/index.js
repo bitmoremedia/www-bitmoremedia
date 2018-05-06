@@ -29,29 +29,61 @@ const HeaderLink = ({ title, path }) => {
   )
 }
 
-const Header = ({ location }) => {
-  const style = {
-    nav: {
-      transition: 'padding 0.5s ease',
-    },
-    img: {
-      width: '192px',
-    },
+class Header extends React.Component {
+  state = {
+    hasScrolledDown: false,
   }
-  const bgClass = location.pathname === '/' ? '' : 'bg-white'
-  const pClass = location.pathname === '/' ? 'py-4' : ''
-  return (
-    <nav className={`fixed z-10 w-full ${bgClass} ${pClass}`} style={style.nav}>
-      <div className="flex flex-wrap items-center justify-between container mx-auto py-2 px-4">
-        <Link to="/" className="no-underline">
-          <img style={style.img} src={logoSrc} />
-        </Link>
-        <div className="hidden md:inline">
-          {links.map(link => <HeaderLink key={link.path} {...link} />)}
+  componentDidMount() {
+    window.addEventListener('scroll', this.checkScrollPos)
+    this.checkScrollPos()
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.checkScrollPos)
+  }
+  checkScrollPos = () => {
+    const { hasScrolledDown } = this.state
+    if (window.scrollY > 30) {
+      if (!hasScrolledDown) {
+        this.setState({
+          hasScrolledDown: true,
+        })
+      }
+    } else {
+      if (hasScrolledDown) {
+        this.setState({
+          hasScrolledDown: false,
+        })
+      }
+    }
+  }
+  render() {
+    const { hasScrolledDown } = this.state
+    const style = {
+      nav: {
+        transition: 'padding 0.5s ease',
+      },
+      img: {
+        width: '192px',
+      },
+    }
+    const bgClass =
+      location.pathname === '/' && !hasScrolledDown
+        ? ''
+        : 'bg-white border-solid border-b border-orange-lightest'
+    const pClass = location.pathname === '/' && !hasScrolledDown ? 'py-4' : ''
+    return (
+      <nav className={`fixed z-10 w-full ${bgClass} ${pClass}`} style={style.nav}>
+        <div className="flex flex-wrap items-center justify-between container mx-auto py-2 px-4">
+          <Link to="/" className="no-underline">
+            <img style={style.img} src={logoSrc} />
+          </Link>
+          <div className="hidden md:inline">
+            {links.map(link => <HeaderLink key={link.path} {...link} />)}
+          </div>
         </div>
-      </div>
-    </nav>
-  )
+      </nav>
+    )
+  }
 }
 
 export default Header
