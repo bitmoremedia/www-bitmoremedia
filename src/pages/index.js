@@ -68,7 +68,7 @@ const whatWeDoItems = [
   {
     title: 'Partnerships',
     summary:
-      'Got a project you would like to build, but need a technical partner? Chat to us. We can be your trusted advisors and build something great together.',
+      'Got a project you would like to build, but need a technical partner? We can be your trusted advisors and build something great together.',
     to: 'what-we-do',
     imgSrc: partnershipsImgSrc,
   },
@@ -92,30 +92,32 @@ const FindOutMore = () => {
 const WhatWeDoSection = () => {
   return (
     <div className="container mx-auto font-sans px-8 py-8">
-      <Element name="what-we-do">
-        <h1 className="text-grey text-sm uppercase font-light">What we do</h1>
-      </Element>
-      <h2 className="pt-8 pb-6 font-serif text-2xl font-light">
-        Digital Services & Solutions Agency
-      </h2>
-      <div className="hidden md:inline  py-4">
-        <div className="_grid-only" style={gridStyle}>
-          {whatWeDo_gridOrder.map((p, i) => (
-            <p key={i} className="text-sm text-grey-dark font-thin py-3">
+      <div className="md:w-5/6 m-auto">
+        <Element name="what-we-do">
+          <h1 className="text-grey text-sm uppercase font-light">What we do</h1>
+        </Element>
+        <h2 className="pt-8 pb-6 font-serif text-2xl font-light">
+          Digital Services & Solutions Agency
+        </h2>
+        <div className="hidden md:inline  py-4">
+          <div className="_grid-only" style={gridStyle}>
+            {whatWeDo_gridOrder.map((p, i) => (
+              <p key={i} className="text-sm text-grey-dark font-thin py-3">
+                {p}
+              </p>
+            ))}
+            <FindOutMore />
+          </div>
+        </div>
+        <div className="_grid-fallback" className="inline md:hidden py-4">
+          {whatWeDo.map((p, i) => (
+            <p key={i} className="text-sm text-grey-dark font-thin py-2">
               {p}
             </p>
           ))}
-          <FindOutMore />
-        </div>
-      </div>
-      <div className="_grid-fallback" className="inline md:hidden py-4">
-        {whatWeDo.map((p, i) => (
-          <p key={i} className="text-sm text-grey-dark font-thin py-2">
-            {p}
-          </p>
-        ))}
-        <div className="py-6">
-          <FindOutMore />
+          <div className="py-6">
+            <FindOutMore />
+          </div>
         </div>
       </div>
       <div className="flex justify-between py-8">
