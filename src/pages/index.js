@@ -44,32 +44,40 @@ const IndexPage = () => {
 const whatWeDo = [
   'We are a London based digital agency boutique, specialising in end-to-end delivery of web, app and mobile projects.',
   'Right from the get-go, we connect with our clients and their customers to find out their real needs and wants. We work closely to ensure the right solution is being created from the outset. We design the right thing and get the design right.',
-  'We’re also there after a project has launched. We know launching is not the end of the project, it’s simply another stage. And so, we’ll be with you for the aftercare. Being a small boutique also means you’ll get through to the right people quickly, to continue the great work.',
+  'We’re also there after a project has launched. We know launching is not the end of the project, it’s simply another stage. And so, we’ll be with you for the aftercare.',
+  'Being a small boutique also means you’ll get through to the right people quickly, to continue the great work.',
   'We also develop our own products to release to the market. Our latest creation is going live soon. More details to follow.',
   'And to complete the trio of offerings, we have a partnerships model. Bit More Media will act as your CTO, your trusted advisor and together we can build something great.',
 ]
 
-const whatWeDo_gridOrder = [whatWeDo[0], whatWeDo[3], whatWeDo[1], whatWeDo[4], whatWeDo[2]]
+const whatWeDo_gridOrder = [
+  whatWeDo[0],
+  whatWeDo[3],
+  whatWeDo[1],
+  whatWeDo[4],
+  whatWeDo[2],
+  whatWeDo[5],
+]
 
 const whatWeDoItems = [
   {
     title: 'Services',
     summary:
       'Our 3 key offerings of how we can work with you: Software Development, UX & Marketing.',
-    to: 'what-we-do',
+    to: 'services',
     imgSrc: servicesImgSrc,
   },
   {
     title: 'Products',
     summary: 'Our shop window for products we have built and some thoughts on what’s coming up.',
-    to: 'what-we-do',
+    to: 'products',
     imgSrc: productsImgSrc,
   },
   {
     title: 'Partnerships',
     summary:
       'Got a project you would like to build, but need a technical partner? We can be your trusted advisors and build something great together.',
-    to: 'what-we-do',
+    to: 'partnerships',
     imgSrc: partnershipsImgSrc,
   },
 ]
@@ -77,16 +85,6 @@ const whatWeDoItems = [
 const gridStyle = {
   gridTemplateColumns: '46% 46%',
   gridGap: '0px 8%',
-}
-
-const FindOutMore = () => {
-  return (
-    <div className="flex justify-center items-center">
-      <Link to="/what-we-do" className="w-full">
-        <Button label="Find Out More" fullWidth />
-      </Link>
-    </div>
-  )
 }
 
 const WhatWeDoSection = () => {
@@ -106,7 +104,6 @@ const WhatWeDoSection = () => {
                 {p}
               </p>
             ))}
-            <FindOutMore />
           </div>
         </div>
         <div className="_grid-fallback" className="inline md:hidden py-4">
@@ -115,9 +112,6 @@ const WhatWeDoSection = () => {
               {p}
             </p>
           ))}
-          <div className="py-6">
-            <FindOutMore />
-          </div>
         </div>
       </div>
       <div className="flex justify-between py-8">

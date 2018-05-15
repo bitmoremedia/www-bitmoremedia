@@ -5,8 +5,16 @@ import logoSrc from '../../images/bitmoremedia-logo.png'
 
 const links = [
   {
-    title: 'What We Do',
-    path: '/what-we-do',
+    title: 'Services',
+    path: '/services',
+  },
+  {
+    title: 'Products',
+    path: '/products',
+  },
+  {
+    title: 'Partnerships',
+    path: '/partnerships',
   },
   {
     title: 'About',
