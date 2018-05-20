@@ -1,11 +1,11 @@
 import React from 'react'
 
-import imgSrc from '../../images/scroll-down-button.svg'
-
-// TODO: make an actual SVG and support hover class
+import DownArrowIcon from '../icon/DownArrow'
 
 const ScrollDownButton = ({ onClick }) => (
-  <img className="cursor-pointer" src={imgSrc} onClick={onClick} />
+  <a className="cursor-pointer text-white hover:text-orange _transition-all" onClick={onClick}>
+    <DownArrowIcon className="stroke-current" stroke="" />
+  </a>
 )
 
 export default ScrollDownButton
