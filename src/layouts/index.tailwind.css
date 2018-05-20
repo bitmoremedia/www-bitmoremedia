@@ -20,6 +20,14 @@
   transition: all 0.2s ease;
 }
 
+._tilt-on-hover {
+  transition: transform 0.2s ease;
+}
+
+._tilt-on-hover:hover {
+  transform: rotate(10deg);
+}
+
 @supports (display: grid) {
   ._grid-only {
     display: grid;

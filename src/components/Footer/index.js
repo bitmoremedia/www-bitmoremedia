@@ -1,5 +1,10 @@
 import React from 'react'
 
+import LinkedInIcon from '../icon/LinkedIn'
+import InstagramIcon from '../icon/Instagram'
+import TwitterIcon from '../icon/Twitter'
+import FacebookIcon from '../icon/Facebook'
+
 const main = (
   <div className="container mx-auto">
     <div>
@@ -29,20 +34,53 @@ const main = (
   </div>
 )
 
+const iconColor = '#4a4a4a'
+const iconBackgroundColor = 'white'
+const iconSize = 40
+const withIconProps = Icon => {
+  return (
+    <Icon
+      iconColor={iconColor}
+      backgroundColor={iconBackgroundColor}
+      width={iconSize}
+      height={iconSize}
+      className="_tilt-on-hover"
+    />
+  )
+}
+
 const socialLinks = [
-  { label: 'Facebook', iconName: '', url: '' },
-  { label: 'Twitter', iconName: '', url: '' },
-  { label: 'Instagram', iconName: '', url: '' },
-  { label: 'LinkedIn', iconName: '', url: '' },
+  {
+    label: 'Facebook',
+    icon: withIconProps(FacebookIcon),
+    url: '',
+  },
+  {
+    label: 'Twitter',
+    icon: withIconProps(TwitterIcon),
+    url: '',
+  },
+  {
+    label: 'Instagram',
+    icon: withIconProps(InstagramIcon),
+    url: '',
+  },
+  {
+    label: 'LinkedIn',
+    icon: withIconProps(LinkedInIcon),
+    url: '',
+  },
 ]
 
 const social = (
   <div className="flex container mx-auto justify-center items-center h-24">
     {socialLinks.map(socialLink => {
-      const { label, iconName, url } = socialLink
+      const { label, icon, url } = socialLink
       return (
         <div className="p-8" key={label}>
-          {label}
+          <a href={url} target="_blank">
+            {icon}
+          </a>
         </div>
       )
     })}
@@ -63,27 +101,5 @@ const Footer = () => (
     {base}
   </div>
 )
-
-// const Header = () => (
-//   <div className="bg-grey-darkest">
-//     <div className="flex justify-between max-w-xl mx-auto p-4 md:p-8 text-sm">
-//       <p className="text-white">
-//         Created by{' '}
-//         <a href="https://www.bitmoremedia.com" className="font-bold no-underline text-white">
-//           BitMoreMedia
-//         </a>
-//       </p>
-//       <p className="text-white">
-//         Hosted on{' '}
-//         <a
-//           href="https://github.com/bitmoremedia/www-bitmoremedia"
-//           className="font-bold no-underline text-white"
-//         >
-//           GitHub
-//         </a>
-//       </p>
-//     </div>
-//   </div>
-// )
 
 export default Footer
