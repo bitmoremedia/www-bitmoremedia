@@ -6,19 +6,19 @@ import TwitterIcon from '../icon/Twitter'
 import FacebookIcon from '../icon/Facebook'
 
 const main = (
-  <div className="container mx-auto">
-    <div>
+  <div className="container mx-auto flex flex-col md:flex-row py-8 justify-around">
+    <div className="md:w-1/4">
       <div>GET IN TOUCH</div>
       <div>
         We are a London based digital agency with a home office in Crystal Palace, London. We have
         shared offices across London; get in touch to find out the closest office to you.{' '}
       </div>
+      <div>
+        <div>EMAIL</div>
+        <div>PHONE</div>
+      </div>
     </div>
-    <div>
-      <div>EMAIL</div>
-      <div>PHONE</div>
-    </div>
-    <div>
+    <div className="md:w-1/4">
       <div>NAVIGATION</div>
       <div>
         <ul>
