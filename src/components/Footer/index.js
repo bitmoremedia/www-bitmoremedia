@@ -1,33 +1,69 @@
 import React from 'react'
+import Link from 'gatsby-link'
 
 import LinkedInIcon from '../icon/LinkedIn'
 import InstagramIcon from '../icon/Instagram'
 import TwitterIcon from '../icon/Twitter'
 import FacebookIcon from '../icon/Facebook'
 
+const links = [
+  {
+    title: 'Home',
+    path: '/',
+  },
+  {
+    title: 'Services',
+    path: '/services',
+  },
+  {
+    title: 'Products',
+    path: '/products',
+  },
+  {
+    title: 'Partnerships',
+    path: '/partnerships',
+  },
+  {
+    title: 'About',
+    path: '/about',
+  },
+  {
+    title: 'Contact',
+    path: '/contact',
+  },
+]
+
 const main = (
   <div className="container mx-auto flex flex-col md:flex-row py-8 justify-around">
-    <div className="md:w-1/4">
-      <div>GET IN TOUCH</div>
-      <div>
+    <div className="md:w-1/2">
+      <div className="text-grey-true">GET IN TOUCH</div>
+      <div className="py-4">
         We are a London based digital agency with a home office in Crystal Palace, London. We have
         shared offices across London; get in touch to find out the closest office to you.{' '}
       </div>
       <div>
-        <div>EMAIL</div>
-        <div>PHONE</div>
+        <div>
+          <a className="text-white" href="mailto:getintouch@bitmoremedia.com">
+            getintouch@bitmoremedia.com
+          </a>
+        </div>
       </div>
     </div>
-    <div className="md:w-1/4">
-      <div>NAVIGATION</div>
-      <div>
-        <ul>
-          <li>Home</li>
-          <li>Services</li>
-          <li>Products</li>
-          <li>Partnerships</li>
-          <li>About</li>
-          <li>Contact</li>
+    <div className="md:w-1/4 pt-6 md:pt-0">
+      <div className="text-grey-true">NAVIGATION</div>
+      <div className="py-4">
+        <ul className="list-reset">
+          {links.map(link => (
+            <li>
+              <Link
+                key={link.path}
+                to={link.path}
+                className="no-underline text-white hover:text-orange-dark py-2 leading-normal"
+              >
+                {link.title}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
@@ -77,7 +113,7 @@ const social = (
     {socialLinks.map(socialLink => {
       const { label, icon, url } = socialLink
       return (
-        <div className="p-8" key={label}>
+        <div className="p-4 pb-8 md:p-8" key={label}>
           <a href={url} target="_blank">
             {icon}
           </a>
@@ -88,14 +124,17 @@ const social = (
 )
 
 const base = (
-  <div className="flex justify-between text-xs pt-2 text-grey-light flex-col md:flex-row">
-    <div>BIT MORE MEDIA LIMITED. Registered in England &amp; Wales, no: 09673233</div>
+  <div className="flex justify-between text-xs pt-2 text-grey-true flex-col md:flex-row">
+    <div>
+      BIT MORE MEDIA LIMITED. Registered in England &amp; Wales,{' '}
+      <span className="whitespace-no-wrap">no: 09673233</span>
+    </div>
     <div className="pt-2 md:pt-0">&copy; Copyright Bit More Media 2018.</div>
   </div>
 )
 
 const Footer = () => (
-  <div className="bg-grey-darkest text-grey-lightest text-sm p-2">
+  <div className="bg-grey-darkest text-grey-lightest text-sm p-6">
     {main}
     {social}
     {base}

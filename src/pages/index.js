@@ -30,7 +30,7 @@ const IndexPage = () => {
             </div>
           </div>
           <div className="text-center py-4">
-            <ScrollLink to="what-we-do" smooth={true} duration={500} offset={-75}>
+            <ScrollLink to="what-we-do" smooth={true} duration={500} offset={-50}>
               <ScrollDownButton />
             </ScrollLink>
           </div>
@@ -87,65 +87,69 @@ const gridStyle = {
   gridGap: '0px 8%',
 }
 
+const whatWeDoSectionStyle = {
+  minHeight: 'calc(100vh)',
+}
+
 const WhatWeDoSection = () => {
   return (
-    <div className="container mx-auto font-sans px-8 py-8">
-      <div className="md:w-5/6 m-auto">
-        <Element name="what-we-do">
+    <Element name="what-we-do">
+      <div
+        className="container font-sans px-8 py-8 m-auto flex flex-col justify-around"
+        style={whatWeDoSectionStyle}
+      >
+        <div className="md:w-5/6">
           <h1 className="text-grey text-sm uppercase font-light">What we do</h1>
-        </Element>
-        <h2 className="pt-8 pb-6 font-serif text-2xl font-light">
-          Digital Services & Solutions Agency
-        </h2>
-        <div className="hidden md:inline  py-4">
-          <div className="_grid-only" style={gridStyle}>
-            {whatWeDo_gridOrder.map((p, i) => (
-              <p key={i} className="text-sm text-grey-dark font-thin py-3">
+          <h2 className="pt-8 pb-6 font-serif text-2xl font-light">
+            Digital Services & Solutions Agency
+          </h2>
+          <div className="hidden md:inline  py-4">
+            <div className="_grid-only" style={gridStyle}>
+              {whatWeDo_gridOrder.map((p, i) => (
+                <p key={i} className="text-sm text-grey-dark font-thin py-3">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </div>
+          <div className="_grid-fallback" className="inline md:hidden py-4">
+            {whatWeDo.map((p, i) => (
+              <p key={i} className="text-sm text-grey-dark font-thin py-2">
                 {p}
               </p>
             ))}
           </div>
         </div>
-        <div className="_grid-fallback" className="inline md:hidden py-4">
-          {whatWeDo.map((p, i) => (
-            <p key={i} className="text-sm text-grey-dark font-thin py-2">
-              {p}
-            </p>
+        <div className="flex justify-between py-8 flex-col md:flex-row">
+          {whatWeDoItems.map((item, i) => (
+            <Link
+              to={item.to}
+              className="relative no-underline text-white text-center _text-shadow m-4"
+            >
+              <img src={item.imgSrc} />
+              <div
+                className="absolute pin flex flex-col content-center align-center justify-center bg-transparent-dark hover:bg-transparent-darker _transition-all"
+                style={{
+                  bottom: '3px',
+                }}
+              >
+                <div>
+                  <div className="text-2xl pb-6">{item.title}</div>
+                  <div
+                    className="mx-auto"
+                    style={{
+                      maxWidth: '220px',
+                    }}
+                  >
+                    {item.summary}
+                  </div>
+                </div>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
-      <div className="flex justify-between py-8">
-        {whatWeDoItems.map((item, i) => (
-          <Link
-            to={item.to}
-            className="relative no-underline text-white text-center _text-shadow"
-            style={{
-              width: 'calc(33.33% - 16px)',
-            }}
-          >
-            <img src={item.imgSrc} />
-            <div
-              className="absolute pin flex flex-col content-center align-center justify-center bg-transparent-dark hover:bg-transparent-darker _transition-all"
-              style={{
-                bottom: '3px',
-              }}
-            >
-              <div>
-                <div className="text-2xl pb-6">{item.title}</div>
-                <div
-                  className="mx-auto"
-                  style={{
-                    maxWidth: '220px',
-                  }}
-                >
-                  {item.summary}
-                </div>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
+    </Element>
   )
 }
 
