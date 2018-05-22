@@ -30,7 +30,7 @@ const IndexPage = () => {
             </div>
           </div>
           <div className="text-center py-4">
-            <ScrollLink to="what-we-do" smooth={true} duration={500} offset={-50}>
+            <ScrollLink to="what-we-do" smooth={true} duration={500} offset={-80}>
               <ScrollDownButton />
             </ScrollLink>
           </div>
@@ -91,13 +91,18 @@ const whatWeDoSectionStyle = {
   minHeight: 'calc(100vh)',
 }
 
+const whatWeDoItemStyle = {
+  width: '200px',
+  height: '200px',
+}
+
 const WhatWeDoSection = () => {
   return (
-    <Element name="what-we-do">
-      <div
-        className="container font-sans px-8 py-8 m-auto flex flex-col justify-around"
-        style={whatWeDoSectionStyle}
-      >
+    <div
+      className="container font-sans px-8 py-8 mx-auto flex flex-col justify-around mt-8 md:mt-0"
+      style={whatWeDoSectionStyle}
+    >
+      <Element name="what-we-do">
         <div className="md:w-5/6">
           <h1 className="text-grey text-sm uppercase font-light">What we do</h1>
           <h2 className="pt-8 pb-6 font-serif text-2xl font-light">
@@ -124,32 +129,35 @@ const WhatWeDoSection = () => {
           {whatWeDoItems.map((item, i) => (
             <Link
               to={item.to}
-              className="relative no-underline text-white text-center _text-shadow m-4"
+              className="relative no-underline text-white text-center _text-shadow m-4 rounded-full"
             >
-              <img src={item.imgSrc} />
-              <div
-                className="absolute pin flex flex-col content-center align-center justify-center bg-transparent-dark hover:bg-transparent-darker _transition-all"
-                style={{
-                  bottom: '3px',
-                }}
-              >
-                <div>
-                  <div className="text-2xl pb-6">{item.title}</div>
-                  <div
-                    className="mx-auto"
-                    style={{
-                      maxWidth: '220px',
-                    }}
-                  >
-                    {item.summary}
+              <div>
+                <img src={item.imgSrc} className="rounded-full" style={whatWeDoItemStyle} />
+                <div
+                  className="absolute pin flex flex-col content-center align-center justify-center bg-transparent-dark hover:bg-transparent-darker _transition-all rounded-full"
+                  style={{
+                    bottom: '3px',
+                    ...whatWeDoItemStyle,
+                  }}
+                >
+                  <div>
+                    <div className="text-2xl pb-6">{item.title}</div>
+                    <div
+                      className="mx-auto"
+                      style={{
+                        maxWidth: '220px',
+                      }}
+                    >
+                      {item.summary}
+                    </div>
                   </div>
                 </div>
               </div>
             </Link>
           ))}
         </div>
-      </div>
-    </Element>
+      </Element>
+    </div>
   )
 }
 
