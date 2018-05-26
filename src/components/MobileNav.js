@@ -17,7 +17,8 @@ const mobileMenuStyles = {
   position: 'fixed',
   zIndex: 99999,
   background: 'white',
-  top: 0,
+  // top: 0,
+  top: '60px',
   left: 0,
   right: 0,
   bottom: 0,
@@ -34,7 +35,7 @@ class MobileNav extends React.Component {
     const { mobileNavOpen, closeMobileNav } = this.props
     const { onNavigate } = this
     return (
-      <div>
+      <div className="md:hidden">
         {mobileNavOpen && (
           <div className="" style={mobileMenuStyles}>
             {links.map(link => (

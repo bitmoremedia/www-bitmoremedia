@@ -28,6 +28,10 @@
   transform: rotate(10deg);
 }
 
+._outline-none:focus {
+  outline: none;
+}
+
 @supports (display: grid) {
   ._grid-only {
     display: grid;

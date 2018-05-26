@@ -1,11 +1,10 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import { Subscribe } from 'unstated'
 
 import { level1PageLinks } from '../config'
 import HeaderLink from './common/HeaderLink'
+import MobileNavToggle from './MobileNavToggle'
 import logoSrc from '../images/bitmoremedia-logo.png'
-import NavStore from '../store/NavStore'
 
 const mobileMenuStyles = {
   position: 'fixed',
@@ -75,31 +74,11 @@ class Header extends React.Component {
           <div className="hidden md:inline">
             {level1PageLinks.map(link => <HeaderLink key={link.path} {...link} />)}
           </div>
-          <div className="md:hidden">
-            <a className="cursor-pointer" onClick={toggleMobileNav}>
-              MENU
-            </a>
-          </div>
+          <MobileNavToggle />
         </div>
       </nav>
     )
   }
 }
 
-export default props => {
-  return (
-    <Subscribe to={[NavStore]}>
-      {nav => {
-        return (
-          <Header
-            {...props}
-            mobileNavOpen={nav.state.mobileNavOpen}
-            toggleMobileNav={nav.toggleMobileNav}
-            openMobileNav={nav.openMobileNav}
-            closeMobileNav={nav.closeMobileNav}
-          />
-        )
-      }}
-    </Subscribe>
-  )
-}
+export default Header
