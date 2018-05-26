@@ -1,6 +1,8 @@
 import React from 'react'
 import Link, { navigateTo } from 'gatsby-link'
+import { Subscribe } from 'unstated'
 
+import NavStore from '../../store/NavStore'
 import logoSrc from '../../images/bitmoremedia-logo.png'
 
 const links = [
@@ -116,6 +118,7 @@ class Header extends React.Component {
     }
   }
   render() {
+    console.log(this.props)
     const { hasScrolledDown } = this.state
     const style = {
       nav: {
@@ -146,4 +149,19 @@ class Header extends React.Component {
   }
 }
 
-export default Header
+export default props => {
+  return (
+    <Subscribe to={[NavStore]}>
+      {nav => {
+        return (
+          <Header
+            {...props}
+            mobileNavOpen={nav.state.mobileNavOpen}
+            openMobileNav={nav.openMobileNav}
+            closeMobileNav={nav.closeMobileNav}
+          />
+        )
+      }}
+    </Subscribe>
+  )
+}

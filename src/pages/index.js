@@ -30,7 +30,13 @@ const IndexPage = () => {
             </div>
           </div>
           <div className="text-center py-4">
-            <ScrollLink to="what-we-do" smooth={true} duration={500} offset={-80}>
+            <ScrollLink
+              to="what-we-do"
+              smooth={true}
+              duration={500}
+              offset={-80}
+              className="cursor-pointer text-white hover:text-orange _transition-all"
+            >
               <ScrollDownButton />
             </ScrollLink>
           </div>
@@ -123,6 +129,7 @@ const WhatWeDoSection = () => {
         <div className="flex justify-between py-8 flex-col md:flex-row">
           {whatWeDoItems.map((item, i) => (
             <Link
+              key={item.to}
               to={item.to}
               className="relative no-underline text-white text-center text-shadow m-4"
             >

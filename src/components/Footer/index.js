@@ -64,9 +64,8 @@ const main = (
       <div className="py-4">
         <ul className="list-reset">
           {links.map(link => (
-            <li>
+            <li key={link.path}>
               <Link
-                key={link.path}
                 to={link.path}
                 className={`no-underline ${
                   colorClasses.mainText
