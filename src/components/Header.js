@@ -1,12 +1,11 @@
 import React from 'react'
-import Link, { navigateTo } from 'gatsby-link'
-// import { Subscribe } from 'unstated'
+import Link from 'gatsby-link'
+import { Subscribe } from 'unstated'
 
 import { level1PageLinks } from '../config'
-import MobileNav from './MobileNav'
 import HeaderLink from './common/HeaderLink'
-import logoSrc from '../../images/bitmoremedia-logo.png'
-// import NavStore from '../../store/NavStore'
+import logoSrc from '../images/bitmoremedia-logo.png'
+import NavStore from '../store/NavStore'
 
 const mobileMenuStyles = {
   position: 'fixed',
@@ -52,7 +51,7 @@ class Header extends React.Component {
     }
   }
   render() {
-    console.log(this.props)
+    const { toggleMobileNav } = this.props
     const { hasScrolledDown } = this.state
     const style = {
       nav: {
@@ -76,11 +75,31 @@ class Header extends React.Component {
           <div className="hidden md:inline">
             {level1PageLinks.map(link => <HeaderLink key={link.path} {...link} />)}
           </div>
-          <MobileNav />
+          <div className="md:hidden">
+            <a className="cursor-pointer" onClick={toggleMobileNav}>
+              MENU
+            </a>
+          </div>
         </div>
       </nav>
     )
   }
 }
 
-export default Header
+export default props => {
+  return (
+    <Subscribe to={[NavStore]}>
+      {nav => {
+        return (
+          <Header
+            {...props}
+            mobileNavOpen={nav.state.mobileNavOpen}
+            toggleMobileNav={nav.toggleMobileNav}
+            openMobileNav={nav.openMobileNav}
+            closeMobileNav={nav.closeMobileNav}
+          />
+        )
+      }}
+    </Subscribe>
+  )
+}

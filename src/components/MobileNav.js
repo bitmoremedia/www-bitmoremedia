@@ -2,14 +2,22 @@ import React from 'react'
 import { Subscribe } from 'unstated'
 
 import { level1PageLinks } from '../config'
-import NavStore from '../../store/NavStore'
+import NavStore from '../store/NavStore'
 import HeaderLink from './common/HeaderLink'
+
+const links = [
+  {
+    title: 'Home',
+    path: '/',
+  },
+  ...level1PageLinks,
+]
 
 const mobileMenuStyles = {
   position: 'fixed',
-  top: '58px',
   zIndex: 99999,
   background: 'white',
+  top: 0,
   left: 0,
   right: 0,
   bottom: 0,
@@ -22,24 +30,15 @@ const mobileMenuStyles = {
 }
 
 class MobileNav extends React.Component {
-  toggleMenu = () => {
-    this.props.toggleMobileNav()
-  }
-  onNavigate = () => {
-    this.props.closeMobileNav()
-  }
   render() {
-    const { mobileNavOpen } = this.props
-    const { toggleMenu, onNavigate } = this
+    const { mobileNavOpen, closeMobileNav } = this.props
+    const { onNavigate } = this
     return (
-      <div className="md:hidden">
-        <a className="cursor-pointer" onClick={toggleMenu}>
-          MENU
-        </a>
+      <div>
         {mobileNavOpen && (
           <div className="" style={mobileMenuStyles}>
-            {level1PageLinks.map(link => (
-              <HeaderLink key={link.path} {...link} onNavigate={onNavigate} />
+            {links.map(link => (
+              <HeaderLink key={link.path} {...link} onNavigate={closeMobileNav} />
             ))}
           </div>
         )}
@@ -56,8 +55,6 @@ export default props => {
           <MobileNav
             {...props}
             mobileNavOpen={nav.state.mobileNavOpen}
-            toggleMobileNav={nav.toggleMobileNav}
-            openMobileNav={nav.openMobileNav}
             closeMobileNav={nav.closeMobileNav}
           />
         )

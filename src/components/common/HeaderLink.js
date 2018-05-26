@@ -1,4 +1,5 @@
 import React from 'react'
+import { navigateTo } from 'gatsby-link'
 
 const HeaderLink = ({ title, path, onNavigate }) => {
   return (

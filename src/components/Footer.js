@@ -2,11 +2,11 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 import { level1PageLinks } from '../config'
-import tailwindConfig from '../../tailwind_config'
-import LinkedInIcon from '../icon/LinkedIn'
-import InstagramIcon from '../icon/Instagram'
-import TwitterIcon from '../icon/Twitter'
-import FacebookIcon from '../icon/Facebook'
+import tailwindConfig from '../tailwind_config'
+import LinkedInIcon from './icon/LinkedIn'
+import InstagramIcon from './icon/Instagram'
+import TwitterIcon from './icon/Twitter'
+import FacebookIcon from './icon/Facebook'
 
 const links = [
   {
