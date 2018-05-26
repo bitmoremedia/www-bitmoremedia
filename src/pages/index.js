@@ -11,13 +11,19 @@ import servicesImgSrc from '../images/services-tile.jpg'
 import productsImgSrc from '../images/products-tile.jpg'
 import partnershipsImgSrc from '../images/partnerships-tile.jpg'
 
+const styles = {
+  main: {
+    paddingTop: '100px',
+  },
+}
+
 const IndexPage = () => {
   return (
     <div>
       <PageBackground bgImgSrc={bgImgSrc}>
         <div className="flex flex-1 flex-col justify-between">
           <div className="flex-grow flex flex-col flex-grow justify-around font-sans text-white subpixel-antialiased _text-shadow">
-            <div className="container px-8 mx-auto">
+            <div style={styles.main} className="container px-8 mx-auto">
               <div className="text-base uppercase">We do a few things at bit more media.</div>
               <div className="text-4xl py-8">
                 <div className="">Web, App Design and Build.</div>
@@ -28,17 +34,17 @@ const IndexPage = () => {
                 We can help you deliver the right solution for your customers.
               </div>
             </div>
-          </div>
-          <div className="text-center py-4">
-            <ScrollLink
-              to="what-we-do"
-              smooth={true}
-              duration={500}
-              offset={-80}
-              className="cursor-pointer text-white hover:text-orange _transition-all"
-            >
-              <ScrollDownButton />
-            </ScrollLink>
+            <div className="text-center py-4">
+              <ScrollLink
+                to="what-we-do"
+                smooth={true}
+                duration={500}
+                offset={-80}
+                className="cursor-pointer text-white hover:text-orange _transition-all"
+              >
+                <ScrollDownButton />
+              </ScrollLink>
+            </div>
           </div>
         </div>
       </PageBackground>

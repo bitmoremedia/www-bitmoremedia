@@ -3,7 +3,6 @@ import React from 'react'
 const PageBackground = ({ bgImgSrc, children }) => {
   const style = {
     backgroundImage: `url(${bgImgSrc})`,
-    paddingTop: '100px', // this accounts for the header nav
   }
   return (
     <div
