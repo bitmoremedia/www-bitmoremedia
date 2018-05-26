@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 import { level1PageLinks } from '../config'
-import tailwindConfig from '../tailwind_config'
+import tailwindColors from '../tailwind/colors'
 import LinkedInIcon from './icon/LinkedIn'
 import InstagramIcon from './icon/Instagram'
 import TwitterIcon from './icon/Twitter'
@@ -22,8 +22,8 @@ const colorClasses = {
   altText: 'text-grey-true',
 }
 const iconSize = 40
-const iconColor = tailwindConfig.colors['grey-darkest']
-const iconBackgroundColor = tailwindConfig.colors['grey-light']
+const iconColor = tailwindColors['grey-darkest']
+const iconBackgroundColor = tailwindColors['grey-light']
 
 const main = (
   <div className="container mx-auto flex flex-col md:flex-row py-8 justify-around">

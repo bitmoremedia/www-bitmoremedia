@@ -11,16 +11,13 @@
     "react-scroll": "1.7.9",
     "unstated": "2.1.1"
   },
-  "keywords": [
-    "gatsby",
-    "tailwind",
-    "tailwindcss",
-    "purgecss"
-  ],
+  "keywords": ["gatsby", "tailwind", "tailwindcss", "purgecss"],
   "license": "MIT",
   "scripts": {
-    "build": "tailwind build ./src/layouts/index.tailwind.css -c ./tailwind.js -o ./src/layouts/index.css && purgecss -c purgecss.config.js -o ./src/layouts && gatsby build",
-    "start": "tailwind build ./src/layouts/index.tailwind.css -c ./tailwind.js -o ./src/layouts/index.css && gatsby develop",
+    "build":
+      "tailwind build ./src/layouts/index.tailwind.css -c ./src/tailwind/index.js -o ./src/layouts/index.css && purgecss -c purgecss.config.js -o ./src/layouts && gatsby build",
+    "start":
+      "tailwind build ./src/layouts/index.tailwind.css -c ./src/tailwind/index.js -o ./src/layouts/index.css && gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

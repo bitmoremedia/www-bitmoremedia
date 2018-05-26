@@ -50,7 +50,7 @@ class Header extends React.Component {
     }
   }
   render() {
-    const { toggleMobileNav } = this.props
+    const { toggleMobileNav, location } = this.props
     const { hasScrolledDown } = this.state
     const style = {
       nav: {
