@@ -1,6 +1,6 @@
 module.exports = {
   content: ['./public/**/*.html', './src/**/*.js'],
-  css: ['./src/layouts/index.css'],
+  css: ['./src/tailwind/index.css'],
   extractors: [
     {
       extractor: class {

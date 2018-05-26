@@ -6,7 +6,7 @@ import { Provider } from 'unstated'
 import MobileNav from '../components/MobileNav'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import './index.css'
+import '../tailwind/index.css'
 
 const TemplateWrapper = props => {
   const { location, children } = props
