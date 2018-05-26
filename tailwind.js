@@ -53,7 +53,6 @@ let colors = {
   'grey-light': '#dae1e7',
   'grey-lighter': '#f1f5f8',
   'grey-lightest': '#f8fafc',
-  'grey-true': '#858585',
   white: '#ffffff',
 
   'red-darkest': '#3b0d0c',
@@ -131,6 +130,7 @@ let colors = {
   // CUSTOM COLORS
   'transparent-dark': 'rgba(48, 45, 45, 0.37)',
   'transparent-darker': 'rgba(48, 45, 45, 0.72)',
+  'grey-true': '#a09f9f',
 }
 
 module.exports = {
@@ -836,7 +836,7 @@ module.exports = {
     pointerEvents: ['responsive'],
     position: ['responsive'],
     resize: ['responsive'],
-    shadows: ['responsive'],
+    shadows: ['responsive', 'hover'],
     svgFill: ['hover'],
     svgStroke: ['hover'],
     textAlign: ['responsive'],

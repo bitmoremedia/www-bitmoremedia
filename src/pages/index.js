@@ -91,11 +91,6 @@ const whatWeDoSectionStyle = {
   minHeight: 'calc(100vh)',
 }
 
-const whatWeDoItemStyle = {
-  width: '200px',
-  height: '200px',
-}
-
 const WhatWeDoSection = () => {
   return (
     <div
@@ -129,15 +124,14 @@ const WhatWeDoSection = () => {
           {whatWeDoItems.map((item, i) => (
             <Link
               to={item.to}
-              className="relative no-underline text-white text-center _text-shadow m-4 rounded-full"
+              className="relative no-underline text-white text-center text-shadow m-4"
             >
               <div>
-                <img src={item.imgSrc} className="rounded-full" style={whatWeDoItemStyle} />
+                <img src={item.imgSrc} />
                 <div
-                  className="absolute pin flex flex-col content-center align-center justify-center bg-transparent-dark hover:bg-transparent-darker _transition-all rounded-full"
+                  className="absolute pin flex flex-col content-center align-center justify-center bg-transparent-dark hover:bg-transparent-darker hover:shadow-md _transition-all"
                   style={{
                     bottom: '3px',
-                    ...whatWeDoItemStyle,
                   }}
                 >
                   <div>
