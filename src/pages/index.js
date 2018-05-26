@@ -135,9 +135,9 @@ const WhatWeDoSection = () => {
                   }}
                 >
                   <div>
-                    <div className="text-2xl pb-6">{item.title}</div>
+                    <div className="text-2xl md:text-xl lg:text-2xl pb-6">{item.title}</div>
                     <div
-                      className="mx-auto"
+                      className="mx-auto text-base md:text-sm lg:text-base px-2"
                       style={{
                         maxWidth: '220px',
                       }}
