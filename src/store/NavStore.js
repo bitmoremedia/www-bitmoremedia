@@ -17,9 +17,9 @@ export default class NavStore extends Container {
     })
   }
 
-  toggleMobileNav = state => {
+  toggleMobileNav = () => {
     this.setState({
-      mobileNavOpen: !state.mobileNavOpen,
+      mobileNavOpen: !this.state.mobileNavOpen,
     })
   }
 }

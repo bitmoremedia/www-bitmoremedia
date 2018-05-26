@@ -1,48 +1,12 @@
 import React from 'react'
 import Link, { navigateTo } from 'gatsby-link'
-import { Subscribe } from 'unstated'
+// import { Subscribe } from 'unstated'
 
-import NavStore from '../../store/NavStore'
+import { level1PageLinks } from '../config'
+import MobileNav from './MobileNav'
+import HeaderLink from './common/HeaderLink'
 import logoSrc from '../../images/bitmoremedia-logo.png'
-
-const links = [
-  {
-    title: 'Services',
-    path: '/services',
-  },
-  {
-    title: 'Products',
-    path: '/products',
-  },
-  {
-    title: 'Partnerships',
-    path: '/partnerships',
-  },
-  {
-    title: 'About',
-    path: '/about',
-  },
-  {
-    title: 'Contact',
-    path: '/contact',
-  },
-]
-
-const HeaderLink = ({ title, path, onNavigate }) => {
-  return (
-    <a
-      onClick={() => {
-        navigateTo(path)
-        if (onNavigate) {
-          onNavigate()
-        }
-      }}
-      className="cursor-pointer block md:inline-block mt-4 md:mt-0 mx-2 md:mx-4 lg:mx-6 no-underline text-m text-orange hover:text-orange-dark _transition-all"
-    >
-      {title}
-    </a>
-  )
-}
+// import NavStore from '../../store/NavStore'
 
 const mobileMenuStyles = {
   position: 'fixed',
@@ -58,36 +22,6 @@ const mobileMenuStyles = {
   paddingTop: '30%',
   paddingBottom: '30%',
   textAlign: 'center',
-}
-
-class MobileNav extends React.Component {
-  state = {
-    expanded: false,
-  }
-  toggleMenu = () => {
-    this.setState(state => ({ expanded: !state.expanded }))
-  }
-  onNavigate = () => {
-    this.setState({
-      expanded: false,
-    })
-  }
-  render() {
-    const { expanded } = this.state
-    const { toggleMenu, onNavigate } = this
-    return (
-      <div className="md:hidden">
-        <a className="cursor-pointer" onClick={toggleMenu}>
-          MENU
-        </a>
-        {expanded && (
-          <div className="" style={mobileMenuStyles}>
-            {links.map(link => <HeaderLink key={link.path} {...link} onNavigate={onNavigate} />)}
-          </div>
-        )}
-      </div>
-    )
-  }
 }
 
 class Header extends React.Component {
@@ -140,7 +74,7 @@ class Header extends React.Component {
             <img className="w-32 md:w-48" src={logoSrc} />
           </Link>
           <div className="hidden md:inline">
-            {links.map(link => <HeaderLink key={link.path} {...link} />)}
+            {level1PageLinks.map(link => <HeaderLink key={link.path} {...link} />)}
           </div>
           <MobileNav />
         </div>
@@ -149,19 +83,4 @@ class Header extends React.Component {
   }
 }
 
-export default props => {
-  return (
-    <Subscribe to={[NavStore]}>
-      {nav => {
-        return (
-          <Header
-            {...props}
-            mobileNavOpen={nav.state.mobileNavOpen}
-            openMobileNav={nav.openMobileNav}
-            closeMobileNav={nav.closeMobileNav}
-          />
-        )
-      }}
-    </Subscribe>
-  )
-}
+export default Header

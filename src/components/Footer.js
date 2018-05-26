@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import { level1PageLinks } from '../config'
 import tailwindConfig from '../../tailwind_config'
 import LinkedInIcon from '../icon/LinkedIn'
 import InstagramIcon from '../icon/Instagram'
@@ -12,26 +13,7 @@ const links = [
     title: 'Home',
     path: '/',
   },
-  {
-    title: 'Services',
-    path: '/services',
-  },
-  {
-    title: 'Products',
-    path: '/products',
-  },
-  {
-    title: 'Partnerships',
-    path: '/partnerships',
-  },
-  {
-    title: 'About',
-    path: '/about',
-  },
-  {
-    title: 'Contact',
-    path: '/contact',
-  },
+  ...level1PageLinks,
 ]
 
 const colorClasses = {
