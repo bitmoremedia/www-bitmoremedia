@@ -16,33 +16,33 @@ const links = [
 const mobileMenuStyles = {
   position: 'fixed',
   zIndex: 99999,
-  background: 'white',
-  // top: 0,
-  top: '60px',
+  top: 0,
   left: 0,
-  right: 0,
+  right: '50%',
   bottom: 0,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-around',
-  paddingTop: '30%',
-  paddingBottom: '30%',
-  textAlign: 'center',
+  paddingTop: '30px',
+  paddingLeft: '20px',
+  transition: 'all 0.3s',
 }
 
 class MobileNav extends React.Component {
   render() {
     const { mobileNavOpen, closeMobileNav } = this.props
     const { onNavigate } = this
+
+    const mobileMenuContextualStyles = {
+      ...mobileMenuStyles,
+      transform: mobileNavOpen ? 'translateX(0)' : 'translateX(-100%)',
+    }
+
     return (
       <div className="md:hidden">
-        {mobileNavOpen && (
-          <div className="" style={mobileMenuStyles}>
-            {links.map(link => (
-              <HeaderLink key={link.path} {...link} onNavigate={closeMobileNav} />
-            ))}
-          </div>
-        )}
+        <div
+          className="bg-white border-solid border-r border-orange-lightest"
+          style={mobileMenuContextualStyles}
+        >
+          {links.map(link => <HeaderLink key={link.path} {...link} onNavigate={closeMobileNav} />)}
+        </div>
       </div>
     )
   }
