@@ -16,10 +16,21 @@ const services = [
     title: 'Development',
     imgSrc: softwareDevelopmentImgSrc,
     to: '/services/development',
-    summary: 'TBC',
+    summary: 'We build bespoke, immersive & scalable digital experiences for your audience',
   },
-  { title: 'User Experience', imgSrc: uxImgSrc, to: '/services/user-experience', summary: 'TBC' },
-  { title: 'Marketing', imgSrc: marketingImgSrc, to: '/services/marketing', summary: 'TBC' },
+  {
+    title: 'User Experience',
+    imgSrc: uxImgSrc,
+    to: '/services/user-experience',
+    summary:
+      'We help you to design products which are useful, easy to use, and delightful to interact with',
+  },
+  {
+    title: 'Marketing',
+    imgSrc: marketingImgSrc,
+    to: '/services/marketing',
+    summary: 'Strategy & planning. Analysis & measurement. We craft integrated brand campaigns',
+  },
 ]
 
 const ServicesPage = () => (

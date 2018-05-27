@@ -20,7 +20,7 @@ const mobileMenuStyles = {
   left: 0,
   right: '50%',
   bottom: 0,
-  paddingTop: '30px',
+  paddingTop: '20px',
   paddingLeft: '20px',
   transition: 'all 0.3s',
 }

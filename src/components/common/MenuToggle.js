@@ -41,7 +41,7 @@ const MenuToggle = ({ onToggle, open }) => {
       ? 'rotate(-45deg) translateY(-1.5px) translateX(1.5px)'
       : 'rotate(0deg) translateY(4px) translateX(0)',
   }
-  console.log({ open })
+
   return (
     <button className="_outline-none" style={styles.button} onClick={onToggle}>
       <span style={topBar} />

@@ -88,6 +88,8 @@ const colors = {
   'transparent-darker': 'rgba(48, 45, 45, 0.67)',
   'grey-true': '#a09f9f',
   'white-translucent': 'rgba(255, 255, 255, 0.92)',
+  'white-medium-translucent': 'rgba(255, 255, 255, 0.5)',
+  'white-very-translucent': 'rgba(255, 255, 255, 0.3)',
 }
 
 // note: CommonJS Module syntax is required for tailwind

@@ -56,3 +56,28 @@
     height: calc(100vh - 450px);
   }
 }
+
+._page-hero {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@screen md {
+  ._page-hero {
+    max-width: 80%;
+    padding-right: 80px;
+  }
+}
+
+@screen lg {
+  ._page-hero {
+    padding: 0;
+    margin-right: 80px;
+  }
+}
+
+@screen xl {
+  ._page-hero {
+    max-width: 500px;
+  }
+}
