@@ -10,12 +10,12 @@ const PageHero = ({ title, mainText, subText }) => (
         className="w-4/5 xl:w-1/2 flex-1 bg-white-medium-translucent flex flex-col justify-center items-end"
       >
         <div className="_page-hero pl-2 pb-6">
-          <h1 className="text-2xl md:text-4xl py-8 _text-shadow">{title}</h1>
+          <h1 className="text-2xl md:text-4xl py-8 text-blue">{title}</h1>
           <div>
             {mainText &&
               mainText.length &&
               mainText.map((p, i) => (
-                <p key={i} className="pt-4 text-grey-darkest leading-tight font-bold">
+                <p key={i} className="pt-4 text-grey-darkest leading-normal">
                   {p}
                 </p>
               ))}
@@ -23,7 +23,7 @@ const PageHero = ({ title, mainText, subText }) => (
             {subText &&
               subText.length &&
               subText.map((p, i) => (
-                <p key={i} className="pt-4 text-grey-darkest leading-tight">
+                <p key={i} className="pt-4 text-grey-darkest text-sm leading-normal">
                   {p}
                 </p>
               ))}
