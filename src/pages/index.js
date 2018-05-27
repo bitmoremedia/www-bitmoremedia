@@ -7,7 +7,7 @@ import ScrollDownButton from '../components/common/ScrollDownButton'
 import Button from '../components/common/Button'
 import FeatureLinks from '../components/common/FeatureLinks'
 
-import servicesImgSrc from '../images/services-tile.jpg'
+import servicesImgSrc from '../images/services.jpg'
 import productsImgSrc from '../images/products-tile.jpg'
 import partnershipsImgSrc from '../images/partnerships-tile.jpg'
 
@@ -74,21 +74,20 @@ const whatWeDo_gridOrder = [
 const whatWeDoItems = [
   {
     title: 'Services',
-    summary:
-      'Our 3 key offerings of how we can work with you: Software Development, UX & Marketing.',
+    summary: 'We offer consulting services in: Development, UX & Marketing',
     to: 'services',
     imgSrc: servicesImgSrc,
   },
   {
     title: 'Products',
-    summary: 'Our shop window for products we have built and some thoughts on what’s coming up.',
+    summary: 'Our shop window for products we have built and some thoughts on what’s coming up',
     to: 'products',
     imgSrc: productsImgSrc,
   },
   {
     title: 'Partnerships',
     summary:
-      'Got a project you would like to build, but need a technical partner? We can be your trusted advisors and build something great together.',
+      'Got a project you would like to build, but need a technical partner? We can be your trusted advisors and build something great together',
     to: 'partnerships',
     imgSrc: partnershipsImgSrc,
   },

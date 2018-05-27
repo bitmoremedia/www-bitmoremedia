@@ -7,11 +7,9 @@ import PageBackground from '../components/common/PageBackground'
 import ScrollDownButton from '../components/common/ScrollDownButton'
 import FeatureLinks from '../components/common/FeatureLinks'
 
-// TODO: use the proper images
-
-import softwareDevelopmentImgSrc from '../images/services-tile.jpg'
-import uxImgSrc from '../images/products-tile.jpg'
-import marketingImgSrc from '../images/partnerships-tile.jpg'
+import softwareDevelopmentImgSrc from '../images/software-dev-image.jpg'
+import uxImgSrc from '../images/ux-background-image.jpg'
+import marketingImgSrc from '../images/marketing-background-image.jpg'
 
 const services = [
   { title: 'Development', imgSrc: softwareDevelopmentImgSrc, to: '/development', summary: 'TBC' },
@@ -27,7 +25,7 @@ const ServicesPage = () => (
           <div className="max-w-sm pb-8">
             <h1 className="text-2xl md:text-4xl py-8">Services</h1>
             <p className="md:text-2xl leading-normal pb-8">
-              We have three ways of working with you: Development, UX & Marketing.
+              We offer consulting services in: Development, UX & Marketing
             </p>
           </div>
 
