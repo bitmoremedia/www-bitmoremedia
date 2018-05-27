@@ -25,10 +25,10 @@ const IndexPage = () => {
           <div className="flex-grow flex flex-col flex-grow justify-around font-sans text-white subpixel-antialiased _text-shadow">
             <div style={styles.main} className="container px-8 mx-auto">
               <div className="text-base uppercase">We do a few things at bit more media.</div>
-              <div className="text-4xl py-8">
-                <div className="">Web, App Design and Build.</div>
-                <div className="">User Experience.</div>
-                <div className="">Marketing.</div>
+              <div className="text-2xl md:text-4xl py-8">
+                <div>Web, App Design and Build.</div>
+                <div>User Experience.</div>
+                <div>Marketing.</div>
               </div>
               <div className="text-sm">
                 We can help you deliver the right solution for your customers.
@@ -106,7 +106,7 @@ const whatWeDoSectionStyle = {
 const WhatWeDoSection = () => {
   return (
     <div
-      className="container font-sans px-8 py-8 mx-auto flex flex-col justify-around mt-8 md:mt-0"
+      className="container font-sans px-8 pt-8 pb-6 md:pb-0 mx-auto flex flex-col justify-around mt-8 md:mt-0"
       style={whatWeDoSectionStyle}
     >
       <Element name="what-we-do">
@@ -132,7 +132,7 @@ const WhatWeDoSection = () => {
             ))}
           </div>
         </div>
-        <div className="flex justify-between py-6 flex-col md:flex-row">
+        <div className="flex justify-between pt-6 flex-col md:flex-row">
           {whatWeDoItems.map((item, i) => (
             <Link
               key={item.to}
