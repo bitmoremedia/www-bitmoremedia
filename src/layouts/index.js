@@ -14,10 +14,17 @@ const TemplateWrapper = props => {
     <Provider>
       <div>
         <Helmet
-          title="BitMoreMedia"
+          title="Bit More Media"
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            {
+              name: 'description',
+              content:
+                'Bit More Media - a London based digital agency, specialising in end-to-end delivery of web, app and mobile projects',
+            },
+            {
+              name: 'keywords',
+              content: 'web agency, london, web, app, mobile, products, services, partnerships',
+            },
           ]}
         />
         <Header location={location} />
