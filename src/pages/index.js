@@ -110,7 +110,7 @@ const WhatWeDoSection = () => {
       style={whatWeDoSectionStyle}
     >
       <Element name="what-we-do">
-        <div className="md:w-5/6">
+        <div className="xl:w-5/6">
           <h1 className="text-grey text-sm uppercase font-light">What we do</h1>
           <h2 className="pt-8 pb-6 font-serif text-2xl font-light">
             Digital Services & Solutions Agency
@@ -132,31 +132,30 @@ const WhatWeDoSection = () => {
             ))}
           </div>
         </div>
-        <div className="flex justify-between py-8 flex-col md:flex-row">
+        <div className="flex justify-between py-6 flex-col md:flex-row">
           {whatWeDoItems.map((item, i) => (
             <Link
               key={item.to}
               to={item.to}
-              className="relative no-underline text-white text-center text-shadow m-4"
+              className="w-full md:w-100/32 no-underline text-white text-center _text-shadow my-4 hover:shadow-md _transition-all"
             >
-              <div>
-                <img src={item.imgSrc} />
-                <div
-                  className="absolute pin flex flex-col content-center align-center justify-center bg-transparent-dark hover:bg-transparent-darker hover:shadow-md _transition-all"
-                  style={{
-                    bottom: '3px',
-                  }}
-                >
-                  <div>
-                    <div className="text-2xl md:text-xl lg:text-2xl pb-6">{item.title}</div>
-                    <div
-                      className="mx-auto text-base md:text-sm lg:text-base px-2"
-                      style={{
-                        maxWidth: '220px',
-                      }}
-                    >
-                      {item.summary}
-                    </div>
+              <div
+                style={{
+                  background: `url(${item.imgSrc}) no-repeat`,
+                  backgroundSize: 'cover',
+                  height: '250px',
+                }}
+                className="flex flex-col justify-center"
+              >
+                <div className="bg-transparent-dark hover:bg-transparent-darker flex-1 flex flex-col justify-center">
+                  <div className="text-2xl md:text-xl lg:text-2xl pb-6">{item.title}</div>
+                  <div
+                    className="mx-auto text-base md:text-sm lg:text-base px-2"
+                    style={{
+                      maxWidth: '280px',
+                    }}
+                  >
+                    {item.summary}
                   </div>
                 </div>
               </div>

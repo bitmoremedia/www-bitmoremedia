@@ -10,7 +10,7 @@ const mobileMenuStyles = {
   position: 'fixed',
   top: '58px',
   zIndex: 99999,
-  background: 'white',
+  background: '#ffffffeb',
   left: 0,
   right: 0,
   bottom: 0,
@@ -60,10 +60,7 @@ class Header extends React.Component {
         width: '192px',
       },
     }
-    const bgClass =
-      location.pathname === '/' && !hasScrolledDown
-        ? ''
-        : 'bg-white border-solid border-b border-orange-lightest'
+    const bgClass = location.pathname === '/' && !hasScrolledDown ? '' : 'bg-white-translucent'
     const pClass = location.pathname === '/' && !hasScrolledDown ? 'py-4' : ''
     return (
       <nav className={`fixed z-10 w-full ${bgClass} ${pClass}`} style={style.nav}>
