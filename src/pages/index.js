@@ -143,9 +143,8 @@ const WhatWeDoSection = () => {
                 style={{
                   background: `url(${item.imgSrc}) no-repeat`,
                   backgroundSize: 'cover',
-                  height: '250px',
                 }}
-                className="flex flex-col justify-center"
+                className="flex flex-col justify-center _what-we-do-card"
               >
                 <div className="bg-transparent-dark hover:bg-transparent-darker flex-1 flex flex-col justify-center">
                   <div className="text-2xl md:text-xl lg:text-2xl pb-6">{item.title}</div>

@@ -40,3 +40,13 @@
     display: none;
   }
 }
+
+._what-we-do-card {
+  height: 250px;
+}
+
+@screen lg {
+  ._what-we-do-card {
+    height: 300px;
+  }
+}
