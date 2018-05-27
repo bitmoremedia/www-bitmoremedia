@@ -1,11 +1,11 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import { Link as ScrollLink, Element } from 'react-scroll'
 
 import bgImgSrc from '../images/architecture-bay-blonde.jpg'
 import PageBackground from '../components/common/PageBackground'
 import ScrollDownButton from '../components/common/ScrollDownButton'
 import Button from '../components/common/Button'
+import FeatureLinks from '../components/common/FeatureLinks'
 
 import servicesImgSrc from '../images/services-tile.jpg'
 import productsImgSrc from '../images/products-tile.jpg'
@@ -99,16 +99,9 @@ const gridStyle = {
   gridGap: '0px 8%',
 }
 
-const whatWeDoSectionStyle = {
-  minHeight: 'calc(100vh)',
-}
-
 const WhatWeDoSection = () => {
   return (
-    <div
-      className="container font-sans px-8 pt-8 pb-6 md:pb-0 mx-auto flex flex-col justify-around mt-8 md:mt-0"
-      style={whatWeDoSectionStyle}
-    >
+    <div className="min-h-screen container font-sans px-8 pt-8 pb-6 md:pb-0 mx-auto flex flex-col justify-around mt-8 md:mt-0">
       <Element name="what-we-do">
         <div className="xl:w-5/6">
           <h1 className="text-grey text-sm uppercase font-light">What we do</h1>
@@ -132,35 +125,7 @@ const WhatWeDoSection = () => {
             ))}
           </div>
         </div>
-        <div className="flex justify-between pt-6 flex-col md:flex-row">
-          {whatWeDoItems.map((item, i) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className="w-full md:w-100/32 no-underline text-white text-center _text-shadow my-4 hover:shadow-md _transition-all"
-            >
-              <div
-                style={{
-                  background: `url(${item.imgSrc}) no-repeat`,
-                  backgroundSize: 'cover',
-                }}
-                className="flex flex-col justify-center _what-we-do-card"
-              >
-                <div className="bg-transparent-dark hover:bg-transparent-darker flex-1 flex flex-col justify-center _transition-all">
-                  <div className="text-2xl md:text-xl lg:text-2xl pb-6">{item.title}</div>
-                  <div
-                    className="mx-auto text-base md:text-sm lg:text-base px-2"
-                    style={{
-                      maxWidth: '280px',
-                    }}
-                  >
-                    {item.summary}
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <FeatureLinks features={whatWeDoItems} />
       </Element>
     </div>
   )

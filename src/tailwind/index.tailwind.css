@@ -41,12 +41,18 @@
   }
 }
 
-._what-we-do-card {
+._feature-link-card {
   height: 250px;
 }
 
 @screen lg {
-  ._what-we-do-card {
+  ._feature-link-card {
     height: 300px;
+  }
+}
+
+@screen md {
+  ._full-height-minus-footer {
+    height: calc(100vh - 450px);
   }
 }
