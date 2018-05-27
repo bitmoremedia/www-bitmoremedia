@@ -19,12 +19,7 @@ const FeatureLinks = ({ features }) => {
           >
             <div className="bg-transparent-dark hover:bg-transparent-darker flex-1 flex flex-col justify-center _transition-all">
               <div className="text-2xl md:text-xl lg:text-2xl pb-6">{item.title}</div>
-              <div
-                className="mx-auto text-base md:text-sm lg:text-base px-2"
-                style={{
-                  maxWidth: '280px',
-                }}
-              >
+              <div className="mx-auto text-base md:text-sm lg:text-base px-4 md:px-6">
                 {item.summary}
               </div>
             </div>

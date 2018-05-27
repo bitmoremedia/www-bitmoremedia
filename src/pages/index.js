@@ -80,14 +80,13 @@ const whatWeDoItems = [
   },
   {
     title: 'Products',
-    summary: 'Our shop window for products we have built and some thoughts on what’s coming up',
+    summary: 'In-house built apps. Crafted with passion and the latest technology',
     to: 'products',
     imgSrc: productsImgSrc,
   },
   {
     title: 'Partnerships',
-    summary:
-      'Got a project you would like to build, but need a technical partner? We can be your trusted advisors and build something great together',
+    summary: 'Mutual interest and investment. Let’s build something great together',
     to: 'partnerships',
     imgSrc: partnershipsImgSrc,
   },

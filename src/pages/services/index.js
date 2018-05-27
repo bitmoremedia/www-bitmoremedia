@@ -2,19 +2,24 @@ import React from 'react'
 import Link from 'gatsby-link'
 import { Link as ScrollLink, Element } from 'react-scroll'
 
-import bgImgSrc from '../images/services.jpg'
-import PageBackground from '../components/common/PageBackground'
-import ScrollDownButton from '../components/common/ScrollDownButton'
-import FeatureLinks from '../components/common/FeatureLinks'
+import bgImgSrc from '../../images/services.jpg'
+import PageBackground from '../../components/common/PageBackground'
+import ScrollDownButton from '../../components/common/ScrollDownButton'
+import FeatureLinks from '../../components/common/FeatureLinks'
 
-import softwareDevelopmentImgSrc from '../images/software-dev-image.jpg'
-import uxImgSrc from '../images/ux-background-image.jpg'
-import marketingImgSrc from '../images/marketing-background-image.jpg'
+import softwareDevelopmentImgSrc from '../../images/software-dev-image.jpg'
+import uxImgSrc from '../../images/ux-background-image.jpg'
+import marketingImgSrc from '../../images/marketing-background-image.jpg'
 
 const services = [
-  { title: 'Development', imgSrc: softwareDevelopmentImgSrc, to: '/development', summary: 'TBC' },
-  { title: 'User Experience', imgSrc: uxImgSrc, to: '/user-experience', summary: 'TBC' },
-  { title: 'Marketing', imgSrc: marketingImgSrc, to: '/marketing', summary: 'TBC' },
+  {
+    title: 'Development',
+    imgSrc: softwareDevelopmentImgSrc,
+    to: '/services/development',
+    summary: 'TBC',
+  },
+  { title: 'User Experience', imgSrc: uxImgSrc, to: '/services/user-experience', summary: 'TBC' },
+  { title: 'Marketing', imgSrc: marketingImgSrc, to: '/services/marketing', summary: 'TBC' },
 ]
 
 const ServicesPage = () => (

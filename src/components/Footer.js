@@ -55,6 +55,19 @@ const main = (
               >
                 {link.title}
               </Link>
+              {link.subpages &&
+                link.subpages.map(subpageLink => (
+                  <li key={subpageLink.path}>
+                    <Link
+                      to={subpageLink.path}
+                      className={`no-underline pl-2 ${
+                        colorClasses.mainText
+                      } hover:text-orange-dark py-2 leading-normal`}
+                    >
+                      - {subpageLink.title}
+                    </Link>
+                  </li>
+                ))}
             </li>
           ))}
         </ul>
