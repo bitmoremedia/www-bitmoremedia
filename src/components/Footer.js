@@ -27,7 +27,7 @@ const iconBackgroundColor = tailwindColors['grey-light']
 
 const main = (
   <div className="container mx-auto flex flex-col md:flex-row py-8 justify-around">
-    <div className="md:w-1/2">
+    <div className="md:w-1/4">
       <div className={`${colorClasses.altText}`}>GET IN TOUCH</div>
       <div className="py-4">
         We are a London based digital agency with a home office in Crystal Palace, London. We have
