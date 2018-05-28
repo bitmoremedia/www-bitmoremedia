@@ -3,10 +3,7 @@ import Link from 'gatsby-link'
 
 import { level1PageLinks } from '../config'
 import tailwindColors from '../tailwind/colors'
-import LinkedInIcon from './icon/LinkedIn'
-import InstagramIcon from './icon/Instagram'
-import TwitterIcon from './icon/Twitter'
-import FacebookIcon from './icon/Facebook'
+import SocialLinks from '../components/common/SocialLinks'
 
 const links = [
   {
@@ -21,9 +18,6 @@ const colorClasses = {
   mainText: 'text-grey-light',
   altText: 'text-grey-true',
 }
-const iconSize = 40
-const iconColor = tailwindColors['grey-darkest']
-const iconBackgroundColor = tailwindColors['grey-light']
 
 const main = (
   <div className="container mx-auto flex flex-col md:flex-row py-8 justify-around">
@@ -44,7 +38,7 @@ const main = (
     <div className="md:w-1/4 pt-6 md:pt-0">
       <div className={`${colorClasses.altText}`}>NAVIGATION</div>
       <div className="py-4">
-        <ul className="list-reset">
+        <ul className="pl-4">
           {links.map(link => (
             <li key={link.path}>
               <Link
@@ -64,9 +58,9 @@ const main = (
                           to={subpageLink.path}
                           className={`no-underline pl-2 ${
                             colorClasses.mainText
-                          } hover:text-orange-dark py-2 leading-normal`}
+                          } hover:text-orange-dark leading-normal`}
                         >
-                          - {subpageLink.title}
+                          {subpageLink.title}
                         </Link>
                       </li>
                     ))}
@@ -77,56 +71,6 @@ const main = (
         </ul>
       </div>
     </div>
-  </div>
-)
-
-const withIconProps = Icon => {
-  return (
-    <Icon
-      iconColor={iconColor}
-      backgroundColor={iconBackgroundColor}
-      width={iconSize}
-      height={iconSize}
-      className="_tilt-on-hover"
-    />
-  )
-}
-
-const socialLinks = [
-  {
-    label: 'Facebook',
-    icon: withIconProps(FacebookIcon),
-    url: '',
-  },
-  {
-    label: 'Twitter',
-    icon: withIconProps(TwitterIcon),
-    url: '',
-  },
-  {
-    label: 'Instagram',
-    icon: withIconProps(InstagramIcon),
-    url: '',
-  },
-  {
-    label: 'LinkedIn',
-    icon: withIconProps(LinkedInIcon),
-    url: '',
-  },
-]
-
-const social = (
-  <div className="flex container mx-auto justify-center items-center h-24">
-    {socialLinks.map(socialLink => {
-      const { label, icon, url } = socialLink
-      return (
-        <div className="p-4 pb-8 md:p-8" key={label}>
-          <a href={url} target="_blank">
-            {icon}
-          </a>
-        </div>
-      )
-    })}
   </div>
 )
 
@@ -143,7 +87,12 @@ const base = (
 const Footer = () => (
   <div className={`${colorClasses.background} text-sm p-6 ${colorClasses.mainText}`}>
     {main}
-    {social}
+    <SocialLinks
+      iconSize={40}
+      iconColor={tailwindColors['grey-darkest']}
+      iconBackgroundColor={tailwindColors['grey-light']}
+      iconClass="p-4 pb-8 md:p-8"
+    />
     {base}
   </div>
 )

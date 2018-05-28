@@ -34,3 +34,22 @@ export const level1PageLinks = [
     path: '/contact',
   },
 ]
+
+export const socialLinks = [
+  {
+    label: 'Facebook',
+    url: '',
+  },
+  {
+    label: 'Twitter',
+    url: '',
+  },
+  {
+    label: 'Instagram',
+    url: '',
+  },
+  {
+    label: 'LinkedIn',
+    url: '',
+  },
+]

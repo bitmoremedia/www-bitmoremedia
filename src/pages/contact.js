@@ -3,6 +3,8 @@ import React from 'react'
 import bgImgSrc from '../images/architecture-booth-buildings.jpg'
 import PageBackground from '../components/common/PageBackground'
 import InitialPageHero from '../components/common/InitialPageHero'
+import SocialLinks from '../components/common/SocialLinks'
+import tailwindColors from '../tailwind/colors'
 
 const ContactDetails = () => (
   <div className="bg-white flex justify-center align-center py-8 px-4">
@@ -22,8 +24,13 @@ const ContactDetails = () => (
 
       <div className="md:w-1/3 flex py-4 md:py-0 md:justify-center md:align-center">
         <div className="flex flex-col justify-around align-center">
-          <div>SOCIAL LINKS</div>
-          <div>
+          <SocialLinks
+            iconSize={40}
+            iconColor="white"
+            iconBackgroundColor={tailwindColors['grey-dark']}
+            containerClass="flex justify-between"
+          />
+          <div className="pt-6 md:pt-0">
             <h4 className="text-blue">Home Office</h4>
             <div className="text-sm text-grey-true leading-normal">
               Crystal Palace, South London
