@@ -16,7 +16,8 @@ const PartnershipsPage = () => (
           'The chance to create something special together, from the ground up. Making it right for your business and right for customers.',
         ]}
         scrollTo="the-model"
-        quote="Partnering with us, feels like a simple extension of your own team"
+        quote="Partnering with us, is like an extension of your own team"
+        quoteBy="Russ Winborn, Bit More Media"
       />
     </PageBackground>
     <Element name="the-model">

@@ -56,7 +56,7 @@ const InitialPageHero = ({
     {quote && (
       <div className="bg-white text-center p-8 text-blue md:text-2xl md:tracking-wide leading-normal">
         <p>“{quote}.”</p>
-        {quoteBy && <p>- {quoteBy}M</p>}
+        {quoteBy && <p>- {quoteBy}</p>}
       </div>
     )}
     {SecondaryContent && <SecondaryContent />}

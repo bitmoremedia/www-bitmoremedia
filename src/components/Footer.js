@@ -56,7 +56,7 @@ const main = (
     <div className="md:w-1/4 pt-6 md:pt-0">
       <div className={`pb-2 ${colorClasses.altText}`}>NAVIGATION</div>
       <div className="py-4">
-        <ul className="pl-4">
+        <ul className="list-reset pl-4">
           {links.map(link => (
             <li key={link.path}>
               <Link
@@ -68,7 +68,7 @@ const main = (
                 {link.title}
               </Link>
               {link.subpages && (
-                <ul className="pl-4">
+                <ul className="list-reset pl-4">
                   {link.subpages &&
                     link.subpages.map(subpageLink => (
                       <li key={subpageLink.path}>

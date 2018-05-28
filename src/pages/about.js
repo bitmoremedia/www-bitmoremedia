@@ -5,33 +5,24 @@ import bgImgSrc from '../images/blonde-hair-blur-daylight.jpg'
 import theJourneyImgSrc from '../images/woman-on-rocks.jpg'
 import ourExperienceImgSrc from '../images/guy-with-laptop-outside.jpg'
 import designingAndCreatingImgSrc from '../images/laptop-and-canoe.jpg'
+import ourStaffImgSrc from '../images/grand-central-station.jpg'
 import PageBackground from '../components/common/PageBackground'
 import InitialPageHero from '../components/common/InitialPageHero'
 import SplitPage from '../components/common/SplitPage'
-
-const AboutUsSummary = () => (
-  <div className="bg-white flex justify-center align-center p-2 md:p-6">
-    <div className="max-w-md bg-white flex flex-col justify-center align-center text-center">
-      <p className="py-4 text-grey-true">
-        We are a London based digital agency specialising in end-to-end delivery of web, app and
-        mobile projects, products and partnerships.
-      </p>
-      <p className="py-4 text-grey-true">
-        That explains the what of Bit More Media, but there is a lot more to us, how we came to be
-        and why we love what we do (and why we’re good at it).{' '}
-      </p>
-    </div>
-  </div>
-)
 
 const AboutPage = () => (
   <div>
     <PageBackground bgImgSrc={bgImgSrc}>
       <InitialPageHero
-        titles={['Bit More Media.', 'A Digital Services & Solutions Agency']}
-        SecondaryContent={AboutUsSummary}
+        title="About Us"
+        messages={[
+          'We are a London based digital agency specialising in end-to-end delivery of web, app and mobile projects, products and partnerships',
+          'That explains the what of Bit More Media, but there is a lot more to us, how we came to be and why we love what we do (and why we’re good at it).',
+        ]}
         scrollTo="the-journey"
         scrollOffset={0}
+        quote="It's not a faith in technology. It's faith in people"
+        quoteBy="Steve Jobs, Apple"
       />
     </PageBackground>
     <Element name="the-journey">
@@ -65,6 +56,16 @@ const AboutPage = () => (
       ]}
       imageSrc={designingAndCreatingImgSrc}
       imageSide="right"
+    />
+    <SplitPage
+      title="Our Staff"
+      paragraphs={[
+        'Although Bit More Media only has two main employees, we have the ability to onboard many valuable members from the IT and Marketing world.',
+        'People with the same values and ways of working as us, that we have met throughout our travels and time on this earth.',
+        'So if a user centred solution needs more ‘manpower’ on the project, then we have the ability to quickly add more highly skilled contributors. Just talk to us about your needs.',
+      ]}
+      imageSrc={ourStaffImgSrc}
+      imageSide="left"
     />
   </div>
 )
