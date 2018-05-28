@@ -4,14 +4,32 @@ import { Link as ScrollLink, Element } from 'react-scroll'
 import ScrollDownButton from '../../components/common/ScrollDownButton'
 import { navBarHeight } from '../../tailwind/variables'
 
-const InitialPageHero = ({ title, messages, scrollTo, quote, quoteBy, SecondaryContent }) => (
+const InitialPageHero = ({
+  title,
+  titles,
+  messages,
+  scrollTo,
+  quote,
+  quoteBy,
+  SecondaryContent,
+}) => (
   <div className="flex flex-1 flex-col justify-between">
     <div
       style={{ marginTop: navBarHeight }}
       className="flex flex-1 flex-col justify-around container px-8 pb-8 mx-auto text-white subpixel-antialiased _text-shadow"
     >
       <div className="max-w-sm flex flex-1 flex-col justify-center">
-        <h1 className="text-2xl py-8">{title}</h1>
+        {title && <h1 className="text-3xl py-8">{title}</h1>}
+        {titles &&
+          titles.length > 0 && (
+            <div className="py-6">
+              {titles.map(title => (
+                <h1 key={title} className="text-3xl py-1">
+                  {title}
+                </h1>
+              ))}
+            </div>
+          )}
         {messages &&
           messages.length &&
           messages.map((message, i) => (
