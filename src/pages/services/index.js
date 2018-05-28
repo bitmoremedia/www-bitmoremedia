@@ -35,7 +35,7 @@ const services = [
 
 const ServicesPage = () => (
   <div>
-    <PageBackground bgImgSrc={bgImgSrc}>
+    <PageBackground bgImgSrc={bgImgSrc} overlayBackground="rgba(2, 2, 2, 0.3)">
       <InitialPageHero
         title="Services"
         messages={['We offer consulting services in: Development, UX & Marketing']}

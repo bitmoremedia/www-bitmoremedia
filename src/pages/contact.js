@@ -5,14 +5,26 @@ import PageBackground from '../components/common/PageBackground'
 import InitialPageHero from '../components/common/InitialPageHero'
 import SocialLinks from '../components/common/SocialLinks'
 import tailwindColors from '../tailwind/colors'
+import EmailIcon from '../components/icon/Email'
 
 const ContactDetails = () => (
   <div className="bg-white flex justify-center align-center py-8 px-4">
     <div className="container mx-auto flex flex-col md:flex-row">
       <div className="border-orange md:border-r flex md:justify-center md:w-2/3">
         <div className=" md:max-w-sm md:text-center">
-          <a className="text-blue text-xl" href="mailto: getintouch@bitmoremedia.com">
-            getintouch@bitmoremedia.com
+          <a
+            className="text-blue text-xl no-underline hover:underline"
+            href="mailto: getintouch@bitmoremedia.com"
+          >
+            <div className="flex items-center justify-center">
+              <EmailIcon
+                width="32px"
+                height="32px"
+                iconColor={tailwindColors['blue']}
+                className="mr-2"
+              />
+              getintouch@bitmoremedia.com
+            </div>
           </a>
           <p className="py-4 text-sm text-grey-true leading-normal">
             Give us a call, drop us a message or connect with us via social media. We’d love to hear

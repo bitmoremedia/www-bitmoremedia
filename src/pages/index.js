@@ -21,7 +21,7 @@ const styles = {
 const IndexPage = () => {
   return (
     <div>
-      <PageBackground bgImgSrc={bgImgSrc}>
+      <PageBackground bgImgSrc={bgImgSrc} overlayBackground="transparent">
         <div className="flex flex-1 flex-col justify-between">
           <div className="flex-grow flex flex-col flex-grow justify-around font-sans text-white subpixel-antialiased _text-shadow">
             <div style={styles.main} className="container px-8 mx-auto">

@@ -1,15 +1,21 @@
 import React from 'react'
 
-const PageBackground = ({ bgImgSrc, children }) => {
-  const style = {
-    backgroundImage: `url(${bgImgSrc})`,
-  }
+const PageBackground = ({ bgImgSrc, overlayBackground = 'rgba(2, 2, 2, 0.5)', children }) => {
   return (
     <div
       className="min-h-screen relative bg-center bg-no-repeat bg-cover h-full flex flex-col"
-      style={style}
+      style={{
+        backgroundImage: `url(${bgImgSrc})`,
+      }}
     >
-      {children}
+      <div
+        className="flex flex-col flex-1"
+        style={{
+          background: overlayBackground,
+        }}
+      >
+        {children}
+      </div>
     </div>
   )
 }
