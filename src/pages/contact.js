@@ -60,7 +60,7 @@ const ContactPage = () => (
       <InitialPageHero
         title="Talk To A Human"
         messages={[
-          'You’re not going to hit a phone menu option when you call us. You’ll just speak to us directly.',
+          // 'You’re not going to hit a phone menu option when you call us. You’ll just speak to us directly.',
           'Your email won’t go into the abyss never to be seen again. You’ll get straight through to us and we’ll respond to your message the same day.',
         ]}
         SecondaryContent={ContactDetails}
