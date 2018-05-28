@@ -1,15 +1,30 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Element } from 'react-scroll'
 
 import bgImgSrc from '../images/partnerships.jpg'
 import PageBackground from '../components/common/PageBackground'
+import InitialPageHero from '../components/common/InitialPageHero'
+import SecondaryPageWrapper from '../components/common/SecondaryPageWrapper'
 
 const PartnershipsPage = () => (
-  <PageBackground bgImgSrc={bgImgSrc}>
-    <div className="flex flex-1 items-center content-center justify-center">
-      <h2 className="bg-yellow inline-block my-8 p-3">Partnerships PAGE</h2>
-    </div>
-  </PageBackground>
+  <div>
+    <PageBackground bgImgSrc={bgImgSrc}>
+      <InitialPageHero
+        title="Partnerships"
+        messages={[
+          'This is a line of work we are really excited about.',
+          'The chance to create something special together, from the ground up. Making it right for your business and right for customers.',
+        ]}
+        scrollTo="the-model"
+        quote="Partnering with us, feels like a simple extension of your own team"
+      />
+    </PageBackground>
+    <SecondaryPageWrapper>
+      <Element name="the-model">
+        <h1>THE MODEL</h1>
+      </Element>
+    </SecondaryPageWrapper>
+  </div>
 )
 
 export default PartnershipsPage
