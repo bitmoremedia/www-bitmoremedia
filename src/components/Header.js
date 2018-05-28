@@ -9,7 +9,7 @@ import { navBarHeight } from '../tailwind/variables'
 
 const styles = {
   nav: {
-    transition: 'padding 0.5s ease',
+    transition: 'padding 0.4s ease',
     height: navBarHeight,
   },
 }
@@ -45,7 +45,7 @@ class Header extends React.Component {
     const { toggleMobileNav, location } = this.props
     const { hasScrolledDown } = this.state
     const bgClass = location.pathname === '/' && !hasScrolledDown ? '' : 'bg-white-translucent'
-    const pClass = location.pathname === '/' && !hasScrolledDown ? 'py-4' : ''
+    const pClass = location.pathname === '/' && !hasScrolledDown ? 'py-8' : ''
     return (
       <nav className={`fixed flex z-10 w-full ${bgClass} ${pClass}`} style={styles.nav}>
         <div className="flex flex-wrap items-center justify-between container mx-auto py-2 px-4">
