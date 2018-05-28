@@ -6,6 +6,7 @@ import bgImgSrc from '../../images/services.jpg'
 import PageBackground from '../../components/common/PageBackground'
 import ScrollDownButton from '../../components/common/ScrollDownButton'
 import FeatureLinks from '../../components/common/FeatureLinks'
+import SecondaryPageWrapper from '../../components/common/SecondaryPageWrapper'
 
 import softwareDevelopmentImgSrc from '../../images/software-dev-image.jpg'
 import uxImgSrc from '../../images/ux-background-image.jpg'
@@ -64,12 +65,12 @@ const ServicesPage = () => (
         </div>
       </div>
     </PageBackground>
-    <div className="container px-8 pt-8 mx-auto _full-height-minus-footer">
+    <SecondaryPageWrapper>
       <Element name="service-list">
         <h1 className="text-grey text-sm uppercase font-light">Our Services</h1>
         <FeatureLinks features={services} />
       </Element>
-    </div>
+    </SecondaryPageWrapper>
   </div>
 )
 

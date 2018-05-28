@@ -6,6 +6,7 @@ import PageBackground from '../components/common/PageBackground'
 import ScrollDownButton from '../components/common/ScrollDownButton'
 import Button from '../components/common/Button'
 import FeatureLinks from '../components/common/FeatureLinks'
+import SecondaryPageWrapper from '../components/common/SecondaryPageWrapper'
 
 import servicesImgSrc from '../images/services.jpg'
 import productsImgSrc from '../images/products-tile.jpg'
@@ -99,9 +100,9 @@ const gridStyle = {
 
 const WhatWeDoSection = () => {
   return (
-    <div className="min-h-screen container font-sans px-8 pt-8 pb-6 md:pb-0 mx-auto flex flex-col justify-around mt-8 md:mt-0">
+    <SecondaryPageWrapper>
       <Element name="what-we-do">
-        <div className="xl:w-5/6">
+        <div className="xl:w-5/6 font-sans">
           <h1 className="text-grey text-sm uppercase font-light">What we do</h1>
           <h2 className="pt-8 pb-6 font-serif text-2xl font-light">
             Digital Services & Solutions Agency
@@ -125,7 +126,7 @@ const WhatWeDoSection = () => {
         </div>
         <FeatureLinks features={whatWeDoItems} />
       </Element>
-    </div>
+    </SecondaryPageWrapper>
   )
 }
 
