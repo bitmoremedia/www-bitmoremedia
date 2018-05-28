@@ -9,6 +9,7 @@ const InitialPageHero = ({
   titles,
   messages,
   scrollTo,
+  scrollOffset = 0,
   quote,
   quoteBy,
   SecondaryContent,
@@ -44,7 +45,7 @@ const InitialPageHero = ({
             to={scrollTo}
             smooth={true}
             duration={500}
-            offset={-80}
+            offset={scrollOffset}
             className="cursor-pointer text-white hover:text-orange _transition-all"
           >
             <ScrollDownButton />

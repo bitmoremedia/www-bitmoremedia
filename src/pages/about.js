@@ -2,9 +2,13 @@ import React from 'react'
 import { Element } from 'react-scroll'
 
 import bgImgSrc from '../images/blonde-hair-blur-daylight.jpg'
+import theJourneyImgSrc from '../images/woman-on-rocks.jpg'
+import ourExperienceImgSrc from '../images/guy-with-laptop-outside.jpg'
+import designingAndCreatingImgSrc from '../images/laptop-and-canoe.jpg'
 import PageBackground from '../components/common/PageBackground'
 import InitialPageHero from '../components/common/InitialPageHero'
 import SecondaryPageWrapper from '../components/common/SecondaryPageWrapper'
+import SplitPage from '../components/common/SplitPage'
 
 const AboutUsSummary = () => (
   <div className="bg-white flex justify-center align-center p-6">
@@ -15,8 +19,8 @@ const AboutUsSummary = () => (
         mobile projects, products and partnerships.
       </p>
       <p className="py-4 text-grey-true">
-        So, that explains the what of Bit More Media, but there is a lot more to us, how we came to
-        be and why we love what we do (and why we’re good at it).{' '}
+        That explains the what of Bit More Media, but there is a lot more to us, how we came to be
+        and why we love what we do (and why we’re good at it).{' '}
       </p>
     </div>
   </div>
@@ -29,12 +33,31 @@ const AboutPage = () => (
         titles={['Bit More Media.', 'A Digital Services & Solutions Agency']}
         SecondaryContent={AboutUsSummary}
         scrollTo="the-journey"
+        scrollOffset={0}
       />
     </PageBackground>
+    <Element name="the-journey">
+      <SecondaryPageWrapper bgClass="bg-green">
+        <SplitPage
+          title="The Journey"
+          paragraphs={['Some blurb', 'Some more blurb']}
+          imageSrc={theJourneyImgSrc}
+        />
+      </SecondaryPageWrapper>
+    </Element>
+    <SecondaryPageWrapper bgClass="bg-red">
+      <SplitPage
+        title="Our Experience"
+        paragraphs={['Some blurb', 'Some more blurb']}
+        imageSrc={ourExperienceImgSrc}
+      />
+    </SecondaryPageWrapper>
     <SecondaryPageWrapper>
-      <Element name="the-journey">
-        <h1>THE JOURNEY</h1>
-      </Element>
+      <SplitPage
+        title="Designing & Creating"
+        paragraphs={['Some blurb', 'Some more blurb']}
+        imageSrc={designingAndCreatingImgSrc}
+      />
     </SecondaryPageWrapper>
   </div>
 )

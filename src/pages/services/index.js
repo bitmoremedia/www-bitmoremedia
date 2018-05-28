@@ -44,12 +44,12 @@ const ServicesPage = () => (
         quoteBy="Ginni Rometty, CEO, IBM"
       />
     </PageBackground>
-    <SecondaryPageWrapper>
-      <Element name="service-list">
+    <Element name="service-list">
+      <SecondaryPageWrapper>
         <h1 className="text-grey text-sm uppercase font-light">Our Services</h1>
         <FeatureLinks features={services} />
-      </Element>
-    </SecondaryPageWrapper>
+      </SecondaryPageWrapper>
+    </Element>
   </div>
 )
 

@@ -20,11 +20,11 @@ const ProductsPage = () => (
         quoteBy="Elon Musk, CEO SpaceX"
       />
     </PageBackground>
-    <SecondaryPageWrapper>
-      <Element name="tourplanr">
+    <Element name="tourplanr">
+      <SecondaryPageWrapper>
         <h1>TOURPLANR</h1>
-      </Element>
-    </SecondaryPageWrapper>
+      </SecondaryPageWrapper>
+    </Element>
   </div>
 )
 

@@ -19,11 +19,11 @@ const PartnershipsPage = () => (
         quote="Partnering with us, feels like a simple extension of your own team"
       />
     </PageBackground>
-    <SecondaryPageWrapper>
-      <Element name="the-model">
+    <Element name="the-model">
+      <SecondaryPageWrapper>
         <h1>THE MODEL</h1>
-      </Element>
-    </SecondaryPageWrapper>
+      </SecondaryPageWrapper>
+    </Element>
   </div>
 )
 
