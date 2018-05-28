@@ -53,7 +53,13 @@ class Header extends React.Component {
             <img className="w-32 md:w-48" src={logoSrc} />
           </Link>
           <div className="hidden md:inline">
-            {level1PageLinks.map(link => <HeaderLink key={link.path} {...link} />)}
+            {level1PageLinks.map(link => (
+              <HeaderLink
+                active={!!(location.pathname.indexOf(link.path) > -1)}
+                key={link.path}
+                {...link}
+              />
+            ))}
           </div>
           <MobileNavToggle />
         </div>

@@ -1,7 +1,8 @@
 import React from 'react'
 import { navigateTo } from 'gatsby-link'
 
-const HeaderLink = ({ title, path, onNavigate }) => {
+const HeaderLink = ({ title, path, onNavigate, active }) => {
+  const textColorClass = active ? 'text-orange-dark' : 'text-orange '
   return (
     <a
       onClick={() => {
@@ -10,7 +11,7 @@ const HeaderLink = ({ title, path, onNavigate }) => {
           onNavigate()
         }
       }}
-      className="cursor-pointer block md:inline-block mt-4 md:mt-0 mx-2 md:mx-4 lg:mx-6 no-underline text-m text-orange hover:text-orange-dark _transition-all"
+      className={`cursor-pointer block md:inline-block mt-4 md:mt-0 mx-2 md:mx-4 lg:mx-6 no-underline text-m hover:text-orange-dark _transition-all ${textColorClass}`}
     >
       {title}
     </a>
