@@ -20,7 +20,6 @@ const AboutPage = () => (
           'That explains the what of Bit More Media, but there is a lot more to us, how we came to be and why we love what we do (and why we’re good at it).',
         ]}
         scrollTo="the-journey"
-        scrollOffset={0}
         quote="It's not a faith in technology. It's faith in people"
         quoteBy="Steve Jobs, Apple"
       />
