@@ -4,7 +4,7 @@ import { Link as ScrollLink, Element } from 'react-scroll'
 import ScrollDownButton from '../../components/common/ScrollDownButton'
 import { navBarHeight } from '../../tailwind/variables'
 
-const InitialPageHero = ({ title, messages, scrollTo, quote, quoteBy }) => (
+const InitialPageHero = ({ title, messages, scrollTo, quote, quoteBy, SecondaryContent }) => (
   <div className="flex flex-1 flex-col justify-between">
     <div
       style={{ marginTop: navBarHeight }}
@@ -20,18 +20,19 @@ const InitialPageHero = ({ title, messages, scrollTo, quote, quoteBy }) => (
             </p>
           ))}
       </div>
-
-      <div className="text-center pb-2 md:pb-0 md:pt-8">
-        <ScrollLink
-          to={scrollTo}
-          smooth={true}
-          duration={500}
-          offset={-80}
-          className="cursor-pointer text-white hover:text-orange _transition-all"
-        >
-          <ScrollDownButton />
-        </ScrollLink>
-      </div>
+      {scrollTo && (
+        <div className="text-center pb-2 md:pb-0 md:pt-8">
+          <ScrollLink
+            to={scrollTo}
+            smooth={true}
+            duration={500}
+            offset={-80}
+            className="cursor-pointer text-white hover:text-orange _transition-all"
+          >
+            <ScrollDownButton />
+          </ScrollLink>
+        </div>
+      )}
     </div>
     {quote && (
       <div className="bg-white text-center p-8 text-blue md:text-2xl md:tracking-wide leading-normal">
@@ -39,6 +40,7 @@ const InitialPageHero = ({ title, messages, scrollTo, quote, quoteBy }) => (
         {quoteBy && <p>- {quoteBy}M</p>}
       </div>
     )}
+    {SecondaryContent && <SecondaryContent />}
   </div>
 )
 
