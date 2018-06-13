@@ -5,19 +5,26 @@
   "author": "Russ <russ@bitmoremedia.com>",
   "dependencies": {
     "gatsby": "1.9.241",
+    "gatsby-image": "1.0.52",
     "gatsby-link": "1.6.39",
     "gatsby-plugin-react-helmet": "2.0.8",
+    "gatsby-plugin-sharp": "1.6.47",
+    "gatsby-source-filesystem": "1.5.38",
+    "gatsby-transformer-sharp": "1.6.26",
     "react-helmet": "5.2.0",
     "react-scroll": "1.7.9",
     "unstated": "2.1.1"
   },
-  "keywords": ["gatsby", "tailwind", "tailwindcss", "purgecss"],
+  "keywords": [
+    "gatsby",
+    "tailwind",
+    "tailwindcss",
+    "purgecss"
+  ],
   "license": "MIT",
   "scripts": {
-    "build":
-      "tailwind build ./src/tailwind/index.tailwind.css -c ./src/tailwind/index.js -o ./src/tailwind/index.css && purgecss -c purgecss.config.js -o ./src/tailwind && gatsby build",
-    "start":
-      "tailwind build ./src/tailwind/index.tailwind.css -c ./src/tailwind/index.js -o ./src/tailwind/index.css && gatsby develop",
+    "build": "tailwind build ./src/tailwind/index.tailwind.css -c ./src/tailwind/index.js -o ./src/tailwind/index.css && purgecss -c purgecss.config.js -o ./src/tailwind && gatsby build",
+    "start": "tailwind build ./src/tailwind/index.tailwind.css -c ./src/tailwind/index.js -o ./src/tailwind/index.css && gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

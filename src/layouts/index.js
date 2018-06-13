@@ -8,13 +8,12 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import '../tailwind/index.css'
 
-const TemplateWrapper = props => {
-  const { location, children } = props
+const TemplateWrapper = ({ location, children, data }) => {
   return (
     <Provider>
       <div>
         <Helmet
-          title="Bit More Media"
+          title={data.site.siteMetadata.title}
           meta={[
             {
               name: 'description',
@@ -41,3 +40,13 @@ TemplateWrapper.propTypes = {
 }
 
 export default TemplateWrapper
+
+export const query = graphql`
+  query LayoutTemplateWrapperQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
