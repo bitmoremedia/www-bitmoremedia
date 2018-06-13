@@ -6,36 +6,43 @@ import PageBackground from '../../components/common/PageBackground'
 import FeatureLinks from '../../components/common/FeatureLinks'
 import InitialPageHero from '../../components/common/InitialPageHero'
 import SecondaryPageWrapper from '../../components/common/SecondaryPageWrapper'
-import bgImageCoverStyle from '../../module/bgImageCoverStyle'
+import bgImageCoverStyle, { bgImageCoverStyle_zIndex0 } from '../../module/bgImageCoverStyle'
 
 import softwareDevelopmentImgSrc from '../../images/software-dev-image.jpg'
 import uxImgSrc from '../../images/ux-background-image.jpg'
 import marketingImgSrc from '../../images/marketing-background-image.jpg'
 
-const services = [
-  {
-    title: 'Development',
-    imgSrc: softwareDevelopmentImgSrc,
-    to: '/services/development',
-    summary: 'We build bespoke, immersive & scalable digital experiences for your audience',
-  },
-  {
-    title: 'User Experience',
-    imgSrc: uxImgSrc,
-    to: '/services/user-experience',
-    summary:
-      'We help you to design products which are useful, easy to use, and delightful to interact with',
-  },
-  {
-    title: 'Marketing',
-    imgSrc: marketingImgSrc,
-    to: '/services/marketing',
-    summary: 'Strategy & planning. Analysis & measurement. We craft integrated brand campaigns',
-  },
-]
-
 const ServicesPage = ({ data }) => {
   const BgImg = <Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />
+  const services = [
+    {
+      title: 'Development',
+      to: '/services/development',
+      summary: 'We build bespoke, immersive & scalable digital experiences for your audience',
+      Img: (
+        <Img
+          style={bgImageCoverStyle_zIndex0}
+          sizes={data.softwareDevelopmentImage.childImageSharp.sizes}
+        />
+      ),
+    },
+    {
+      title: 'User Experience',
+      to: '/services/user-experience',
+      summary:
+        'We help you to design products which are useful, easy to use, and delightful to interact with',
+      Img: <Img style={bgImageCoverStyle_zIndex0} sizes={data.uxImage.childImageSharp.sizes} />,
+    },
+    {
+      title: 'Marketing',
+      to: '/services/marketing',
+      summary: 'Strategy & planning. Analysis & measurement. We craft integrated brand campaigns',
+      Img: (
+        <Img style={bgImageCoverStyle_zIndex0} sizes={data.marketingImage.childImageSharp.sizes} />
+      ),
+    },
+  ]
+
   return (
     <div>
       <PageBackground BgImg={BgImg} overlayBackground="rgba(2, 2, 2, 0.3)">
@@ -62,6 +69,27 @@ export default ServicesPage
 export const query = graphql`
   query ServicesPageQuery {
     bgImage: file(relativePath: { eq: "images/services.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    softwareDevelopmentImage: file(relativePath: { eq: "images/software-dev-image.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    uxImage: file(relativePath: { eq: "images/ux-background-image.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    marketingImage: file(relativePath: { eq: "images/marketing-background-image.jpg" }) {
       childImageSharp {
         sizes(maxWidth: 1500) {
           ...GatsbyImageSharpSizes

@@ -6,11 +6,9 @@ import PageBackground from '../components/common/PageBackground'
 import ScrollDownButton from '../components/common/ScrollDownButton'
 import FeatureLinks from '../components/common/FeatureLinks'
 import SecondaryPageWrapper from '../components/common/SecondaryPageWrapper'
-import bgImageCoverStyle from '../module/bgImageCoverStyle'
+import bgImageCoverStyle, { bgImageCoverStyle_zIndex0 } from '../module/bgImageCoverStyle'
 
-import servicesImgSrc from '../images/services.jpg'
-import productsImgSrc from '../images/products-tile.jpg'
-import partnershipsImgSrc from '../images/partnerships-tile.jpg'
+let whatWeDoItems
 
 const styles = {
   main: {
@@ -20,6 +18,35 @@ const styles = {
 
 const IndexPage = ({ data }) => {
   const BgImg = <Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />
+  whatWeDoItems = [
+    {
+      title: 'Services',
+      summary: 'We offer consulting services in: Development, UX & Marketing',
+      to: 'services',
+      Img: (
+        <Img style={bgImageCoverStyle_zIndex0} sizes={data.servicesImage.childImageSharp.sizes} />
+      ),
+    },
+    {
+      title: 'Products',
+      summary: 'In-house built apps. Crafted with passion and the latest technology',
+      to: 'products',
+      Img: (
+        <Img style={bgImageCoverStyle_zIndex0} sizes={data.productsImage.childImageSharp.sizes} />
+      ),
+    },
+    {
+      title: 'Partnerships',
+      summary: 'Mutual interest and investment. Let’s build something great together',
+      to: 'partnerships',
+      Img: (
+        <Img
+          style={bgImageCoverStyle_zIndex0}
+          sizes={data.partnershipsImage.childImageSharp.sizes}
+        />
+      ),
+    },
+  ]
   return (
     <div>
       <PageBackground BgImg={BgImg} overlayBackground="transparent">
@@ -73,27 +100,6 @@ const whatWeDo_gridOrder = [
   whatWeDo[5],
 ]
 
-const whatWeDoItems = [
-  {
-    title: 'Services',
-    summary: 'We offer consulting services in: Development, UX & Marketing',
-    to: 'services',
-    imgSrc: servicesImgSrc,
-  },
-  {
-    title: 'Products',
-    summary: 'In-house built apps. Crafted with passion and the latest technology',
-    to: 'products',
-    imgSrc: productsImgSrc,
-  },
-  {
-    title: 'Partnerships',
-    summary: 'Mutual interest and investment. Let’s build something great together',
-    to: 'partnerships',
-    imgSrc: partnershipsImgSrc,
-  },
-]
-
 const gridStyle = {
   gridTemplateColumns: '46% 46%',
   gridGap: '0px 8%',
@@ -136,6 +142,27 @@ export default IndexPage
 export const query = graphql`
   query IndexPageQuery {
     bgImage: file(relativePath: { eq: "images/architecture-bay-blonde.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    servicesImage: file(relativePath: { eq: "images/services.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    productsImage: file(relativePath: { eq: "images/products-tile.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    partnershipsImage: file(relativePath: { eq: "images/partnerships-tile.jpg" }) {
       childImageSharp {
         sizes(maxWidth: 1500) {
           ...GatsbyImageSharpSizes
