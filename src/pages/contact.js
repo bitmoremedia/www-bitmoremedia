@@ -1,4 +1,5 @@
 import React from 'react'
+import Img from 'gatsby-image'
 
 import bgImgSrc from '../images/architecture-booth-buildings.jpg'
 import PageBackground from '../components/common/PageBackground'
@@ -54,19 +55,34 @@ const ContactDetails = () => (
   </div>
 )
 
-const ContactPage = () => (
-  <div>
-    <PageBackground bgImgSrc={bgImgSrc}>
-      <InitialPageHero
-        title="Talk To A Human"
-        messages={[
-          // 'You’re not going to hit a phone menu option when you call us. You’ll just speak to us directly.',
-          'Your email won’t go into the abyss never to be seen again. You’ll get straight through to us and we’ll respond to your message the same day.',
-        ]}
-        SecondaryContent={ContactDetails}
-      />
-    </PageBackground>
-  </div>
-)
+const ContactPage = ({ data }) => {
+  return (
+    <div>
+      <PageBackground bgImgSrc={bgImgSrc}>
+        <InitialPageHero
+          title="Talk To A Human"
+          messages={[
+            // 'You’re not going to hit a phone menu option when you call us. You’ll just speak to us directly.',
+            'Your email won’t go into the abyss never to be seen again. You’ll get straight through to us and we’ll respond to your message the same day.',
+          ]}
+          SecondaryContent={ContactDetails}
+        />
+      </PageBackground>
+
+      <div>SOME THING HERE!!</div>
+      <Img sizes={data.imageSharp.sizes} />
+    </div>
+  )
+}
 
 export default ContactPage
+
+export const query = graphql`
+  query ContactPageQuery {
+    imageSharp(id: { regex: "/architecture-bay-blonde/" }) {
+      sizes(maxWidth: 1500, rotate: 180) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`
