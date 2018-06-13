@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link as ScrollLink, Element } from 'react-scroll'
+import Img from 'gatsby-image'
 
-import bgImgSrc from '../images/architecture-bay-blonde.jpg'
 import PageBackground from '../components/common/PageBackground'
 import ScrollDownButton from '../components/common/ScrollDownButton'
-import Button from '../components/common/Button'
 import FeatureLinks from '../components/common/FeatureLinks'
 import SecondaryPageWrapper from '../components/common/SecondaryPageWrapper'
+import bgImageCoverStyle from '../module/bgImageCoverStyle'
 
 import servicesImgSrc from '../images/services.jpg'
 import productsImgSrc from '../images/products-tile.jpg'
@@ -18,10 +18,11 @@ const styles = {
   },
 }
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  const BgImg = <Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />
   return (
     <div>
-      <PageBackground bgImgSrc={bgImgSrc} overlayBackground="transparent">
+      <PageBackground BgImg={BgImg} overlayBackground="transparent">
         <div className="flex flex-1 flex-col justify-between">
           <div className="flex-grow flex flex-col flex-grow justify-around font-sans text-white subpixel-antialiased _text-shadow">
             <div style={styles.main} className="container px-8 mx-auto">
@@ -131,3 +132,15 @@ const WhatWeDoSection = () => {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query IndexPageQuery {
+    bgImage: file(relativePath: { eq: "images/architecture-bay-blonde.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+  }
+`

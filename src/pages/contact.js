@@ -1,7 +1,6 @@
 import React from 'react'
 import Img from 'gatsby-image'
 
-import bgImgSrc from '../images/architecture-booth-buildings.jpg'
 import PageBackground from '../components/common/PageBackground'
 import InitialPageHero from '../components/common/InitialPageHero'
 import SocialLinks from '../components/common/SocialLinks'
