@@ -80,7 +80,7 @@ export default ContactPage
 export const query = graphql`
   query ContactPageQuery {
     imageSharp(id: { regex: "/architecture-bay-blonde/" }) {
-      sizes(maxWidth: 1500, rotate: 180) {
+      sizes(maxWidth: 1500) {
         ...GatsbyImageSharpSizes
       }
     }
