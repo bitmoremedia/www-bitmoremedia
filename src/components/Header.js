@@ -47,7 +47,7 @@ class Header extends React.Component {
     const bgClass = location.pathname === '/' && !hasScrolledDown ? '' : 'bg-white-translucent'
     const pClass = location.pathname === '/' && !hasScrolledDown ? 'py-8' : ''
     return (
-      <nav className={`fixed flex z-10 w-full ${bgClass} ${pClass}`} style={styles.nav}>
+      <nav className={`fixed flex z-30 w-full ${bgClass} ${pClass}`} style={styles.nav}>
         <div className="flex flex-wrap items-center justify-between container mx-auto py-2 px-4">
           <Link to="/" className="no-underline flex flex-col">
             <img className="w-32 md:w-48" src={logoSrc} />
