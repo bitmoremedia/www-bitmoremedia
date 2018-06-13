@@ -7,6 +7,7 @@ import InitialPageHero from '../components/common/InitialPageHero'
 import SocialLinks from '../components/common/SocialLinks'
 import tailwindColors from '../tailwind/colors'
 import EmailIcon from '../components/icon/Email'
+import bgImageCoverStyle from '../module/bgImageCoverStyle'
 
 const ContactDetails = () => (
   <div className="bg-white flex justify-center align-center py-8 px-4">
@@ -28,9 +29,9 @@ const ContactDetails = () => (
             </div>
           </a>
           <p className="py-4 text-sm text-grey-true leading-normal">
-            Give us a call, drop us a message or connect with us via social media. We’d love to hear
-            from you and discuss how we can help deliver the right solution for your customers.
-            Whether it’s Web and App Design & Build, User Experience or Marketing.
+            Drop us a message or connect with us via social media. We’d love to hear from you and
+            discuss how we can help deliver the right solution for your customers. Whether it’s Web
+            and App Design & Build, User Experience or Marketing.
           </p>
         </div>
       </div>
@@ -56,9 +57,10 @@ const ContactDetails = () => (
 )
 
 const ContactPage = ({ data }) => {
+  const BgImg = <Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />
   return (
     <div>
-      <PageBackground bgImgSrc={bgImgSrc}>
+      <PageBackground BgImg={BgImg}>
         <InitialPageHero
           title="Talk To A Human"
           messages={[
@@ -68,9 +70,6 @@ const ContactPage = ({ data }) => {
           SecondaryContent={ContactDetails}
         />
       </PageBackground>
-
-      <div>SOME THING HERE!!</div>
-      <Img sizes={data.imageSharp.sizes} />
     </div>
   )
 }
@@ -79,9 +78,11 @@ export default ContactPage
 
 export const query = graphql`
   query ContactPageQuery {
-    imageSharp(id: { regex: "/architecture-bay-blonde/" }) {
-      sizes(maxWidth: 1500) {
-        ...GatsbyImageSharpSizes
+    bgImage: file(relativePath: { eq: "images/architecture-booth-buildings.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500) {
+          ...GatsbyImageSharpSizes
+        }
       }
     }
   }

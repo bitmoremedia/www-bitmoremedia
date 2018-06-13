@@ -1,22 +1,16 @@
 import React from 'react'
+import bgImageCoverStyle from '../../module/bgImageCoverStyle'
 
-const PageBackground = ({ bgImgSrc, overlayBackground = 'rgba(2, 2, 2, 0.5)', children }) => {
+const PageBackground = ({
+  BgImg = null,
+  bgImgSrc,
+  overlayBackground = 'rgba(2, 2, 2, 0.5)',
+  children,
+}) => {
   return (
     <div className="min-h-screen relative h-full flex flex-col">
-      <img
-        style={{
-          position: 'absolute',
-          left: 0,
-          top: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: -1,
-          objectFit: 'cover',
-          // below is a hack to support ie (also requires the object-fit-images polyfill)
-          fontFamily: 'object-fit: cover',
-        }}
-        src={bgImgSrc}
-      />
+      {bgImgSrc && <img style={bgImageCoverStyle} src={bgImgSrc} />}
+      {BgImg}
       <div
         className="flex flex-col flex-1"
         style={{
