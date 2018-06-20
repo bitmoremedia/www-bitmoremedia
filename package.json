@@ -16,15 +16,20 @@
     "react-scroll": "1.7.9",
     "unstated": "2.1.1"
   },
-  "keywords": ["gatsby", "tailwind", "tailwindcss", "purgecss"],
+  "keywords": [
+    "gatsby",
+    "tailwind",
+    "tailwindcss",
+    "purgecss"
+  ],
   "license": "MIT",
   "scripts": {
-    "build":
-      "tailwind build ./src/tailwind/index.tailwind.css -c ./src/tailwind/index.js -o ./src/tailwind/index.css && purgecss -c purgecss.config.js -o ./src/tailwind && gatsby build",
-    "start":
-      "tailwind build ./src/tailwind/index.tailwind.css -c ./src/tailwind/index.js -o ./src/tailwind/index.css && gatsby develop",
+    "build": "npm run tailwind && gatsby build && npm run purgecss",
+    "start": "npm run tailwind && gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "purgecss": "purgecss -c purgecss.config.js -o ./public",
+    "tailwind": "tailwind build ./src/tailwind/index.tailwind.css -c ./src/tailwind/index.js -o ./src/tailwind/index.css"
   },
   "devDependencies": {
     "prettier": "1.13.5",
