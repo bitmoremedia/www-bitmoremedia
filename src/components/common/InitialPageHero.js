@@ -2,7 +2,7 @@ import React from 'react'
 import { Link as ScrollLink, Element } from 'react-scroll'
 
 import ScrollDownButton from '../../components/common/ScrollDownButton'
-import { navBarHeight } from '../../tailwind/variables'
+import { navBarHeight_px } from '../../tailwind/variables'
 
 const InitialPageHero = ({
   title,
@@ -16,7 +16,7 @@ const InitialPageHero = ({
 }) => (
   <div className="flex flex-1 flex-col justify-between">
     <div
-      style={{ marginTop: navBarHeight }}
+      style={{ marginTop: navBarHeight_px }}
       className="flex flex-1 flex-col justify-around container px-8 pb-8 mx-auto text-white subpixel-antialiased _text-shadow"
     >
       <div className="max-w-sm flex flex-1 flex-col justify-center">

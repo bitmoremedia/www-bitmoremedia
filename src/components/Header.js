@@ -5,12 +5,12 @@ import { level1PageLinks } from '../config'
 import HeaderLink from './common/HeaderLink'
 import MobileNavToggle from './MobileNavToggle'
 import logoSrc from '../images/bitmoremedia-logo.png'
-import { navBarHeight } from '../tailwind/variables'
+import { navBarHeight_px } from '../tailwind/variables'
 
 const styles = {
   nav: {
     transition: 'padding 0.4s ease',
-    height: navBarHeight,
+    height: navBarHeight_px,
   },
 }
 
