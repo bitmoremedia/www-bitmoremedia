@@ -55,23 +55,20 @@ const ContactDetails = () => (
   </div>
 )
 
-const ContactPage = ({ data }) => {
-  const BgImg = <Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />
-  return (
-    <div>
-      <PageBackground BgImg={BgImg}>
-        <InitialPageHero
-          title="Talk To A Human"
-          messages={[
-            // 'You’re not going to hit a phone menu option when you call us. You’ll just speak to us directly.',
-            'Your email won’t go into the abyss never to be seen again. You’ll get straight through to us and we’ll respond to your message the same day.',
-          ]}
-          SecondaryContent={ContactDetails}
-        />
-      </PageBackground>
-    </div>
-  )
-}
+const ContactPage = ({ data }) => (
+  <PageBackground
+    BgImg={<Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />}
+  >
+    <InitialPageHero
+      title="Talk To A Human"
+      messages={[
+        // 'You’re not going to hit a phone menu option when you call us. You’ll just speak to us directly.',
+        'Your email won’t go into the abyss never to be seen again. You’ll get straight through to us and we’ll respond to your message the same day.',
+      ]}
+      SecondaryContent={ContactDetails}
+    />
+  </PageBackground>
+)
 
 export default ContactPage
 
@@ -79,7 +76,7 @@ export const query = graphql`
   query ContactPageQuery {
     bgImage: file(relativePath: { eq: "images/architecture-booth-buildings.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
+        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
           ...GatsbyImageSharpSizes
         }
       }

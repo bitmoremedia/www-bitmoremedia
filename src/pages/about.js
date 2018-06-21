@@ -91,35 +91,35 @@ export const query = graphql`
   query AboutPageQuery {
     bgImage: file(relativePath: { eq: "images/blonde-hair-blur-daylight.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
+        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
           ...GatsbyImageSharpSizes
         }
       }
     }
     theJourneyImage: file(relativePath: { eq: "images/woman-on-rocks.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 800) {
+        sizes(maxWidth: 1500) {
           ...GatsbyImageSharpSizes
         }
       }
     }
     ourExperienceImage: file(relativePath: { eq: "images/guy-with-laptop-outside.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 800) {
+        sizes(maxWidth: 1500) {
           ...GatsbyImageSharpSizes
         }
       }
     }
     designingAndCreatingImage: file(relativePath: { eq: "images/laptop-and-canoe.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 800) {
+        sizes(maxWidth: 1500) {
           ...GatsbyImageSharpSizes
         }
       }
     }
     ourStaffImage: file(relativePath: { eq: "images/grand-central-station.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 800) {
+        sizes(maxWidth: 1500) {
           ...GatsbyImageSharpSizes
         }
       }

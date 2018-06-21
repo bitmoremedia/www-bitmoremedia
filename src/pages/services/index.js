@@ -45,7 +45,7 @@ const ServicesPage = ({ data }) => {
 
   return (
     <div>
-      <PageBackground BgImg={BgImg} overlayBackground="rgba(2, 2, 2, 0.3)">
+      <PageBackground BgImg={BgImg}>
         <InitialPageHero
           title="Services"
           messages={['We offer consulting services in: Development, UX & Marketing']}
@@ -70,7 +70,7 @@ export const query = graphql`
   query ServicesPageQuery {
     bgImage: file(relativePath: { eq: "images/services.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
+        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
           ...GatsbyImageSharpSizes
         }
       }

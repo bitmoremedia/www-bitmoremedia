@@ -24,7 +24,10 @@ const IndexPage = ({ data }) => {
       summary: 'We offer consulting services in: Development, UX & Marketing',
       to: 'services',
       Img: (
-        <Img style={bgImageCoverStyle_zIndex0} sizes={data.servicesImage.childImageSharp.sizes} />
+        <Img
+          style={bgImageCoverStyle_zIndex0}
+          resolutions={data.servicesImage.childImageSharp.resolutions}
+        />
       ),
     },
     {
@@ -49,7 +52,7 @@ const IndexPage = ({ data }) => {
   ]
   return (
     <div>
-      <PageBackground BgImg={BgImg} overlayBackground="transparent">
+      <PageBackground BgImg={BgImg}>
         <div className="flex flex-1 flex-col justify-between">
           <div className="flex-grow flex flex-col flex-grow justify-around font-sans text-white subpixel-antialiased _text-shadow">
             <div style={styles.main} className="container px-8 mx-auto">
@@ -139,6 +142,7 @@ const WhatWeDoSection = () => {
 
 export default IndexPage
 
+/*
 export const query = graphql`
   query IndexPageQuery {
     bgImage: file(relativePath: { eq: "images/architecture-bay-blonde.jpg" }) {
@@ -152,6 +156,42 @@ export const query = graphql`
       childImageSharp {
         sizes(maxWidth: 1500) {
           ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    productsImage: file(relativePath: { eq: "images/products-tile.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    partnershipsImage: file(relativePath: { eq: "images/partnerships-tile.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+  }
+`
+*/
+
+// resolutions(width: 525, duotone: { highlight: "#f00e2e", shadow: "#192550" }) {
+
+export const query = graphql`
+  query IndexPageQuery {
+    bgImage: file(relativePath: { eq: "images/architecture-bay-blonde.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+    servicesImage: file(relativePath: { eq: "images/services.jpg" }) {
+      childImageSharp {
+        resolutions(width: 800) {
+          ...GatsbyImageSharpResolutions
         }
       }
     }

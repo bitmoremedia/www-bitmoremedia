@@ -1,12 +1,14 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
-import bgImgSrc from '../../images/marketing-background-image.jpg'
 import PageBackground from '../../components/common/PageBackground'
 import PageHero from '../../components/common/PageHero'
+import bgImageCoverStyle from '../../module/bgImageCoverStyle'
 
-const MarketingPage = () => (
-  <PageBackground bgImgSrc={bgImgSrc}>
+const MarketingPage = ({ data }) => (
+  <PageBackground
+    BgImg={<Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />}
+  >
     <PageHero
       title="Marketing"
       mainText={[
@@ -18,3 +20,15 @@ const MarketingPage = () => (
 )
 
 export default MarketingPage
+
+export const query = graphql`
+  query MarketingPageQuery {
+    bgImage: file(relativePath: { eq: "images/marketing-background-image.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+  }
+`

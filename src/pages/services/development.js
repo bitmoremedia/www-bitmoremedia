@@ -1,12 +1,14 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
-import bgImgSrc from '../../images/software-dev-image.jpg'
 import PageBackground from '../../components/common/PageBackground'
 import PageHero from '../../components/common/PageHero'
+import bgImageCoverStyle from '../../module/bgImageCoverStyle'
 
-const DevelopmentPage = () => (
-  <PageBackground bgImgSrc={bgImgSrc}>
+const DevelopmentPage = ({ data }) => (
+  <PageBackground
+    BgImg={<Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />}
+  >
     <PageHero
       title="Development"
       mainText={[
@@ -20,3 +22,15 @@ const DevelopmentPage = () => (
 )
 
 export default DevelopmentPage
+
+export const query = graphql`
+  query DevelopmentPageQuery {
+    bgImage: file(relativePath: { eq: "images/software-dev-image.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
+          ...GatsbyImageSharpSizes
+        }
+      }
+    }
+  }
+`

@@ -38,7 +38,7 @@ export const query = graphql`
   query PartnershipsPageQuery {
     bgImage: file(relativePath: { eq: "images/partnerships.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
+        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
           ...GatsbyImageSharpSizes
         }
       }
