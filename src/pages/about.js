@@ -98,28 +98,28 @@ export const query = graphql`
     }
     theJourneyImage: file(relativePath: { eq: "images/woman-on-rocks.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
+        sizes(maxWidth: 800) {
           ...GatsbyImageSharpSizes
         }
       }
     }
     ourExperienceImage: file(relativePath: { eq: "images/guy-with-laptop-outside.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
+        sizes(maxWidth: 800) {
           ...GatsbyImageSharpSizes
         }
       }
     }
     designingAndCreatingImage: file(relativePath: { eq: "images/laptop-and-canoe.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
+        sizes(maxWidth: 800) {
           ...GatsbyImageSharpSizes
         }
       }
     }
     ourStaffImage: file(relativePath: { eq: "images/grand-central-station.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
+        sizes(maxWidth: 800) {
           ...GatsbyImageSharpSizes
         }
       }
