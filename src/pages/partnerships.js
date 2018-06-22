@@ -51,15 +51,14 @@ const PartnershipsPage = ({ data }) => {
         <SecondaryPageWrapper fullWidth fullHeight={false} justifyClass="justify-start" bgClass="">
           <InfoBanner
             bgClass="bg-grey"
-            textClass="text-white px-8"
-            type="heading"
-            content={[
+            headingTextClass="text-white px-8"
+            heading={[
               'Our partnership model can work in many ways and in whatever capacity suits your business; from minor input to help shape the direction of the project, through to full management and build.',
             ]}
           />
           <InfoBanner
             bgClass="bg-white"
-            textClass="text-grey-dark px-8"
+            contentTextClass="text-grey-dark px-8"
             content={[
               'In many cases, the project definitions may lay outside your core business area or core competencies. This is where we can help you to fill in the gaps. It’s no secret that small businesses have to invest in IT to remain competitive in a growing market.',
               'And the challenge is finding the right agency for the job.',
@@ -88,9 +87,8 @@ const PartnershipsPage = ({ data }) => {
           </div>
           <InfoBanner
             bgClass="bg-grey"
-            textClass="text-white px-8"
-            type="heading"
-            content={['Why partner with us?']}
+            headingTextClass="text-white px-8"
+            heading={['Why partner with us?']}
           />
           <div className="container mx-auto pt-4 pb-4">
             <div className="px-4 md:px-8 py-2">
@@ -106,6 +104,15 @@ const PartnershipsPage = ({ data }) => {
               </div>
             </div>
           </div>
+          <InfoBanner
+            bgClass="bg-orange"
+            headingTextClass="text-white px-8"
+            contentTextClass="text-white px-8 py-4"
+            heading={['Sounds good what next?']}
+            content={[
+              'If you are interested in working with us as your digital design partner, drop us a line.  We’ll be happy to discuss your needs and those of your customers and which level of partnerships suits you.',
+            ]}
+          />
         </SecondaryPageWrapper>
       </Element>
     </div>
