@@ -25,37 +25,10 @@ const InfoBanner = ({
     text-md
     font-thin
     leading-tight
+    py-3
     ${contentTextClass}
   `
-  /*
-  let infoClass = `
-      container
-      mx-auto
-      px-4
-      md:px-huge
-      ${textClass}
-    `
-  if (type === 'general') {
-    containerClass = `${containerClass} 
-      text-md    
-      font-thin
-      p-6
-    `
-    infoClass = `${infoClass}
-      leading-tight
-      py-3
-    `
-  } else if (type === 'heading') {
-    containerClass = `${containerClass} 
-      text-xl    
-      font-thin
-      p-8
-    `
-    infoClass = `${infoClass}
-      leading-normal
-    `
-  }
-*/
+
   return (
     <div className={bgClass}>
       <div className={containerClass}>
