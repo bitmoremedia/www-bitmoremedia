@@ -22,7 +22,7 @@ const SplitPage = ({
           <h2 className="py-4 text-blue">{title}</h2>
           <div className="">
             {paragraphs.map((p, i) => (
-              <div className="py-2" key={i}>
+              <div className="py-2 leading-tight" key={i}>
                 {p}
               </div>
             ))}
