@@ -5,9 +5,30 @@ import Img from 'gatsby-image'
 import PageBackground from '../components/common/PageBackground'
 import InitialPageHero from '../components/common/InitialPageHero'
 import SecondaryPageWrapper from '../components/common/SecondaryPageWrapper'
-import bgImageCoverStyle from '../module/bgImageCoverStyle'
+import Hr from '../components/common/Hr'
 import InfoBanner from '../components/common/InfoBanner'
+import FancyBullet from '../components/icon/FancyBullet'
+
+import bgImageCoverStyle from '../module/bgImageCoverStyle'
 import { navBarHeight } from '../tailwind/variables'
+import colors from '../tailwind/colors'
+
+const ourGuarantees = [
+  'Partnerships model guarantees fluid project development',
+  'Authentic contribution - nurtured mutual trust',
+  'Accountability - deadlines & budgets are agreed and met',
+  'Transparent communication',
+  'Cultural alignment',
+]
+
+const whyPartner = [
+  'Technical Support - We support our clients by providing timely 24/7 technical expertise and support.',
+  'Lower risk - We contribute to lowering the risk for each partner organisation, wherever possible.',
+  'Revenue Opportunities - Boost revenue by increasing customer engagement through feature-rich apps.',
+  'Global Clientele - We provide mobile solutions to a global clientele on all major platforms.',
+  'Tools and Resources - Identifying the apt tools and resources we help you with in-depth technical knowledge.',
+  'Now Competitive Relationship - We believe in transparent relationship, highly desired value in the corporate world.',
+]
 
 const PartnershipsPage = ({ data }) => {
   const BgImg = <Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />
@@ -27,10 +48,10 @@ const PartnershipsPage = ({ data }) => {
         />
       </PageBackground>
       <Element name="the-model">
-        <SecondaryPageWrapper fullWidth fullHeight={false} justifyClass="justify-start">
+        <SecondaryPageWrapper fullWidth fullHeight={false} justifyClass="justify-start" bgClass="">
           <InfoBanner
             bgClass="bg-grey"
-            textClass="text-white"
+            textClass="text-white px-8"
             type="heading"
             content={[
               'Our partnership model can work in many ways and in whatever capacity suits your business; from minor input to help shape the direction of the project, through to full management and build.',
@@ -38,12 +59,53 @@ const PartnershipsPage = ({ data }) => {
           />
           <InfoBanner
             bgClass="bg-white"
+            textClass="text-grey-dark px-8"
             content={[
               'In many cases, the project definitions may lay outside your core business area or core competencies. This is where we can help you to fill in the gaps. It’s no secret that small businesses have to invest in IT to remain competitive in a growing market.',
               'And the challenge is finding the right agency for the job.',
               'At Bit More Media, we work with you without risks and consequences. We develop the product you expect and goals are achieved.',
             ]}
           />
+          <div className="container mx-auto pb-4">
+            <div className="pb-4 px-4">
+              <Hr color={colors.orange} fullWidth />
+            </div>
+            <div className="px-4 md:px-8 py-2">
+              <h2 className="text-orange pb-4 font-serif text-2xl font-light">
+                Our Guarantee To You
+              </h2>
+              <div className="px-0 md:px-8 py-2">
+                {ourGuarantees.map(guarantee => (
+                  <div className="py-2 flex items-center text-grey-darker">
+                    <div className="pr-4">
+                      <FancyBullet fill={colors.orange} />{' '}
+                    </div>
+                    {guarantee}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <InfoBanner
+            bgClass="bg-grey"
+            textClass="text-white px-8"
+            type="heading"
+            content={['Why partner with us?']}
+          />
+          <div className="container mx-auto pt-4 pb-4">
+            <div className="px-4 md:px-8 py-2">
+              <div className="px-0 md:px-8 py-2 flex flex-wrap">
+                {whyPartner.map(reason => (
+                  <div className="py-4 px-4 flex items-center text-grey-darker md:w-1/2">
+                    <div className="pr-4">
+                      <FancyBullet fill={colors.orange} />{' '}
+                    </div>
+                    {reason}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </SecondaryPageWrapper>
       </Element>
     </div>

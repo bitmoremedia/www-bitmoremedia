@@ -1,9 +1,9 @@
 import React from 'react'
 
 export default ({
-  height = '30px',
-  width = '30px',
-  fill = '#ee9d16',
+  height = '25px',
+  width = '25px',
+  fill = 'lightgrey',
   title = 'Bullet',
   className = '',
 }) => {
