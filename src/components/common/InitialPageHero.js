@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link as ScrollLink, Element } from 'react-scroll'
+import { Link as ScrollLink } from 'react-scroll'
 
 import ScrollDownButton from '../../components/common/ScrollDownButton'
 import { navBarHeight_px } from '../../tailwind/variables'

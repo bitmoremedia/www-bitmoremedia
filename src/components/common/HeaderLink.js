@@ -5,6 +5,7 @@ const HeaderLink = ({ title, path, onNavigate, active }) => {
   const textColorClass = active ? 'text-orange-dark' : 'text-orange '
   return (
     <a
+      href={path}
       onClick={() => {
         push(path)
         if (onNavigate) {

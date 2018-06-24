@@ -7,7 +7,11 @@ const ScrollDownButton = ({ onClick }) => {
     return <DownArrowIcon className="stroke-current" stroke="" />
   }
   return (
-    <a className="cursor-pointer text-white hover:text-orange _transition-all" onClick={onClick}>
+    <a
+      href="#scroll-down"
+      className="cursor-pointer text-white hover:text-orange _transition-all"
+      onClick={onClick}
+    >
       <DownArrowIcon className="stroke-current" stroke="" />
     </a>
   )

@@ -28,7 +28,6 @@ const mobileMenuStyles = {
 class MobileNav extends React.Component {
   render() {
     const { mobileNavOpen, closeMobileNav } = this.props
-    const { onNavigate } = this
 
     const mobileMenuContextualStyles = {
       ...mobileMenuStyles,

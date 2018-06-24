@@ -3,7 +3,7 @@ import { Element } from 'react-scroll'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import PageBackground from '../components/common/PageBackground'
 import InitialPageHero from '../components/common/InitialPageHero'
 import SecondaryPageWrapper from '../components/common/SecondaryPageWrapper'

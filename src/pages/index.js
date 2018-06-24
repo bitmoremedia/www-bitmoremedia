@@ -3,7 +3,7 @@ import { Link as ScrollLink, Element } from 'react-scroll'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import PageBackground from '../components/common/PageBackground'
 import ScrollDownButton from '../components/common/ScrollDownButton'
 import FeatureLinks from '../components/common/FeatureLinks'
@@ -128,7 +128,7 @@ const WhatWeDoSection = () => {
               ))}
             </div>
           </div>
-          <div className="_grid-fallback" className="inline md:hidden py-4">
+          <div className="_grid-fallback inline md:hidden py-4">
             {whatWeDo.map((p, i) => (
               <p key={i} className="text-sm text-grey-dark font-thin py-2">
                 {p}

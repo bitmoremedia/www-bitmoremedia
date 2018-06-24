@@ -42,7 +42,7 @@ class Header extends React.Component {
     }
   }
   render() {
-    const { toggleMobileNav, location } = this.props
+    const { location } = this.props
     const { hasScrolledDown } = this.state
     const bgClass = location.pathname === '/' && !hasScrolledDown ? '' : 'bg-white-translucent'
     const pClass = location.pathname === '/' && !hasScrolledDown ? 'py-8' : ''
@@ -50,7 +50,7 @@ class Header extends React.Component {
       <nav className={`fixed flex z-30 w-full ${bgClass} ${pClass}`} style={styles.nav}>
         <div className="flex flex-wrap items-center justify-between container mx-auto py-2 px-4">
           <Link to="/" className="no-underline flex flex-col">
-            <img className="w-32 md:w-48" src={logoSrc} />
+            <img className="w-32 md:w-48" src={logoSrc} alt="Bit More Media Logo" />
           </Link>
           <div className="hidden md:inline">
             {level1PageLinks.map(link => (

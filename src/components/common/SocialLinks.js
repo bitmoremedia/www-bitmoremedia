@@ -26,7 +26,7 @@ const SocialLinks = ({
       const Icon = Icons[label]
       return (
         <div className={iconClass} key={label}>
-          <a href={url} target="_blank">
+          <a href={url} target="_blank" rel="noopener noreferrer">
             <Icon
               width={iconSize}
               height={iconSize}
