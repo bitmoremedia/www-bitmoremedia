@@ -31,7 +31,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "purgecss": "purgecss -c purgecss.config.js -o ./public",
     "tailwind": "tailwind build ./src/tailwind/index.tailwind.css -c ./src/tailwind/index.js -o ./src/tailwind/index.css",
-    "deploy": "npm run build && surge ./public bmm.surge.sh"
+    "deploy": "npm run build && surge ./public bmm.surge.sh",
+    "deploy-alt": "npm run build && surge ./public bmm-alt.surge.sh"
   },
   "devDependencies": {
     "prettier": "1.13.5",

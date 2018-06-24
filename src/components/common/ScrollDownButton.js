@@ -2,19 +2,10 @@ import React from 'react'
 
 import DownArrowIcon from '../icon/DownArrow'
 
-const ScrollDownButton = ({ onClick }) => {
-  if (!onClick) {
-    return <DownArrowIcon className="stroke-current" stroke="" />
-  }
-  return (
-    <a
-      href="#scroll-down"
-      className="cursor-pointer text-white hover:text-orange _transition-all"
-      onClick={onClick}
-    >
-      <DownArrowIcon className="stroke-current" stroke="" />
-    </a>
-  )
-}
+const ScrollDownButton = () => (
+  <div className="cursor-pointer text-white hover:text-orange _transition-all">
+    <DownArrowIcon className="stroke-current" stroke="" />
+  </div>
+)
 
 export default ScrollDownButton

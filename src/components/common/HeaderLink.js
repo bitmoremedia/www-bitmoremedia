@@ -6,7 +6,8 @@ const HeaderLink = ({ title, path, onNavigate, active }) => {
   return (
     <a
       href={path}
-      onClick={() => {
+      onClick={e => {
+        e.preventDefault()
         push(path)
         if (onNavigate) {
           onNavigate()
