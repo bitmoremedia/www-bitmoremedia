@@ -142,43 +142,6 @@ const WhatWeDoSection = () => {
 
 export default IndexPage
 
-/*
-export const query = graphql`
-  query IndexPageQuery {
-    bgImage: file(relativePath: { eq: "images/architecture-bay-blonde.jpg" }) {
-      childImageSharp {
-        sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes
-        }
-      }
-    }
-    servicesImage: file(relativePath: { eq: "images/services.jpg" }) {
-      childImageSharp {
-        sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes
-        }
-      }
-    }
-    productsImage: file(relativePath: { eq: "images/products-tile.jpg" }) {
-      childImageSharp {
-        sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes
-        }
-      }
-    }
-    partnershipsImage: file(relativePath: { eq: "images/partnerships-tile.jpg" }) {
-      childImageSharp {
-        sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes
-        }
-      }
-    }
-  }
-`
-*/
-
-// resolutions(width: 525, duotone: { highlight: "#f00e2e", shadow: "#192550" }) {
-
 export const query = graphql`
   query IndexPageQuery {
     bgImage: file(relativePath: { eq: "images/architecture-bay-blonde.jpg" }) {
@@ -191,21 +154,21 @@ export const query = graphql`
     servicesImage: file(relativePath: { eq: "images/services.jpg" }) {
       childImageSharp {
         resolutions(width: 800) {
-          ...GatsbyImageSharpResolutions
+          ...GatsbyImageSharpResolutions_tracedSVG
         }
       }
     }
     productsImage: file(relativePath: { eq: "images/products-tile.jpg" }) {
       childImageSharp {
         sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes
+          ...GatsbyImageSharpSizes_tracedSVG
         }
       }
     }
     partnershipsImage: file(relativePath: { eq: "images/partnerships-tile.jpg" }) {
       childImageSharp {
         sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes
+          ...GatsbyImageSharpSizes_tracedSVG
         }
       }
     }

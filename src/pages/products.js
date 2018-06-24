@@ -74,14 +74,14 @@ export const query = graphql`
     tourplanrImage1: file(relativePath: { eq: "images/tourplanr-1.png" }) {
       childImageSharp {
         sizes(maxWidth: 800) {
-          ...GatsbyImageSharpSizes
+          ...GatsbyImageSharpSizes_tracedSVG
         }
       }
     }
     tourplanrImage2: file(relativePath: { eq: "images/tourplanr-2.png" }) {
       childImageSharp {
         sizes(maxWidth: 800) {
-          ...GatsbyImageSharpSizes
+          ...GatsbyImageSharpSizes_tracedSVG
         }
       }
     }

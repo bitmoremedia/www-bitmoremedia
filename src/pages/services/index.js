@@ -78,21 +78,21 @@ export const query = graphql`
     softwareDevelopmentImage: file(relativePath: { eq: "images/software-dev-image.jpg" }) {
       childImageSharp {
         sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes
+          ...GatsbyImageSharpSizes_tracedSVG
         }
       }
     }
     uxImage: file(relativePath: { eq: "images/ux-background-image.jpg" }) {
       childImageSharp {
         sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes
+          ...GatsbyImageSharpSizes_tracedSVG
         }
       }
     }
     marketingImage: file(relativePath: { eq: "images/marketing-background-image.jpg" }) {
       childImageSharp {
         sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes
+          ...GatsbyImageSharpSizes_tracedSVG
         }
       }
     }
