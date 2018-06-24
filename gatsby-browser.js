@@ -6,6 +6,8 @@
 
 import objectFitImages from 'object-fit-images'
 
-exports.onInitialClientRender = () => {
+const onInitialClientRender = () => {
   objectFitImages()
 }
+
+export { onInitialClientRender }
