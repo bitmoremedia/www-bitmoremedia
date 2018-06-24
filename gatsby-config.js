@@ -13,6 +13,7 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    /*
     {
       // NOTE: for now this is implemented as a local plugin (by adding this fork https://github.com/bitmoremedia/gatsby-plugin-favicon
       // to a local plugins directory) as a pull request has been submitted (https://github.com/Creatiwity/gatsby-plugin-favicon/pull/33)
@@ -36,5 +37,6 @@ module.exports = {
         },
       },
     },
+    */
   ],
 }

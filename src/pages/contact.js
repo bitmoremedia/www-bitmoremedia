@@ -1,6 +1,8 @@
 import React from 'react'
 import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
+import Layout from '../components/Layout'
 import PageBackground from '../components/common/PageBackground'
 import InitialPageHero from '../components/common/InitialPageHero'
 import SocialLinks from '../components/common/SocialLinks'
@@ -55,19 +57,21 @@ const ContactDetails = () => (
   </div>
 )
 
-const ContactPage = ({ data }) => (
-  <PageBackground
-    BgImg={<Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />}
-  >
-    <InitialPageHero
-      title="Talk To A Human"
-      messages={[
-        // 'You’re not going to hit a phone menu option when you call us. You’ll just speak to us directly.',
-        'Your email won’t go into the abyss never to be seen again. You’ll get straight through to us and we’ll respond to your message the same day.',
-      ]}
-      SecondaryContent={ContactDetails}
-    />
-  </PageBackground>
+const ContactPage = ({ data, location }) => (
+  <Layout location={location}>
+    <PageBackground
+      BgImg={<Img style={bgImageCoverStyle} fluid={data.bgImage.childImageSharp.fluid} />}
+    >
+      <InitialPageHero
+        title="Talk To A Human"
+        messages={[
+          // 'You’re not going to hit a phone menu option when you call us. You’ll just speak to us directly.',
+          'Your email won’t go into the abyss never to be seen again. You’ll get straight through to us and we’ll respond to your message the same day.',
+        ]}
+        SecondaryContent={ContactDetails}
+      />
+    </PageBackground>
+  </Layout>
 )
 
 export default ContactPage
@@ -76,8 +80,8 @@ export const query = graphql`
   query ContactPageQuery {
     bgImage: file(relativePath: { eq: "images/architecture-booth-buildings.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
-          ...GatsbyImageSharpSizes
+        fluid(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

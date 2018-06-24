@@ -1,7 +1,9 @@
 import React from 'react'
 import { Element } from 'react-scroll'
 import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
+import Layout from '../components/layout'
 import PageBackground from '../components/common/PageBackground'
 import InitialPageHero from '../components/common/InitialPageHero'
 import SecondaryPageWrapper from '../components/common/SecondaryPageWrapper'
@@ -30,10 +32,10 @@ const whyPartner = [
   'Now Competitive Relationship - We believe in transparent relationship, highly desired value in the corporate world.',
 ]
 
-const PartnershipsPage = ({ data }) => {
-  const BgImg = <Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />
+const PartnershipsPage = ({ data, location }) => {
+  const BgImg = <Img style={bgImageCoverStyle} fluid={data.bgImage.childImageSharp.fluid} />
   return (
-    <div>
+    <Layout location={location}>
       <PageBackground BgImg={BgImg}>
         <InitialPageHero
           title="Partnerships"
@@ -115,7 +117,7 @@ const PartnershipsPage = ({ data }) => {
           />
         </SecondaryPageWrapper>
       </Element>
-    </div>
+    </Layout>
   )
 }
 
@@ -125,8 +127,8 @@ export const query = graphql`
   query PartnershipsPageQuery {
     bgImage: file(relativePath: { eq: "images/partnerships.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
-          ...GatsbyImageSharpSizes
+        fluid(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

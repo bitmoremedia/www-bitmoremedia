@@ -1,16 +1,18 @@
 import React from 'react'
 import { Element } from 'react-scroll'
 import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
+import Layout from '../components/Layout'
 import PageBackground from '../components/common/PageBackground'
 import InitialPageHero from '../components/common/InitialPageHero'
 import SplitPage from '../components/common/SplitPage'
 import bgImageCoverStyle, { bgImageCoverStyle_zIndex0 } from '../module/bgImageCoverStyle'
 
-const AboutPage = ({ data }) => (
-  <div>
+const AboutPage = ({ data, location }) => (
+  <Layout location={location}>
     <PageBackground
-      BgImg={<Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />}
+      BgImg={<Img style={bgImageCoverStyle} fluid={data.bgImage.childImageSharp.fluid} />}
     >
       <InitialPageHero
         title="About Us"
@@ -35,7 +37,7 @@ const AboutPage = ({ data }) => (
         Img={
           <Img
             style={bgImageCoverStyle_zIndex0}
-            sizes={data.theJourneyImage.childImageSharp.sizes}
+            fluid={data.theJourneyImage.childImageSharp.fluid}
           />
         }
         imageSide="right"
@@ -50,7 +52,7 @@ const AboutPage = ({ data }) => (
       Img={
         <Img
           style={bgImageCoverStyle_zIndex0}
-          sizes={data.ourExperienceImage.childImageSharp.sizes}
+          fluid={data.ourExperienceImage.childImageSharp.fluid}
         />
       }
       imageSide="left"
@@ -65,7 +67,7 @@ const AboutPage = ({ data }) => (
       Img={
         <Img
           style={bgImageCoverStyle_zIndex0}
-          sizes={data.designingAndCreatingImage.childImageSharp.sizes}
+          fluid={data.designingAndCreatingImage.childImageSharp.fluid}
         />
       }
       imageSide="right"
@@ -78,11 +80,11 @@ const AboutPage = ({ data }) => (
         'So if a user centred solution needs more ‘manpower’ on the project, then we have the ability to quickly add more highly skilled contributors. Just talk to us about your needs.',
       ]}
       Img={
-        <Img style={bgImageCoverStyle_zIndex0} sizes={data.ourStaffImage.childImageSharp.sizes} />
+        <Img style={bgImageCoverStyle_zIndex0} fluid={data.ourStaffImage.childImageSharp.fluid} />
       }
       imageSide="left"
     />
-  </div>
+  </Layout>
 )
 
 export default AboutPage
@@ -91,36 +93,36 @@ export const query = graphql`
   query AboutPageQuery {
     bgImage: file(relativePath: { eq: "images/blonde-hair-blur-daylight.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
-          ...GatsbyImageSharpSizes
+        fluid(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
     theJourneyImage: file(relativePath: { eq: "images/woman-on-rocks.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 800) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
     ourExperienceImage: file(relativePath: { eq: "images/guy-with-laptop-outside.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 800) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
     designingAndCreatingImage: file(relativePath: { eq: "images/laptop-and-canoe.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 800) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
     ourStaffImage: file(relativePath: { eq: "images/grand-central-station.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 800) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }

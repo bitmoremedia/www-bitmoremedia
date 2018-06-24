@@ -1,19 +1,17 @@
 import React from 'react'
 import { Element } from 'react-scroll'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+import Layout from '../../components/Layout'
 import PageBackground from '../../components/common/PageBackground'
 import FeatureLinks from '../../components/common/FeatureLinks'
 import InitialPageHero from '../../components/common/InitialPageHero'
 import SecondaryPageWrapper from '../../components/common/SecondaryPageWrapper'
 import bgImageCoverStyle, { bgImageCoverStyle_zIndex0 } from '../../module/bgImageCoverStyle'
 
-import softwareDevelopmentImgSrc from '../../images/software-dev-image.jpg'
-import uxImgSrc from '../../images/ux-background-image.jpg'
-import marketingImgSrc from '../../images/marketing-background-image.jpg'
-
-const ServicesPage = ({ data }) => {
-  const BgImg = <Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />
+const ServicesPage = ({ data, location }) => {
+  const BgImg = <Img style={bgImageCoverStyle} fluid={data.bgImage.childImageSharp.fluid} />
   const services = [
     {
       title: 'Development',
@@ -22,7 +20,7 @@ const ServicesPage = ({ data }) => {
       Img: (
         <Img
           style={bgImageCoverStyle_zIndex0}
-          sizes={data.softwareDevelopmentImage.childImageSharp.sizes}
+          fluid={data.softwareDevelopmentImage.childImageSharp.fluid}
         />
       ),
     },
@@ -31,20 +29,20 @@ const ServicesPage = ({ data }) => {
       to: '/services/user-experience',
       summary:
         'We help you to design products which are useful, easy to use, and delightful to interact with',
-      Img: <Img style={bgImageCoverStyle_zIndex0} sizes={data.uxImage.childImageSharp.sizes} />,
+      Img: <Img style={bgImageCoverStyle_zIndex0} fluid={data.uxImage.childImageSharp.fluid} />,
     },
     {
       title: 'Marketing',
       to: '/services/marketing',
       summary: 'Strategy & planning. Analysis & measurement. We craft integrated brand campaigns',
       Img: (
-        <Img style={bgImageCoverStyle_zIndex0} sizes={data.marketingImage.childImageSharp.sizes} />
+        <Img style={bgImageCoverStyle_zIndex0} fluid={data.marketingImage.childImageSharp.fluid} />
       ),
     },
   ]
 
   return (
-    <div>
+    <Layout location={location}>
       <PageBackground BgImg={BgImg}>
         <InitialPageHero
           title="Services"
@@ -60,7 +58,7 @@ const ServicesPage = ({ data }) => {
           <FeatureLinks features={services} />
         </SecondaryPageWrapper>
       </Element>
-    </div>
+    </Layout>
   )
 }
 
@@ -70,29 +68,29 @@ export const query = graphql`
   query ServicesPageQuery {
     bgImage: file(relativePath: { eq: "images/services.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
-          ...GatsbyImageSharpSizes
+        fluid(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
     softwareDevelopmentImage: file(relativePath: { eq: "images/software-dev-image.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 1500) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
     uxImage: file(relativePath: { eq: "images/ux-background-image.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 1500) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
     marketingImage: file(relativePath: { eq: "images/marketing-background-image.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 1500) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }

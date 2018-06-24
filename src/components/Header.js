@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
 import { level1PageLinks } from '../config'
 import HeaderLink from './common/HeaderLink'

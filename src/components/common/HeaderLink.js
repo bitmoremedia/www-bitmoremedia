@@ -1,12 +1,12 @@
 import React from 'react'
-import { navigateTo } from 'gatsby-link'
+import { push } from 'gatsby'
 
 const HeaderLink = ({ title, path, onNavigate, active }) => {
   const textColorClass = active ? 'text-orange-dark' : 'text-orange '
   return (
     <a
       onClick={() => {
-        navigateTo(path)
+        push(path)
         if (onNavigate) {
           onNavigate()
         }

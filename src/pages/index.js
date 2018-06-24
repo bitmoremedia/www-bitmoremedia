@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link as ScrollLink, Element } from 'react-scroll'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+import Layout from '../components/layout'
 import PageBackground from '../components/common/PageBackground'
 import ScrollDownButton from '../components/common/ScrollDownButton'
 import FeatureLinks from '../components/common/FeatureLinks'
@@ -16,8 +18,8 @@ const styles = {
   },
 }
 
-const IndexPage = ({ data }) => {
-  const BgImg = <Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />
+const IndexPage = ({ data, location }) => {
+  const BgImg = <Img style={bgImageCoverStyle} fluid={data.bgImage.childImageSharp.fluid} />
   whatWeDoItems = [
     {
       title: 'Services',
@@ -35,7 +37,7 @@ const IndexPage = ({ data }) => {
       summary: 'In-house built apps. Crafted with passion and the latest technology',
       to: 'products',
       Img: (
-        <Img style={bgImageCoverStyle_zIndex0} sizes={data.productsImage.childImageSharp.sizes} />
+        <Img style={bgImageCoverStyle_zIndex0} fluid={data.productsImage.childImageSharp.fluid} />
       ),
     },
     {
@@ -45,13 +47,13 @@ const IndexPage = ({ data }) => {
       Img: (
         <Img
           style={bgImageCoverStyle_zIndex0}
-          sizes={data.partnershipsImage.childImageSharp.sizes}
+          fluid={data.partnershipsImage.childImageSharp.fluid}
         />
       ),
     },
   ]
   return (
-    <div>
+    <Layout location={location}>
       <PageBackground BgImg={BgImg}>
         <div className="flex flex-1 flex-col justify-between">
           <div className="flex-grow flex flex-col flex-grow justify-around font-sans text-white subpixel-antialiased _text-shadow">
@@ -81,7 +83,7 @@ const IndexPage = ({ data }) => {
         </div>
       </PageBackground>
       {WhatWeDoSection()}
-    </div>
+    </Layout>
   )
 }
 
@@ -146,8 +148,8 @@ export const query = graphql`
   query IndexPageQuery {
     bgImage: file(relativePath: { eq: "images/architecture-bay-blonde.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
-          ...GatsbyImageSharpSizes
+        fluid(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -160,15 +162,15 @@ export const query = graphql`
     }
     productsImage: file(relativePath: { eq: "images/products-tile.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 1500) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
     partnershipsImage: file(relativePath: { eq: "images/partnerships-tile.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 1500) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }

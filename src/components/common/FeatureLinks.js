@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import { bgImageCoverStyle_zIndex0 } from '../../module/bgImageCoverStyle'
 
 const FeatureLinks = ({ features }) => {

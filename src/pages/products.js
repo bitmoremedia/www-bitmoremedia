@@ -1,16 +1,18 @@
 import React from 'react'
 import { Element } from 'react-scroll'
 import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
+import Layout from '../components/layout'
 import PageBackground from '../components/common/PageBackground'
 import InitialPageHero from '../components/common/InitialPageHero'
 import SplitPage from '../components/common/SplitPage'
 import bgImageCoverStyle, { bgImageCoverStyle_zIndex0 } from '../module/bgImageCoverStyle'
 
-const ProductsPage = ({ data }) => {
-  const BgImg = <Img style={bgImageCoverStyle} sizes={data.bgImage.childImageSharp.sizes} />
+const ProductsPage = ({ data, location }) => {
+  const BgImg = <Img style={bgImageCoverStyle} fluid={data.bgImage.childImageSharp.fluid} />
   return (
-    <div>
+    <Layout location={location}>
       <PageBackground BgImg={BgImg}>
         <InitialPageHero
           title="Products"
@@ -35,7 +37,7 @@ const ProductsPage = ({ data }) => {
           Img={
             <Img
               style={bgImageCoverStyle_zIndex0}
-              sizes={data.tourplanrImage1.childImageSharp.sizes}
+              fluid={data.tourplanrImage1.childImageSharp.fluid}
             />
           }
           imageSide="right"
@@ -50,13 +52,13 @@ const ProductsPage = ({ data }) => {
           Img={
             <Img
               style={bgImageCoverStyle_zIndex0}
-              sizes={data.tourplanrImage2.childImageSharp.sizes}
+              fluid={data.tourplanrImage2.childImageSharp.fluid}
             />
           }
           imageSide="left"
         />
       </Element>
-    </div>
+    </Layout>
   )
 }
 
@@ -66,22 +68,22 @@ export const query = graphql`
   query ProductsPageQuery {
     bgImage: file(relativePath: { eq: "images/products.jpg" }) {
       childImageSharp {
-        sizes(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
-          ...GatsbyImageSharpSizes
+        fluid(maxWidth: 1500, duotone: { highlight: "#e4e3e3", shadow: "#192550", opacity: 50 }) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
     tourplanrImage1: file(relativePath: { eq: "images/tourplanr-1.png" }) {
       childImageSharp {
-        sizes(maxWidth: 800) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
     tourplanrImage2: file(relativePath: { eq: "images/tourplanr-2.png" }) {
       childImageSharp {
-        sizes(maxWidth: 800) {
-          ...GatsbyImageSharpSizes_tracedSVG
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
