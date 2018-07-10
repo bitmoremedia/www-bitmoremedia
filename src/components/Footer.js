@@ -27,9 +27,9 @@ const colorClasses = {
 }
 
 const main = (
-  <div className="container mx-auto flex flex-col md:flex-row py-8 justify-around font-light tracking-normal leading-tight">
+  <div className="container mx-auto flex flex-col md:flex-row pt-10 pb-8 justify-around font-light tracking-normal leading-normal">
     <div className="md:w-1/4">
-      <div className={`pb-4 ${colorClasses.altText}`}>GET IN TOUCH</div>
+      <div className={`pb-4 text-lg ${colorClasses.altText}`}>GET IN TOUCH</div>
       <div className="py-4">
         We are a London based digital agency with a home office in Crystal Palace, London. We have
         shared offices across London; get in touch to find out the closest office to you.{' '}
@@ -54,9 +54,9 @@ const main = (
       </div>
     </div>
     <div className="md:w-1/4 pt-6 md:pt-0">
-      <div className={`pb-2 ${colorClasses.altText}`}>NAVIGATION</div>
+      <div className={`pb-2 text-lg ${colorClasses.altText}`}>NAVIGATION</div>
       <div className="py-4">
-        <ul className="list-reset pl-4">
+        <ul className="list-reset md:pl-4">
           {links.map(link => (
             <li key={link.path}>
               <Link
@@ -68,7 +68,7 @@ const main = (
                 {link.title}
               </Link>
               {link.subpages && (
-                <ul className="list-reset pl-4">
+                <ul className="list-reset pl-6">
                   {link.subpages &&
                     link.subpages.map(subpageLink => (
                       <li key={subpageLink.path}>
@@ -103,7 +103,7 @@ const base = (
 )
 
 const Footer = () => (
-  <div className={`${colorClasses.background} text-sm p-6 ${colorClasses.mainText}`}>
+  <div className={`${colorClasses.background} p-8 ${colorClasses.mainText}`}>
     {main}
     <SocialLinks
       iconSize={40}

@@ -19,8 +19,8 @@ const InitialPageHero = ({
       style={{ marginTop: navBarHeight_px }}
       className="flex flex-1 flex-col justify-around container px-8 pb-8 mx-auto text-white subpixel-antialiased _text-shadow"
     >
-      <div className="max-w-sm flex flex-1 flex-col justify-center">
-        {title && <h1 className="text-3xl py-8">{title}</h1>}
+      <div className="max-w-lg flex flex-1 flex-col justify-center">
+        {title && <h1 className="text-5xl py-8">{title}</h1>}
         {titles &&
           titles.length > 0 && (
             <div className="py-6">
@@ -34,7 +34,7 @@ const InitialPageHero = ({
         {messages &&
           messages.length &&
           messages.map((message, i) => (
-            <p key={i} className="md:text-l leading-normal pb-8">
+            <p key={i} className="text-lg md:text-xl leading-normal pb-8">
               {message}
             </p>
           ))}

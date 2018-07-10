@@ -17,7 +17,7 @@ const ProductsPage = ({ data, location }) => {
         <InitialPageHero
           title="Products"
           messages={[
-            'We at Bit More Media love digital. Websites and Apps. That’s a fact.',
+            'We at Bit More Media love digital, websites and Apps. That’s a fact.',
             'We like to create solutions to problems or issues an individual has, which can be aided or solved completely within the digital world.',
           ]}
           scrollTo="tourplanr"
@@ -29,10 +29,10 @@ const ProductsPage = ({ data, location }) => {
         <SplitPage
           title="Tourplanr"
           paragraphs={[
-            'When we, at Bit More Media, come across something that doesn’t quite work for us, we want to develop a new solution.',
-            'This happened to us when planning a three month tour of South America. Flights bookings, hotel bookings, activities. So much information we needed in one place, in an easy to access and simple to digest format.',
-            'We searched the app store and online to find something we could use, initially creating an online spreadsheet. Whilst this held all the information we needed, it wasn’t easy to read on a mobile device; the very thing we would be using on our travels.',
-            'And so the idea for Tourplanr was born. An easy to use, easy to input data and easy to read plan of our trip. As we travelled around South America, through ten countries, on over 20 flights, we had the timings and details for each excursion. It made it simpler to go between activities and across borders.',
+            'When we, at Bit More Media, come across something that doesn’t quite work for us, we want to develop a solution.',
+            'This happened to us when planning a three month tour of South America. Flight bookings, hotel bookings, activities. So much information needed in one place; in an easy to access and simple to digest format.',
+            'We searched app stores and online to find something we could use. Initially we created an online spreadsheet. Whilst this held all the information we needed, it wasn’t easy to read on the move or on a mobile device; the very thing we would be using on our travels.',
+            'And so the idea for Tourplanr was born. An easy to use, easy to input data and easy to read plan of our entire trip. As we travelled around South America, through ten countries, on over 20 flights, we had the timings and details for each excursion. It made it simpler to go between activities and across borders.',
           ]}
           Img={
             <Img
@@ -46,8 +46,8 @@ const ProductsPage = ({ data, location }) => {
           title="Travelling Made Easy"
           paragraphs={[
             'It made planning the trip easier too, as we could plot on a map where our travels would take us and what area we needed to stay in, to make the next day seamless. It meant we cut down on travelling time, and on travel expenses. It meant we got to spend more of our time in this extraordinary continent exploring.',
-            'Tourplanr was built in <insert tech talk> and can be accessed on or offline. This allows the user to input all data and get the correct timings before they travel. Once they are in another country - in which they may not be able to use data or wifi - it allows them to load up the app which already has there information stored and access flight times, their flight number etc.',
-            'This app makes travel easier. It gives the user peace of mind. It also allows the user to share their journey with family and friends, so they can figuratively join them on their adventure.',
+            'Tourplanr was built as a progressive web app and can be accessed on or offline. This allows the user to input all data and get the correct timings before they travel. Once they are in another country - in which they may not be able to use data or wifi - it allows them to load up the app which already has their information stored and access flight times, flight numbers etc.',
+            'This app makes travel easier. It gives the user peace of mind. It also allows the user to share their journey with family and friends, so they can join them on their adventure (figuratively).',
           ]}
           Img={
             <Img

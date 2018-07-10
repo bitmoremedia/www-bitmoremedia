@@ -15,10 +15,7 @@ const DevelopmentPage = ({ data, location }) => (
       <PageHero
         title="Development"
         mainText={[
-          'We can assist your business with many complex requirements for bespoke webdevelopment. Our developers have in-depth knowledge covering a broad range of programming language, and can help with projects which include:',
-        ]}
-        subText={[
-          'Our digital design and development solutions are competitively priced. You truly get value for money. So if your business is starting out or seeking a brand/website redesign, we have the experience and resources to deliver an optimised user-centric solution.',
+          'We can assist your business with many complex requirements for bespoke web and app development. We have in-depth knowledge covering a broad range of programming languages. Our digital design & development solutions are competitively priced. You truly get value for money. So if your business is starting out or seeking a brand/website redesign, we have the experience & resources to deliver an optimised user-centric solution.',
         ]}
       />
     </PageBackground>

@@ -6,18 +6,22 @@ const InfoBanner = ({
   bgClass = '',
   contentTextClass = 'text-grey-dark',
   headingTextClass = 'text-grey-dark',
+  centreText = true,
 }) => {
+  const centerTextClass = centreText ? 'md:text-center' : ''
+
   const containerClass = `
     container
     mx-auto  
-    text-center 
     p-8
+    ${centerTextClass}
   `
 
   const headingClass = `
-    text-xl    
+    text-2xl    
     font-thin
     leading-normal
+    py-2
     ${headingTextClass}
   `
 
@@ -25,7 +29,7 @@ const InfoBanner = ({
     text-md
     font-thin
     leading-tight
-    py-3
+    py-2
     ${contentTextClass}
   `
 

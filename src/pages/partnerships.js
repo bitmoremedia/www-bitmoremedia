@@ -55,7 +55,7 @@ const PartnershipsPage = ({ data, location }) => {
             bgClass="bg-grey"
             headingTextClass="text-white px-2 md:px-8"
             heading={[
-              'Our partnership model can work in many ways and in whatever capacity suits your business; from minor input to help shape the direction of the project, through to full management and build.',
+              'Our partnership model can work in many ways and in whatever capacity suits your business. From minor input to help shape the direction of the project, through to full management and build.',
             ]}
           />
           <InfoBanner
@@ -66,6 +66,7 @@ const PartnershipsPage = ({ data, location }) => {
               'And the challenge is finding the right agency for the job.',
               'At Bit More Media, we work with you without risks and consequences. We develop the product you expect and goals are achieved.',
             ]}
+            centreText={false}
           />
           <div className="container mx-auto pb-4">
             <div className="pb-4 px-4">
@@ -109,10 +110,11 @@ const PartnershipsPage = ({ data, location }) => {
           <InfoBanner
             bgClass="bg-orange"
             headingTextClass="text-white px-2 md:px-8"
-            contentTextClass="text-white px-2 md:px-8 py-4"
-            heading={['Sounds good what next?']}
+            contentTextClass="text-white text-lg px-2 md:px-8 py-4"
+            heading={['Sounds good... what next?']}
             content={[
-              'If you are interested in working with us as your digital design partner, drop us a line.  We’ll be happy to discuss your needs and those of your customers and which level of partnerships suits you.',
+              'If you are interested in working with us as your digital design partner, drop us a line.',
+              'We’ll be happy to discuss your needs and those of your customers and find the right level of partnership.',
             ]}
           />
         </SecondaryPageWrapper>

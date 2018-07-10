@@ -28,7 +28,7 @@ const ServicesPage = ({ data, location }) => {
       title: 'User Experience',
       to: '/services/user-experience',
       summary:
-        'We help you to design products which are useful, easy to use, and delightful to interact with',
+        'We help you design products which are useful, easy to use & delightful to interact with',
       Img: <Img style={bgImageCoverStyle_zIndex0} fluid={data.uxImage.childImageSharp.fluid} />,
     },
     {
@@ -46,7 +46,7 @@ const ServicesPage = ({ data, location }) => {
       <PageBackground BgImg={BgImg}>
         <InitialPageHero
           title="Services"
-          messages={['We offer consulting services in: Development, UX & Marketing']}
+          messages={['We offer consulting services in Development, UX & Marketing']}
           scrollTo="service-list"
           quote="When you remove layers, simplicity and speed happen"
           quoteBy="Ginni Rometty, CEO, IBM"
@@ -54,7 +54,7 @@ const ServicesPage = ({ data, location }) => {
       </PageBackground>
       <Element name="service-list">
         <SecondaryPageWrapper>
-          <h1 className="text-grey text-sm uppercase font-light">Our Services</h1>
+          <h1 className="text-grey text-lg uppercase font-light">Our Services</h1>
           <FeatureLinks features={services} />
         </SecondaryPageWrapper>
       </Element>
