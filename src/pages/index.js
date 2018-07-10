@@ -64,7 +64,7 @@ const IndexPage = ({ data, location }) => {
                 <div>User Experience.</div>
                 <div>Marketing.</div>
               </div>
-              <div className="text-sm">
+              <div className="text-base">
                 We can help you deliver the right solution for your customers.
               </div>
             </div>

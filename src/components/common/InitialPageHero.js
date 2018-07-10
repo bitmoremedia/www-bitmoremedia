@@ -12,9 +12,10 @@ const InitialPageHero = ({
   scrollOffset = 0,
   quote,
   quoteBy,
+  bgClass = 'bg-transparent-dark',
   SecondaryContent,
 }) => (
-  <div className="flex flex-1 flex-col justify-between">
+  <div className={`flex flex-1 flex-col justify-between ${bgClass}`}>
     <div
       style={{ marginTop: navBarHeight_px }}
       className="flex flex-1 flex-col justify-around container px-8 pb-8 mx-auto text-white subpixel-antialiased _text-shadow"
@@ -41,15 +42,17 @@ const InitialPageHero = ({
       </div>
       {scrollTo && (
         <div className="text-center pb-2 md:pb-0 md:pt-8">
-          <ScrollLink
-            to={scrollTo}
-            smooth={true}
-            duration={500}
-            offset={scrollOffset}
-            className="cursor-pointer text-white hover:text-orange _transition-all"
-          >
-            <ScrollDownButton />
-          </ScrollLink>
+          <div className="inline-block">
+            <ScrollLink
+              to={scrollTo}
+              smooth={true}
+              duration={500}
+              offset={scrollOffset}
+              className="cursor-pointer text-white hover:text-orange _transition-all"
+            >
+              <ScrollDownButton />
+            </ScrollLink>
+          </div>
         </div>
       )}
     </div>

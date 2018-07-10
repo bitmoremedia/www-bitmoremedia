@@ -17,8 +17,8 @@ const AboutPage = ({ data, location }) => (
       <InitialPageHero
         title="About Us"
         messages={[
-          'We are a London based digital agency specialising in end-to-end delivery of web, app and mobile projects, products and partnerships',
-          'That explains the what of Bit More Media, but there is a lot more to us, how we came to be and why we love what we do (and why we’re good at it).',
+          'We are a London based digital agency specialising in end-to-end delivery of web, app and mobile services, products and partnerships',
+          'But there is a lot more to us, how we came to be, why we love what we do and why we’re good at it.',
         ]}
         scrollTo="the-journey"
         quote="It's not a faith in technology. It's faith in people"
