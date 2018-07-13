@@ -3,7 +3,7 @@ import { Subscribe } from 'unstated'
 
 import { level1PageLinks } from '../config'
 import NavStore from '../store/NavStore'
-import HeaderLink from './common/HeaderLink'
+import NavLink from './common/NavLink'
 
 const links = [
   {
@@ -40,7 +40,7 @@ class MobileNav extends React.Component {
           className="bg-white border-solid border-r border-orange-lightest"
           style={mobileMenuContextualStyles}
         >
-          {links.map(link => <HeaderLink key={link.path} {...link} onNavigate={closeMobileNav} />)}
+          {links.map(link => <NavLink key={link.path} {...link} onNavigate={closeMobileNav} />)}
         </div>
       </div>
     )

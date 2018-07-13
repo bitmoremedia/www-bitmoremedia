@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import { level1PageLinks } from '../config'
-import HeaderLink from './common/HeaderLink'
+import NavLink from './common/NavLink'
 import MobileNavToggle from './MobileNavToggle'
 import logoSrc from '../images/bitmoremedia-logo.png'
 import { navBarHeight_px } from '../tailwind/variables'
@@ -54,9 +54,10 @@ class Header extends React.Component {
           </Link>
           <div className="hidden md:inline">
             {level1PageLinks.map(link => (
-              <HeaderLink
+              <NavLink
                 active={!!(location.pathname.indexOf(link.path) > -1)}
                 key={link.path}
+                customClass="mx-2 md:mx-4 lg:mx-6"
                 {...link}
               />
             ))}

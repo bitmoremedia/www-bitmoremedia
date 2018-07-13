@@ -6,12 +6,14 @@ import Layout from '../../components/Layout'
 import PageBackground from '../../components/common/PageBackground'
 import PageHero from '../../components/common/PageHero'
 import bgImageCoverStyle from '../../module/bgImageCoverStyle'
+import BreadCrumb from '../../components/BreadCrumb'
 
 const DevelopmentPage = ({ data, location }) => (
   <Layout location={location}>
     <PageBackground
       BgImg={<Img style={bgImageCoverStyle} fluid={data.bgImage.childImageSharp.fluid} />}
     >
+      <BreadCrumb location={location} />
       <PageHero
         title="Development"
         mainText={[

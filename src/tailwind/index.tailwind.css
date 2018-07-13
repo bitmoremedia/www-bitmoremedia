@@ -20,6 +20,10 @@
   transition: all 0.2s ease;
 }
 
+._transition-color {
+  transition: color 0.2s ease;
+}
+
 ._tilt-on-hover {
   transition: transform 0.2s ease;
 }
