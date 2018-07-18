@@ -28,7 +28,7 @@ const colorClasses = {
 
 const main = (
   <div className="container mx-auto flex flex-col md:flex-row pt-10 pb-8 justify-around font-light tracking-normal leading-normal">
-    <div className="md:w-1/4">
+    <div className="md:w-1/2">
       <div className={`pb-4 text-lg ${colorClasses.altText}`}>GET IN TOUCH</div>
       <div className="py-4">
         We are a London based digital agency with a home office in Crystal Palace, London. We have

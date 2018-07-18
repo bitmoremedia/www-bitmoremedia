@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Subscribe } from 'unstated'
 
 import { level1PageLinks } from '../config'
@@ -18,10 +18,10 @@ const mobileMenuStyles = {
   zIndex: 99999,
   top: 0,
   left: 0,
-  right: '50%',
   bottom: 0,
   paddingTop: '20px',
   paddingLeft: '20px',
+  paddingRight: '40px',
   transition: 'all 0.3s',
 }
 
@@ -40,7 +40,17 @@ class MobileNav extends React.Component {
           className="bg-white border-solid border-r border-orange-lightest"
           style={mobileMenuContextualStyles}
         >
-          {links.map(link => <NavLink key={link.path} {...link} onNavigate={closeMobileNav} />)}
+          {links.map(link => (
+            <Fragment>
+              <NavLink key={link.path} {...link} onNavigate={closeMobileNav} />
+              {link.subpages &&
+                link.subpages.map(subpageLink => (
+                  <div className="pl-6">
+                    <NavLink key={subpageLink.path} {...subpageLink} onNavigate={closeMobileNav} />
+                  </div>
+                ))}
+            </Fragment>
+          ))}
         </div>
       </div>
     )
