@@ -2,6 +2,7 @@ import React from 'react'
 import { Element } from 'react-scroll'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 
 import Layout from '../../components/Layout'
 import PageBackground from '../../components/common/PageBackground'
@@ -41,12 +42,33 @@ const ServicesPage = ({ data, location }) => {
     },
   ]
 
+  const linkStyleClasses = 'text-white hover:text-orange-dark cursor-pointer no-underline'
+  const linkStyles = {
+    borderBottom: '1px solid white',
+  }
+
+  const serviceMessage = (
+    <div>
+      We offer consulting services in{' '}
+      <Link style={linkStyles} className={linkStyleClasses} to={'/services/development'}>
+        Development
+      </Link>,{' '}
+      <Link style={linkStyles} className={linkStyleClasses} to={'/services/user-experience'}>
+        UX
+      </Link>{' '}
+      &{' '}
+      <Link style={linkStyles} className={linkStyleClasses} to={'/services/marketing'}>
+        Marketing
+      </Link>
+    </div>
+  )
+
   return (
     <Layout location={location}>
       <PageBackground BgImg={BgImg}>
         <InitialPageHero
           title="Services"
-          messages={['We offer consulting services in Development, UX & Marketing']}
+          messages={[serviceMessage]}
           scrollTo="service-list"
           quote="When you remove layers, simplicity and speed happen"
           quoteBy="Ginni Rometty, CEO, IBM"
