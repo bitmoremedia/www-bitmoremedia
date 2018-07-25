@@ -54,8 +54,10 @@ const ServicesPage = ({ data, location }) => {
       </PageBackground>
       <Element name="service-list">
         <SecondaryPageWrapper>
-          <h1 className="text-grey text-lg uppercase font-light">Our Services</h1>
-          <FeatureLinks features={services} />
+          <div>
+            <h1 className="text-grey text-lg uppercase font-light">Our Services</h1>
+            <FeatureLinks features={services} />
+          </div>
         </SecondaryPageWrapper>
       </Element>
     </Layout>

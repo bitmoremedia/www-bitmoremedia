@@ -114,9 +114,9 @@ const WhatWeDoSection = () => {
   return (
     <SecondaryPageWrapper>
       <Element name="what-we-do">
-        <div className="xl:w-5/6 font-sans">
-          <h1 className="text-grey text-sm uppercase font-light">What we do</h1>
-          <h2 className="pt-8 pb-6 font-serif text-2xl font-light">
+        <div className="font-sans">
+          <h1 className="text-grey text-base uppercase font-light">What we do</h1>
+          <h2 className="pt-4 pb-6 font-serif text-3xl font-light">
             Digital Services & Solutions Agency
           </h2>
           <div className="hidden md:inline  py-4">
@@ -128,7 +128,14 @@ const WhatWeDoSection = () => {
               ))}
             </div>
           </div>
-          <div className="_grid-fallback inline md:hidden py-4">
+          <div className="_grid-fallback py-4">
+            {whatWeDo.map((p, i) => (
+              <p key={i} className="text-sm text-grey-dark font-thin py-2">
+                {p}
+              </p>
+            ))}
+          </div>
+          <div className="md:hidden py-4">
             {whatWeDo.map((p, i) => (
               <p key={i} className="text-sm text-grey-dark font-thin py-2">
                 {p}
