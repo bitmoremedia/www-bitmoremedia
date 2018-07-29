@@ -105,12 +105,12 @@ const base = (
 const Footer = () => (
   <div className={`${colorClasses.background} p-8 ${colorClasses.mainText}`}>
     {main}
-    <SocialLinks
+    {/* <SocialLinks
       iconSize={40}
       iconColor={tailwindColors[colors.background]}
       iconBackgroundColor={tailwindColors[colors.mainText]}
       iconClass="p-4 pb-8 md:p-8"
-    />
+    /> */}
     {base}
   </div>
 )

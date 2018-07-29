@@ -42,7 +42,7 @@ const linksMap = {
 }
 
 const BreadCrumb = ({ location }) => {
-  const links = linksMap[location.pathname]
+  const links = linksMap[location.pathname] || []
   return (
     <div style={styles.container} className="absolute w-full hidden md:inline">
       <div className="flex flex-wrap items-center justify-start container mx-auto py-4 px-4">
