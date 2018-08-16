@@ -1,0 +1,38 @@
+ErrorDocument 404 /.errors/404.php
+Redirect 301 /app /apps
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType application/pdf "access plus 1 month"
+ExpiresByType text/x-javascript "access plus 1 month"
+ExpiresByType text/javascript "access plus 1 month"
+ExpiresByType application/x-javascript "access plus 1 month"
+ExpiresByType application/x-shockwave-flash "access plus 1 month"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresDefault "access plus 2 days"
+</IfModule>
+<filesMatch "\.(js)$">
+    ExpiresDefault A29030400
+</filesMatch>
+## EXPIRES CACHING ##
+
+# send any traffic without www in url to the www. url
+RewriteCond %{HTTP_HOST} ^bitmoremedia\.com [NC]
+RewriteRule ^(.*)$ https://www.bitmoremedia.com/$1 [L,R=301,NC]
+
+# send the bitmoremedia.com/gem-russ-getmarried traffic to the subdomain gem-russ-getmarried.bitmoremedia.com
+RewriteCond %{HTTP_HOST} ^bitmoremedia\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.bitmoremedia\.com$
+RewriteRule ^gem\-russ\-getmarried$ "https\:\/\/gem\-russ\-getmarried\.bitmoremedia\.com\/" [R=301,L]
+
+# Force SSL for the main domain
+RewriteCond %{HTTP_HOST} ^(www\.)bitmoremedia\.com$ [NC]
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule ^(.*)$ https://www.bitmoremedia.com/$1 [R=301,L]
+
