@@ -13,6 +13,13 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-72779821-1',
+        cookieDomain: 'bitmoremedia.com',
+      },
+    },
     /*
     {
       // NOTE: for now this is implemented as a local plugin (by adding this fork https://github.com/bitmoremedia/gatsby-plugin-favicon

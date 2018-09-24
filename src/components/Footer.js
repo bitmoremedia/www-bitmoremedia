@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import { level1PageLinks } from '../config'
 import tailwindColors from '../tailwind/colors'
-import SocialLinks from '../components/common/SocialLinks'
+// import SocialLinks from '../components/common/SocialLinks'
 import EmailIcon from '../components/icon/Email'
 
 const links = [
