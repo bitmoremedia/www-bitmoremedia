@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets'
+
+import Button from '../components/Button.astro'
+import SectionHeading from '../components/SectionHeading.astro'
+import { values } from '../data/site'
+---
+
+<section id="who-we-are" class="bg-mint py-20 lg:py-28">
+  <div class="container-site">
+    <SectionHeading text="Who we are" dot="blue" />
+    <h3 class="mt-6 text-2xl font-black">Our story</h3>
+    <div class="prose-site mt-4 max-w-3xl">
+      <p>
+        Bit More Media started with a simple idea: make branding feel less overwhelming and more
+        you. No jargon, just clever thinking, creative execution and tools that work. We’re a
+        two-person studio with big ideas and high standards. That means when you work with us,
+        you’re working directly with the people doing the thinking, the designing and the building –
+        no middle layers, no confusion.
+      </p>
+      <p>
+        We stay small on purpose, so every project gets our full attention and every brand we build
+        feels personal, not cookie-cutter. From branding and web development to social media and
+        events, we get to the heart of what makes you different – and help your audience see it too.
+      </p>
+      <p>
+        Over the years, we’ve also built a trusted network of exceptional specialists we can bring
+        into projects when needed. Every person has been carefully handpicked through years of
+        collaboration, refining a group we know delivers outstanding work and shares our standards,
+        values and approach.
+      </p>
+    </div>
+
+    <ul class="mt-14 grid gap-6 md:grid-cols-3">
+      {values.map((value) => (
+        <li
+          class:list={[
+            'flex flex-col rounded-3xl border-[6px] border-white px-7 pt-7 pb-4',
+            value.bg,
+          ]}
+        >
+          <h4 class="text-4xl font-black tracking-tight">{value.name}</h4>
+          <p class="mt-3 text-lg leading-relaxed">{value.text}</p>
+          <Image
+            src={value.image}
+            alt={value.alt}
+            widths={[320, 640]}
+            sizes="(min-width: 48rem) 300px, 90vw"
+            class="mx-auto mt-auto w-full max-w-72 pt-4"
+          />
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center">
+      <p class="font-display text-2xl font-black tracking-tight">
+        This is our brand. But what could yours be?
+      </p>
+      <Button href="/branding-hub/" size="sm" class="self-start sm:self-auto">
+        Explore the Branding Hub
+      </Button>
+    </div>
+  </div>
+</section>

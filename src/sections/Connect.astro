@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets'
+
+import SectionHeading from '../components/SectionHeading.astro'
+import { contact } from '../data/site'
+import phone from '../assets/phone.jpg'
+---
+
+<section id="connect" class="bg-coral py-20 lg:py-28">
+  <div class="container-site grid gap-12 lg:grid-cols-[1fr_28rem] lg:items-start">
+    <div class="max-w-2xl">
+      <SectionHeading text="Connect" dot="cyan" />
+      <h3 class="mt-6 text-2xl font-black">Let’s build something brilliant</h3>
+      <p class="mt-4 font-semibold">Big idea? Blank slate? Something in between?</p>
+      <div class="prose-site mt-4">
+        <p>
+          We work with businesses of all shapes and stages. Whether you’re just starting out or
+          ready to take your brand to the next level, we’d love to hear from you.
+        </p>
+        <p>
+          If you’ve got a project in mind, want to chat about what’s possible, or need help figuring
+          out where to start, get in touch. Drop us an email and we’ll be in touch within 1–2
+          working days. Want to chat sooner? Just give us a call.
+        </p>
+      </div>
+
+      <dl class="mt-10 space-y-6">
+        <div>
+          <dt class="font-display text-sm font-black">Email us</dt>
+          <dd>
+            <a
+              href={`mailto:${contact.email}`}
+              class="font-display text-[clamp(1.25rem,4vw,1.75rem)] font-black break-all underline decoration-2 underline-offset-4 hover:text-white"
+            >
+              {contact.email}
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt class="font-display text-sm font-black">Call us</dt>
+          <dd>
+            <a
+              href={contact.phoneHref}
+              class="font-display text-[clamp(1.25rem,4vw,1.75rem)] font-black hover:text-white"
+            >
+              {contact.phone}
+            </a>
+          </dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="overflow-hidden rounded-3xl border-[6px] border-white max-lg:hidden lg:mt-24">
+      <Image
+        src={phone}
+        alt="A retro rotary telephone with the handset off the hook"
+        widths={[450, 900]}
+        sizes="450px"
+        class="w-full"
+      />
+    </div>
+  </div>
+</section>

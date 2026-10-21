@@ -1,0 +1,20 @@
+---
+interface Props {
+  inverse?: boolean
+  class?: string
+}
+
+const { inverse = false, class: className } = Astro.props
+---
+
+<span
+  class:list={['inline-flex flex-col font-display leading-[0.9] font-black', className]}
+  aria-label="Bit More Media"
+>
+  <span aria-hidden="true" class:list={['text-[0.5em]', inverse ? 'text-lime' : 'text-blue']}>
+    Bit More
+  </span>
+  <span aria-hidden="true" class:list={[inverse ? 'text-white' : 'text-navy']}>
+    Media<span class="text-coral">.</span>
+  </span>
+</span>

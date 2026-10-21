@@ -1,0 +1,41 @@
+# Bit More Media – Apache config for Kualo. Astro copies this file into dist/ on build.
+
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# Send bitmoremedia.com to www, and force HTTPS
+RewriteCond %{HTTP_HOST} ^bitmoremedia\.com$ [NC]
+RewriteRule ^(.*)$ https://www.bitmoremedia.com/$1 [L,R=301]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^www\.bitmoremedia\.com$ [NC]
+RewriteRule ^(.*)$ https://www.bitmoremedia.com/$1 [L,R=301]
+
+# Wedding site
+RewriteRule ^gem-russ-getmarried/?$ https://gem-russ-getmarried.bitmoremedia.com/ [L,R=301]
+
+# Pages from the old (2018) site
+RewriteRule ^services/development/?$ /dev-lab/ [L,R=301]
+RewriteRule ^services/marketing/?$ /campaign-room/ [L,R=301]
+RewriteRule ^services(/.*)?$ /#what-we-do [L,R=301,NE]
+RewriteRule ^(products|partnerships)/?$ / [L,R=301]
+RewriteRule ^about/?$ /#who-we-are [L,R=301,NE]
+RewriteRule ^contact/?$ /#connect [L,R=301,NE]
+
+## CACHING ##
+<IfModule mod_headers.c>
+  # Astro fingerprints everything in /_astro/, so it can be cached forever
+  <If "%{REQUEST_URI} =~ m#^/_astro/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+  # HTML should always be revalidated so updates show straight away
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import PlaceholderPage from '../components/PlaceholderPage.astro'
+import { contact } from '../data/site'
+---
+
+<BaseLayout title="Privacy policy | Bit More Media">
+  <PlaceholderPage title="Privacy policy" dot="blue">
+    <p>
+      Our full privacy policy is on its way. In the meantime, if you have any questions about how we
+      handle your information, email us at{' '}
+      <a href={`mailto:${contact.email}`} class="font-semibold underline underline-offset-4">
+        {contact.email}
+      </a>
+      .
+    </p>
+  </PlaceholderPage>
+</BaseLayout>

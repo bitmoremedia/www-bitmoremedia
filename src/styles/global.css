@@ -1,0 +1,65 @@
+@import 'tailwindcss';
+
+/* Colours sampled from the homepage design PDFs */
+@theme {
+  --color-lime: #e8ff35;
+  --color-navy: #1e1d3d;
+  --color-blue: #4062b9;
+  --color-mint: #7ef1b8;
+  --color-cyan: #00e6fe;
+  --color-coral: #ff7e82;
+  --color-orange: #ff793a;
+  --color-rule: #4b496e;
+
+  /* Stand-in fonts until we have the real ones from the designer (see FOLLOW-UPS.md) */
+  --font-sans: 'Jost Variable', 'Futura PT', 'Avenir Next', system-ui, sans-serif;
+  --font-display: 'Montserrat', 'Arial Black', system-ui, sans-serif;
+
+  --container-site: 72rem;
+  --header-height: 4rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (min-width: 64rem) {
+    html {
+      --header-height: 5.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-lime font-sans text-navy antialiased;
+    font-weight: 350;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-navy);
+    outline-offset: 3px;
+  }
+}
+
+@utility container-site {
+  @apply mx-auto w-full max-w-site px-5 sm:px-8;
+}
+
+@utility prose-site {
+  @apply space-y-4 text-lg leading-relaxed;
+}

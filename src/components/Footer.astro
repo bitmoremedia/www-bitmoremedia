@@ -1,0 +1,76 @@
+---
+import Wordmark from './Wordmark.astro'
+import { contact, services, socialLinks } from '../data/site'
+
+const socials = socialLinks.filter((s) => s.url)
+const year = new Date().getFullYear()
+
+const heading = 'mb-4 font-display text-sm font-black text-lime'
+const link = 'underline decoration-1 underline-offset-4 hover:text-lime'
+---
+
+<footer class="bg-navy py-16 text-white">
+  <div class="container-site">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+      <div class="max-w-xs">
+        <a href="/" class="text-2xl">
+          <Wordmark inverse />
+        </a>
+        <p class="mt-4 leading-relaxed">
+          A two-person studio for branding, campaigns, social media and digital builds.
+        </p>
+      </div>
+
+      <div>
+        <h2 class={heading}>Services</h2>
+        <ul class="space-y-3">
+          {services.map((s) => (
+            <li>
+              <a href={`/${s.slug}/`} class={link}>
+                {s.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h2 class={heading}>Contact</h2>
+        <ul class="space-y-3">
+          <li>
+            <a href={contact.phoneHref} class={link}>
+              {contact.phone}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${contact.email}`} class={link}>
+              {contact.email}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {socials.length > 0 && (
+        <div>
+          <h2 class={heading}>Follow us</h2>
+          <ul class="space-y-3">
+            {socials.map((s) => (
+              <li>
+                <a href={s.url} class={link} rel="noopener">
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+
+    <div class="mt-12 flex flex-wrap gap-x-8 gap-y-2 border-t border-rule pt-6 text-sm text-white/90">
+      <span>© {year} Bit More Media</span>
+      <a href="/privacy/" class={link}>
+        Privacy policy
+      </a>
+    </div>
+  </div>
+</footer>

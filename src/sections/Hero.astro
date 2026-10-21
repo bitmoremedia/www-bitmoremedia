@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets'
+
+import Button from '../components/Button.astro'
+import Dot from '../components/Dot.astro'
+
+import tile1 from '../assets/hero/tile-1.jpg'
+import tile2 from '../assets/hero/tile-2.jpg'
+import tile3 from '../assets/hero/tile-3.jpg'
+import tile4 from '../assets/hero/tile-4.jpg'
+import tile5 from '../assets/hero/tile-5.jpg'
+import tile6 from '../assets/hero/tile-6.jpg'
+import tile7 from '../assets/hero/tile-7.jpg'
+import tile8 from '../assets/hero/tile-8.jpg'
+
+const tiles = [
+  { src: tile1, alt: 'Website wireframes sketched in a notebook' },
+  { src: tile2, alt: 'A hand holding a smartphone' },
+  { src: tile3, alt: 'A woman recording herself on a phone mounted on a tripod' },
+  { src: tile4, alt: 'Hands holding a phone showing a social media profile' },
+  { src: tile5, alt: 'A hand holding up a festival poster' },
+  { src: tile6, alt: 'A microphone in front of a crowd at an outdoor event' },
+  { src: tile7, alt: 'A laptop showing a colourful “Design your future” graphic' },
+  { src: tile8, alt: 'Code on a dark editor screen' },
+]
+---
+
+<section class="bg-lime pt-8 pb-20 lg:pt-14 lg:pb-24">
+  <div class="container-site">
+    <h1 class="text-[clamp(3.25rem,10vw,6.75rem)] leading-[0.95] font-black tracking-tight uppercase">
+      Bit More
+      <!-- prettier-ignore -->
+      <span class="whitespace-nowrap">Media<Dot colour="blue" class="ml-[0.04em] size-[0.17em]" /></span>
+    </h1>
+    <p class="mt-6 font-display text-[clamp(1.4rem,3vw,2rem)] leading-tight font-black tracking-tight uppercase">
+      Creative thinking.
+      <br />
+      Clever tech.
+      <br />
+      Brands that pop. Ideas that stick.
+    </p>
+  </div>
+
+  <ul class="mx-auto mt-12 grid max-w-[78rem] gap-4 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:px-3">
+    {tiles.map((tile, i) => (
+      <li
+        class:list={[
+          'overflow-hidden rounded-2xl border-[6px] border-coral',
+          i > 0 && 'max-sm:hidden',
+        ]}
+      >
+        <Image
+          src={tile.src}
+          alt={tile.alt}
+          widths={[400, 600, 800]}
+          sizes="(min-width: 64rem) 300px, (min-width: 40rem) 50vw, 100vw"
+          class="aspect-[4/3] h-full w-full object-cover"
+          loading={i < 4 ? 'eager' : 'lazy'}
+        />
+      </li>
+    ))}
+  </ul>
+
+  <div class="container-site mt-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+    <div class="prose-site max-w-2xl">
+      <p>
+        We build brands that people remember – and help you show up like you mean it. From logos and
+        tone of voice to websites, social content and real-life events, we turn{' '}
+        <strong class="font-semibold">good ideas into great experiences.</strong>
+      </p>
+      <p>
+        Choose a package from our Brand Menu, mix and match at The Brand Bar, or explore The
+        Campaign Room, The Social Studio and The Dev Lab. Wherever you’re at, we’ll meet you there –
+        and help you level up.
+      </p>
+    </div>
+    <Button href="#connect" class="self-start lg:self-end">
+      Start a project
+    </Button>
+  </div>
+</section>

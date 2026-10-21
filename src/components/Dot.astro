@@ -1,0 +1,25 @@
+---
+import type { DotColour } from '../data/site'
+
+interface Props {
+  colour: DotColour
+  class?: string
+}
+
+// Full class names so Tailwind can find them
+const bg: Record<DotColour, string> = {
+  lime: 'bg-lime',
+  blue: 'bg-blue',
+  mint: 'bg-mint',
+  cyan: 'bg-cyan',
+  coral: 'bg-coral',
+  orange: 'bg-orange',
+}
+
+const { colour, class: className = 'size-[0.18em]' } = Astro.props
+---
+
+<span
+  aria-hidden="true"
+  class:list={['inline-block shrink-0 rounded-full', bg[colour], className]}
+></span>

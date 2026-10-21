@@ -2,6 +2,8 @@
 
 _Written October 2026. The last commit to this repo was February 2019._
 
+> **Status:** a first version of the new homepage is built on the `bmm-www-2` branch (Astro + Tailwind). Outstanding items now live in `FOLLOW-UPS.md`.
+
 This file covers two things:
 
 1. How the current site is put together, including what's worth keeping and what's broken.

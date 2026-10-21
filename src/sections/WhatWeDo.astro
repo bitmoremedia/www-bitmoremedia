@@ -1,0 +1,28 @@
+---
+import Dot from '../components/Dot.astro'
+import { services } from '../data/site'
+---
+
+<section id="what-we-do" class="bg-blue py-20 text-white lg:py-28">
+  <div class="container-site">
+    <h2 class="sr-only">What we do</h2>
+    <div class="grid gap-x-16 gap-y-16 md:grid-cols-2">
+      {services.map((service) => (
+        <article id={service.slug} class="max-w-xl">
+          <Dot colour={service.dot} class="mb-4 size-4" />
+          <h3 class="leading-none font-black tracking-tight text-lime">
+            <span class="block text-2xl">The</span>
+            <span class="block text-4xl sm:text-5xl">{service.name}</span>
+          </h3>
+          <p class="mt-5 text-lg leading-relaxed">{service.blurb}</p>
+          <a
+            href={`/${service.slug}/`}
+            class="mt-6 inline-block font-display font-black underline decoration-2 underline-offset-4 hover:text-lime"
+          >
+            Explore the {service.name}
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

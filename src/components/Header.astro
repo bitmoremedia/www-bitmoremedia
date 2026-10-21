@@ -1,0 +1,30 @@
+---
+import Wordmark from './Wordmark.astro'
+import Button from './Button.astro'
+import { nav } from '../data/site'
+---
+
+<header class="sticky top-0 z-40 bg-lime">
+  <div class="container-site flex h-(--header-height) items-center justify-between gap-6">
+    <a href="/" class="text-2xl lg:text-3xl">
+      <Wordmark />
+    </a>
+    <nav aria-label="Main" class="flex items-center gap-7">
+      <ul class="hidden items-center gap-7 lg:flex">
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="font-display text-[0.95rem] font-extrabold decoration-2 underline-offset-4 hover:underline"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <Button href="/#connect" variant="navy" size="sm">
+        Connect
+      </Button>
+    </nav>
+  </div>
+</header>
