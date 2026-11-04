@@ -28,10 +28,12 @@ DRY_RUN=""
 
 # Anything in the web root that isn't part of this site and must survive a deploy. Taken from the
 # backup of public_html made on 4 November 2026: old apps, demos and personal sites.
-# Directories end in "/". The old Gatsby build files aren't listed, so the first deploy removes them.
+# Directories end in "/". /apps is shared: the old apps are listed, our pages (src/pages/apps/) deploy.
+# The old Gatsby build files aren't listed, so the first deploy removes them.
 EXCLUDES=(
   .errors/ .well-known/ cgi-bin/
-  api/ apps/prem4cast/ apps/sprogger/ apps/taxidents/ apps/temp/ assets/ contacts/ css/ dcg/ demo/ fonts/ football-data.events/
+  apps/prem4cast/ apps/sprogger/ apps/taxidents/ apps/temp/
+  api/ assets/ contacts/ css/ dcg/ demo/ fonts/ football-data.events/
   g-r-getmarried/ g-r-mega-trip/ g-r-megatrip/ gem-russ-getmarried-legacy/ img/ js/ megatrip/
   index_kualoHoldingPage.php
 )

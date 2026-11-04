@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import PlaceholderPage from '../../../components/PlaceholderPage.astro'
+import { mailto } from '../../../data/site'
+
+// Not linked from the rest of the site yet. App Store Connect points here as the marketing and
+// support URL; the app's privacy policy is ./privacy/.
+const h2 = 'pt-6 text-2xl leading-tight font-heavy text-coral-ink xl:text-d31'
+const link = 'underline underline-offset-4'
+---
+
+<BaseLayout
+  title="Vinyl Corner | Bit More Media"
+  description="Vinyl Corner turns your Apple Music library into a record shop on your iPhone and iPad."
+>
+  <PlaceholderPage title="Vinyl Corner">
+    <p>
+      Your music library, filed like a record collection. Vinyl Corner puts the albums you own on
+      shelves and plays them on a turntable, for iPhone and iPad.
+    </p>
+
+    <h2 class={h2}>What it does</h2>
+    <ul class="list-disc space-y-2 pl-6">
+      <li>
+        Shelves for your albums: the Album Wall, By Genre, a Timeline of release years, On This Day
+        and your own My Top 100.
+      </li>
+      <li>Latest Releases from the artists you have, with what you’re missing.</li>
+      <li>A page for every artist, with albums, singles and live records kept apart.</li>
+      <li>Put a record on and watch it turn, on a choice of decks.</li>
+      <li>Point the camera at your shelf of records or CDs to find them in your library.</li>
+      <li>Your shelves and rankings follow you between devices through your own iCloud.</li>
+    </ul>
+
+    <h2 class={h2}>Help and feedback</h2>
+    <p>
+      Vinyl Corner is made by Bit More Media. Questions, bugs or ideas?{' '}
+      <a href={mailto('Vinyl Corner')} class={link}>
+        Email us
+      </a>
+      .
+    </p>
+    <p>
+      <a href="/apps/vinyl-corner/privacy/" class={link}>
+        Privacy policy
+      </a>
+    </p>
+  </PlaceholderPage>
+</BaseLayout>
