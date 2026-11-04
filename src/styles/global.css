@@ -86,6 +86,8 @@
 
   /* The design canvas is 1712px (107rem) wide */
   --container-design: 107rem;
+  /* Longest comfortable line for body text (about 75 characters), narrower than the designs */
+  --container-measure: 43rem;
 }
 
 @layer base {

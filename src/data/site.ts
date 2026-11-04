@@ -1,8 +1,6 @@
 export const contact = {
   // TODO: confirm address (not shown in the designs; this is the one from the old site)
   email: 'getintouch@bitmoremedia.com',
-  phone: '+44 (0) 7399 501 731',
-  phoneHref: 'tel:+447399501731',
 }
 
 // A mailto: link that opens the visitor's email app, with an optional subject line

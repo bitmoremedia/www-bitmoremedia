@@ -6,6 +6,7 @@ What's still needed to finish the new site. It's built from the "pop colours 202
 
 - From 1280px wide upwards the layout scales with the window, and at 1712px (the width of the designs) it matches the PDFs almost pixel for pixel. That includes the designer's letter spacing and text box widths, so lines break in the same places. Below 1280px the pages switch to tablet and mobile layouts, which aren't in the designs.
 - Copy, colours, sizes and spacing come from the PDFs' own text and vector data, not from eyeballing.
+- **Deliberate change:** the long body paragraphs (Who we are, and the Branding Menu packages and Brand Bar) are capped at about 75 characters per line (`--container-measure` in `src/styles/global.css`). The designs run them to about 140 characters, which was hard to read on large monitors, so those paragraphs break onto more lines than in the PDFs.
 - Photos, logos and illustrations are the original images embedded in the PDFs (logos and illustrations have transparent backgrounds), cropped to how the designer framed them. The Dev Lab icons are rendered from the PDF's vector shapes.
 
 ## From you / the designer
@@ -15,13 +16,13 @@ What's still needed to finish the new site. It's built from the "pop colours 202
 - [x] **Email address** (confirmed): `getintouch@bitmoremedia.com`, set in `src/data/site.ts`.
 - [x] **Copy fixes** (approved): the Signature button now says SIGNATURE (was POLISH), the Social Studio intro says "The Social Studio helps you…" (was "The social studies…"), and the Social Studio button says "TALK TO US ABOUT THE STUDIO" (was "ME").
 
-- [x] **Privacy policy**: drafted at `/privacy/` and retention periods confirmed (enquiries deleted within two years; client records kept six years). It's written for the site as it is: email and phone only, Kualo hosting, Google Workspace email, no cookies or analytics. Update it if a form or analytics are ever added.
+- [x] **Privacy policy**: drafted at `/privacy/` and retention periods confirmed (enquiries deleted within two years; client records kept six years). It's written for the site as it is: email only, Kualo hosting, Google Workspace email, no cookies or analytics. Update it if a form or analytics are ever added.
 - [x] **Company details**: the footer shows Bit More Media Limited, company number 09673233, and the registered office, all taken from Companies House (`company` in `src/data/site.ts`). Update them if the registered office moves.
 - [x] **Social links**: none, as in the designs.
 
 ### Design questions
 
-- [x] **Footer** (approved): none of the designs has one, so there's a slim footer in each page's colours with ©, email, phone, privacy policy and company details. Ask the designer if they'd like to design a proper one.
+- [x] **Footer** (approved): none of the designs has one, so there's a slim footer in each page's colours with ©, email, privacy policy and company details. Ask the designer if they'd like to design a proper one.
 - [ ] **Mobile and tablet**: only desktop designs exist. I've built sensible stacked layouts. Ask the designer whether they want to design these.
 - [ ] **Mobile menu**: not designed. There's a simple menu button that drops down the page links.
 - [ ] **Hover and focus states**: not designed. Buttons lift slightly, and links get underlined.
@@ -41,7 +42,7 @@ What's still needed to finish the new site. It's built from the "pop colours 202
 
 ## Contact
 
-- [x] **No contact form** (decided): the design's form is replaced with email links, so there's nothing to host, test or protect from spam. Connect shows the email address and phone number, and "Drop us an email" opens the visitor's email app.
+- [x] **No contact form** (decided): the design's form is replaced with email links, so there's nothing to host, test or protect from spam. Connect shows the email address (the phone number was removed on request), and "Drop us an email" opens the visitor's email app.
 - [x] Each service page button opens an email with a subject line already filled in, e.g. "Enquiry: The Essentials package" or "Quote request: The Dev Lab" (`mailto()` in `src/data/site.ts`).
 - [ ] Tell the designer the form has gone, in case they want to redesign the bottom of the Connect section.
 - [ ] The email address is visible in the page source, so expect a bit more spam to that inbox. Gmail's filters should catch most of it.

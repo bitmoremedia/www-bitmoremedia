@@ -19,7 +19,6 @@ const packages = [
     text: 'Get the foundations right. This package includes a custom logo, colour palette, typography and a cohesive visual identity that captures who you are and how you want to be seen – all working together to create a consistent and recognisable visual presence. Ideal for startups, side projects or established businesses looking to refresh their brand with renewed clarity and purpose.',
     button: 'Enquire about ESSENTIALS package',
     subject: 'Enquiry: The Essentials package',
-    width: 'xl:max-w-[75.625rem]',
     image: essentials,
     alt: 'A backpack, passport, sunglasses and sun hat laid out with a luggage tag reading “The Essentials”',
   },
@@ -29,7 +28,6 @@ const packages = [
     text: 'Take your brand to the next level. You’ll get everything from The Essentials – logo, colour palette, typography and core identity – plus a refined tone of voice, custom templates, and a suite of marketing and social assets designed for consistency across platforms. Perfect for growing businesses ready to look more professional, cohesive and confident.',
     button: 'Enquire about POLISH package',
     subject: 'Enquiry: The Polish package',
-    width: 'xl:max-w-[75.625rem]',
     image: polish,
     alt: 'A navy suitcase, headphones, scarf and cocktail laid out with a luggage tag reading “The Polish”',
   },
@@ -39,7 +37,6 @@ const packages = [
     text: 'Go all in with a full brand system and everything you need to lead with confidence. This top-tier package includes a bespoke logo suite, colour palette, typography, tone of voice, image styling, and comprehensive brand guidelines. You’ll also get branded templates, social assets, and collateral design tailored to your needs – from pitch decks and packaging to signage or merch. Ideal for businesses ready to step into the spotlight with consistency, clarity and authority across every touchpoint.',
     button: 'Enquire about SIGNATURE package',
     subject: 'Enquiry: The Signature package',
-    width: 'xl:max-w-[75.125rem]',
     image: signature,
     alt: 'A cream suitcase, headphones, tablet and first-class lounge ticket laid out with a luggage tag reading “The Signature”',
   },
@@ -103,7 +100,7 @@ const body = 'mt-2 text-base leading-[1.35] sm:text-lg xl:mt-[0.4375rem] xl:text
           />
           <div class:list={['sm:overflow-hidden xl:pt-[2.125rem]', rowText]}>
             <h2 class={title}>{pkg.name}</h2>
-            <p class:list={[body, pkg.width]}>{pkg.text}</p>
+            <p class:list={[body, 'max-w-measure']}>{pkg.text}</p>
             <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 xl:mt-[0.8125rem] xl:gap-0">
               <p class="flex items-baseline font-black xl:w-[14.875rem]">
                 <span class="text-xs xl:text-d15">FROM</span>
@@ -128,7 +125,7 @@ const body = 'mt-2 text-base leading-[1.35] sm:text-lg xl:mt-[0.4375rem] xl:text
         />
         <div class:list={['sm:overflow-hidden xl:pt-[2.5rem]', rowText]}>
           <h2 class={title}>The Brand Bar</h2>
-          <p class:list={[body, 'xl:mt-[1.1875rem] xl:max-w-[77rem]']}>
+          <p class:list={[body, 'max-w-measure xl:mt-[1.1875rem]']}>
             Build your brand your way. The brand bar lets you pick exactly what you want - ideal if
             you want a flexible, tailored approach without committing to a full package. Select what
             suits you, skip what doesn’t.
