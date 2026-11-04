@@ -49,12 +49,15 @@ What's still needed to finish the new site. It's built from the "pop colours 202
 
 ## Hosting / deploy (Kualo)
 
-- [ ] **Access**: cPanel login and the SFTP/SSH host and username. Is SSH enabled? (That decides `rsync` or `lftp` in `scripts/deploy.sh`.)
-- [ ] **Back up the current `public_html`** before the first deploy, including the hand-uploaded `.htaccess`.
-- [ ] **Check what else is in `public_html`** (e.g. an `/apps` folder, verification files, `.errors/`). The deploy deletes anything not in the build unless it's added to `EXCLUDES` in `scripts/deploy.sh`. Always run `npm run deploy -- --dry-run` first.
+- [x] **Access**: FTPS with the main cPanel account (`bitmorem`), details in the untracked `.env`. The host must be `montague.ldn.kualo.net`, the name on the server's certificate; `ftp.bitmoremedia.com` fails the certificate check. SSH not tried, so the deploy uses `lftp` (`brew install lftp`).
+- [x] **Backed up `public_html`** on 4 November 2026 (503 MB, 10,139 files) to `~/Dev/bmm/backups/kualo-public_html-2026-11-04/`, outside the repo. It doesn't include databases.
+- [x] **Other things in `public_html`**: old apps (`/apps`, `/api`), client demos (`/demo`, `/dcg`), wedding and trip sites, and the pre-Gatsby site's `css/ js/ img/ fonts/ assets/`. They're all in `EXCLUDES` in `scripts/deploy.sh`, so deploys leave them alone. The dry run only deletes the old Gatsby build (130 files) and an unused `jquery-1.9.1.min.js` and `logo.png`. `favicon.ico` is replaced by a new one made from `favicon.svg`.
+- [x] **Deployed** on 4 November 2026. Every page, the redirects, HTTPS/www, the 404 page, sitemap and favicons were checked live, and the kept folders (apps, demos, trip sites) still load.
+- [x] **Deleted the old Piwik analytics** (`/analytics`, a 2016 install that no longer worked) on 4 November 2026. Its files are in the backup. Its MySQL database may still be in cPanel → MySQL Databases and can be deleted there.
+- [ ] **Tidy the old folders** (later, optional): most haven't changed since 2016–2018. Delete over FTP, then take it out of `EXCLUDES`.
 - [ ] **Confirm Kualo's Apache allows the `.htaccess` directives** used (`mod_rewrite`, `mod_headers` incl. `<If>`, `mod_expires`).
 - [x] **Old-page redirects**: `public/.htaccess` sends each 2018 page to its closest new page: development and user experience → Dev Lab, marketing → Campaign Room, products (the Tourplanr app) → Dev Lab, services → What we do, about → Who we are, contact → Connect, and partnerships → home. The old server's `/app` → `/apps` redirect is carried over too.
-- [ ] Check that `/apps` still exists on the server. If it doesn't, delete that redirect.
+- [x] `/apps` still exists on the server, so the `/app` → `/apps` redirect stays.
 
 ## Technical to-dos
 
