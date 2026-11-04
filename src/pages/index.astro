@@ -5,9 +5,10 @@ import WhatWeDo from '../sections/WhatWeDo.astro'
 import WhoWeAre from '../sections/WhoWeAre.astro'
 import Clients from '../sections/Clients.astro'
 import Connect from '../sections/Connect.astro'
+import { themes } from '../data/site'
 ---
 
-<BaseLayout>
+<BaseLayout theme={themes.home} footer={{ bg: 'bg-coral-dark', text: 'text-cream' }}>
   <Hero />
   <WhatWeDo />
   <WhoWeAre />

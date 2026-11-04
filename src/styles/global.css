@@ -1,34 +1,103 @@
 @import 'tailwindcss';
 
-/* Colours sampled from the homepage design PDFs */
+/* Colours taken from the "pop colours 2026" design PDFs */
 @theme {
-  --color-lime: #e8ff35;
-  --color-navy: #1e1d3d;
-  --color-blue: #4062b9;
-  --color-mint: #7ef1b8;
-  --color-cyan: #00e6fe;
-  --color-coral: #ff7e82;
-  --color-orange: #ff793a;
-  --color-rule: #4b496e;
+  --color-yellow: #e9ff35;
+  --color-blue: #597dcd;
+  --color-mint: #7df1b7;
+  --color-cyan: #00e6ff;
+  --color-coral: #ff7e81;
+  --color-coral-deep: #f46569;
+  --color-orange: #ff7a3a;
+  --color-pink: #ffc3c5;
+  --color-cream: #ffe0ad;
 
-  /* Stand-in fonts until we have the real ones from the designer (see FOLLOW-UPS.md) */
-  --font-sans: 'Jost Variable', 'Futura PT', 'Avenir Next', system-ui, sans-serif;
-  --font-display: 'Montserrat', 'Arial Black', system-ui, sans-serif;
+  /*
+   * Accessible variants. Most text pairs in the palette are too low-contrast to read easily,
+   * so text uses these slightly adjusted shades, chosen to reach 3:1 (WCAG AA for large or bold
+   * text) on the background named. Coloured full stops and the wordmark keep the design colours.
+   */
+  --color-coral-ink: #e16368; /* coral text on yellow or white */
+  --color-coral-ink-cyan: #c74b52; /* coral text on cyan */
+  --color-coral-deep-ink: #e95b60; /* coral-deep text on yellow */
+  --color-coral-deep-ink-cyan: #cf424b; /* coral-deep text on cyan */
+  --color-orange-ink: #d25508; /* orange text on mint or yellow */
+  --color-orange-ink-cyan: #c4500b; /* orange text on cyan */
+  --color-blue-ink: #4f72c1; /* blue text on cyan or mint */
+  --color-pink-ink: #ffd6d7; /* pink text on blue */
+  --color-mint-ink: #87fbc1; /* mint text on coral-dark */
+  --color-coral-dark: #d65a5f; /* coral backgrounds behind cream text */
+  --color-orange-strong: #f16d2b; /* orange backgrounds behind white text; orange text on white */
 
-  --container-site: 72rem;
-  --header-height: 4rem;
+  /*
+   * The designs use Avenir, which is built into Apple devices. Everyone else gets Figtree,
+   * a free lookalike bundled with the site, until we have an Avenir web font licence.
+   */
+  --font-sans: Avenir, 'Avenir Next', 'Figtree Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
+
+  /* Avenir weights used in the designs */
+  --font-weight-book: 400;
+  --font-weight-medium: 500;
+  --font-weight-heavy: 800;
+  --font-weight-black: 900;
+
+  /*
+   * Type sizes named after their pixel size in the 1712px-wide desktop designs (d20 = 20px).
+   * From the xl breakpoint up, 1rem is one design pixel × 16, so these match the PDFs exactly.
+   */
+  --text-d15: 0.9375rem;
+  --text-d15--line-height: 1.35;
+  --text-d16: 1rem;
+  --text-d16--line-height: 1.35;
+  --text-d20: 1.25rem;
+  --text-d20--line-height: 1.35;
+  --text-d22: 1.375rem;
+  --text-d22--line-height: 1.364;
+  --text-d24: 1.5rem;
+  --text-d24--line-height: 1.35;
+  --text-d25: 1.5625rem;
+  --text-d25--line-height: 1.36;
+  --text-d30: 1.875rem;
+  --text-d30--line-height: 1.2;
+  --text-d31: 1.9375rem;
+  --text-d31--line-height: 1;
+  --text-d32: 2rem;
+  --text-d32--line-height: 1.375;
+  --text-d35: 2.1875rem;
+  --text-d35--line-height: 1.371;
+  --text-d50: 3.125rem;
+  --text-d50--line-height: 1.2;
+  --text-d60: 3.75rem;
+  --text-d60--line-height: 0.833;
+  --text-d65: 4.0625rem;
+  --text-d65--line-height: 1.37;
+  --text-d100: 6.25rem;
+  --text-d100--line-height: 1.2;
+
+  /*
+   * Letter spacing the designer applied in the PDFs. Everything defaults to -0.015em (set on body);
+   * these are the exceptions.
+   */
+  --tracking-pop: 0.015em; /* uppercase hero lines, nav, service page intros and calls to action */
+  --tracking-snug: -0.033em; /* some body copy, e.g. card text */
+  --tracking-mark: -0.072em; /* "Bit More Media." wordmark */
+  --tracking-sub: -0.0745em; /* card and package titles on service pages */
+
+  /* The design canvas is 1712px (107rem) wide */
+  --container-design: 107rem;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: var(--header-height);
     -webkit-text-size-adjust: 100%;
   }
 
-  @media (min-width: 64rem) {
+  /* Scale everything with the viewport so desktop layouts keep the design's proportions */
+  @media (min-width: 80rem) {
     html {
-      --header-height: 5.25rem;
+      font-size: min(calc(100vw / 107), 100%);
     }
   }
 
@@ -36,30 +105,32 @@
     html {
       scroll-behavior: auto;
     }
+
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
   }
 
   body {
-    @apply bg-lime font-sans text-navy antialiased;
-    font-weight: 350;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply font-display;
+    @apply font-sans font-heavy antialiased;
+    letter-spacing: -0.015em;
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-navy);
+    outline: 3px solid currentColor;
     outline-offset: 3px;
   }
 }
 
+/* Content column: the designs indent text 174px from the edge */
 @utility container-site {
-  @apply mx-auto w-full max-w-site px-5 sm:px-8;
+  @apply mx-auto w-full max-w-design px-5 sm:px-8 xl:px-[10.875rem];
 }
 
-@utility prose-site {
-  @apply space-y-4 text-lg leading-relaxed;
+/* Full-width rows (header, image bands) that stay within the design width on huge screens */
+@utility container-wide {
+  @apply mx-auto w-full max-w-design;
 }

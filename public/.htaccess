@@ -14,11 +14,16 @@ RewriteRule ^(.*)$ https://www.bitmoremedia.com/$1 [L,R=301]
 # Wedding site
 RewriteRule ^gem-russ-getmarried/?$ https://gem-russ-getmarried.bitmoremedia.com/ [L,R=301]
 
-# Pages from the old (2018) site
+# Carried over from the old server's hand-uploaded .htaccess (check /apps still exists)
+RewriteRule ^app(/.*)?$ /apps$1 [L,R=301]
+
+# Pages from the old (2018) site, each sent to its closest new page
 RewriteRule ^services/development/?$ /dev-lab/ [L,R=301]
+RewriteRule ^services/user-experience/?$ /dev-lab/ [L,R=301]
 RewriteRule ^services/marketing/?$ /campaign-room/ [L,R=301]
 RewriteRule ^services(/.*)?$ /#what-we-do [L,R=301,NE]
-RewriteRule ^(products|partnerships)/?$ / [L,R=301]
+RewriteRule ^products/?$ /dev-lab/ [L,R=301]
+RewriteRule ^partnerships/?$ / [L,R=301]
 RewriteRule ^about/?$ /#who-we-are [L,R=301,NE]
 RewriteRule ^contact/?$ /#connect [L,R=301,NE]
 

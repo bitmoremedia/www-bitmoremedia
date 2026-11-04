@@ -1,101 +1,133 @@
-import type { ImageMetadata } from 'astro'
-
-import curious from '../assets/values/curious.png'
-import clear from '../assets/values/clear.png'
-import clever from '../assets/values/clever.png'
-
 export const contact = {
-  // TODO: confirm address (design has a "[your email address]" placeholder)
+  // TODO: confirm address (not shown in the designs; this is the one from the old site)
   email: 'getintouch@bitmoremedia.com',
   phone: '+44 (0) 7399 501 731',
   phoneHref: 'tel:+447399501731',
 }
 
-// Leave a URL empty to hide that link (the whole "Follow us" column hides if all are empty)
-export const socialLinks = [
-  { label: 'Instagram', url: '' },
-  { label: 'LinkedIn', url: '' },
-  { label: 'TikTok', url: '' },
-]
+// A mailto: link that opens the visitor's email app, with an optional subject line
+export function mailto(subject?: string) {
+  return `mailto:${contact.email}${subject ? `?subject=${encodeURIComponent(subject)}` : ''}`
+}
 
-export type DotColour = 'lime' | 'blue' | 'mint' | 'cyan' | 'coral' | 'orange'
+// From Companies House (checked November 2026)
+export const company = {
+  name: 'Bit More Media Limited',
+  number: '09673233',
+  registeredOffice: '7 Three Rivers Business Park, Felixstowe Road, Foxhall, Ipswich IP10 0BF',
+}
+
+/*
+ * Each page has its own colour scheme. Full class names are spelled out so Tailwind can find them.
+ * Header colours come straight from each page's PDF.
+ */
+export interface Theme {
+  bg: string
+  hex: string
+  nav: string
+  wordmarkTop: string
+  wordmarkBottom: string
+  connect: string
+  // Desktop offset for the nav links, which sit lower on the homepage design
+  navTop: string
+}
+
+export const themes = {
+  home: {
+    bg: 'bg-yellow',
+    hex: '#e9ff35',
+    nav: 'text-coral-ink',
+    wordmarkTop: 'text-blue',
+    wordmarkBottom: 'text-coral',
+    connect: 'text-blue',
+    navTop: 'xl:pt-[3.3125rem]',
+  },
+  branding: {
+    bg: 'bg-mint',
+    hex: '#7df1b7',
+    nav: 'text-orange-ink',
+    wordmarkTop: 'text-blue',
+    wordmarkBottom: 'text-coral-deep',
+    connect: 'text-blue-ink',
+    navTop: 'xl:pt-[2.6875rem]',
+  },
+  campaign: {
+    bg: 'bg-cyan',
+    hex: '#00e6ff',
+    nav: 'text-coral-deep-ink-cyan',
+    wordmarkTop: 'text-blue',
+    wordmarkBottom: 'text-coral-deep',
+    connect: 'text-blue-ink',
+    navTop: 'xl:pt-[2.6875rem]',
+  },
+  dev: {
+    bg: 'bg-blue',
+    hex: '#597dcd',
+    nav: 'text-pink-ink',
+    wordmarkTop: 'text-white',
+    wordmarkBottom: 'text-coral',
+    connect: 'text-white',
+    navTop: 'xl:pt-[2.6875rem]',
+  },
+  social: {
+    bg: 'bg-coral-dark',
+    hex: '#d65a5f',
+    nav: 'text-cream',
+    // Blue in the design, but it disappears on the darker coral (as on Dev Lab, white instead)
+    wordmarkTop: 'text-white',
+    wordmarkBottom: 'text-cream',
+    // The design has this in blue, which can't be read on coral
+    connect: 'text-cream',
+    navTop: 'xl:pt-[2.6875rem]',
+  },
+} satisfies Record<string, Theme>
 
 export interface Service {
   slug: string
   name: string
   navLabel: string
-  dot: DotColour
   blurb: string
+  // Width of the blurb's text box in the homepage design, so lines break in the same places
+  blurbWidth: string
 }
 
+// Homepage "what we do" copy
 export const services: Service[] = [
   {
     slug: 'branding-hub',
+    blurbWidth: 'xl:max-w-[32rem]',
     name: 'Branding Hub',
     navLabel: 'Branding hub',
-    dot: 'mint',
     blurb:
       'Big brand energy, built your way. Choose a ready-made package from The Brand Menu or mix and match at The Brand Bar. Wherever you’re heading, we’ll help you get there with clarity, consistency and confidence.',
   },
   {
     slug: 'campaign-room',
+    blurbWidth: 'xl:max-w-[35.0625rem]',
     name: 'Campaign Room',
     navLabel: 'Campaign room',
-    dot: 'cyan',
     blurb:
-      'Where strategy meets action. This is your space for launches, activations and ideas that need a little more firepower. From creative concepts and multi-channel rollouts to full-scale event management, we plan, produce and deliver campaigns that connect and convert.',
+      'Where strategy meets action. This is your space for launches, activations, and ideas that need a little more firepower. From creative concepts and multi-channel rollouts to full-scale event management. We plan, produce and deliver campaigns that connect and convert. Let’s make your message impossible to ignore.',
   },
   {
     slug: 'social-studio',
+    blurbWidth: 'xl:max-w-[35.0625rem]',
     name: 'Social Studio',
     navLabel: 'Social studio',
-    dot: 'coral',
     blurb:
-      'Show up and stand out. The Social Studio helps you build a consistent, scroll-stopping presence – with strategy, content and platform management that works. From planning and posting to growth and reporting, we handle the heavy lifting so you can stay focused on the big picture.',
+      'Show up and stand out. The Social Studio helps you build a consistent, scroll-stopping presence – with strategy, content, and platform management that works. From planning and posting to growth and reporting, we handle the heavy lifting so you can stay focused on the big picture.',
   },
   {
     slug: 'dev-lab',
+    blurbWidth: 'xl:max-w-[35.125rem]',
     name: 'Dev Lab',
     navLabel: 'Dev lab',
-    dot: 'lime',
     blurb:
-      'Your ideas, built beautifully. The Dev Lab turns bold thinking into clean, responsive code – from sleek websites to powerful web and mobile apps and AI-powered tools. We focus on seamless user experiences that look great and work even better.',
-  },
-]
-
-export interface Value {
-  name: string
-  text: string
-  bg: string
-  image: ImageMetadata
-  alt: string
-}
-
-export const values: Value[] = [
-  {
-    name: 'Curious',
-    text: '…reflects our creativity, energy and a sense of exploration – which pairs naturally with vibrant visuals.',
-    bg: 'bg-lime',
-    image: curious,
-    alt: 'A ladybird on a curling plant tendril',
-  },
-  {
-    name: 'Clear',
-    text: '…balances the boldness with a promise of simplicity and coherence – reassuring for clients navigating branding.',
-    bg: 'bg-orange',
-    image: clear,
-    alt: 'A glossy silver droplet',
-  },
-  {
-    name: 'Clever',
-    text: '…brings in our strategic edge and smart thinking – showing there’s substance behind the style.',
-    bg: 'bg-cyan',
-    image: clever,
-    alt: 'A pink 3D brain',
+      'Your ideas, built beautifully. The Dev Lab turns bold thinking into clean, responsive code – from sleek websites to powerful web and mobile apps. We focus on seamless user experiences that look great and work even better.',
   },
 ]
 
 export const nav = [
-  ...services.map((s) => ({ label: s.navLabel, href: `/#${s.slug}` })),
+  ...services.map((s) => ({ label: s.navLabel, href: `/${s.slug}/` })),
   { label: 'Who we are', href: '/#who-we-are' },
 ]

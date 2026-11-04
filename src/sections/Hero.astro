@@ -1,81 +1,86 @@
 ---
 import { Image } from 'astro:assets'
 
-import Button from '../components/Button.astro'
-import Dot from '../components/Dot.astro'
+import tile1 from '../assets/home/tile-1.jpg'
+import tile2 from '../assets/home/tile-2.jpg'
+import tile3 from '../assets/home/tile-3.jpg'
+import tile4 from '../assets/home/tile-4.jpg'
+import tile5 from '../assets/home/tile-5.jpg'
+import tile6 from '../assets/home/tile-6.jpg'
+import tile7 from '../assets/home/tile-7.jpg'
+import tile8 from '../assets/home/tile-8.jpg'
 
-import tile1 from '../assets/hero/tile-1.jpg'
-import tile2 from '../assets/hero/tile-2.jpg'
-import tile3 from '../assets/hero/tile-3.jpg'
-import tile4 from '../assets/hero/tile-4.jpg'
-import tile5 from '../assets/hero/tile-5.jpg'
-import tile6 from '../assets/hero/tile-6.jpg'
-import tile7 from '../assets/hero/tile-7.jpg'
-import tile8 from '../assets/hero/tile-8.jpg'
+// Two rows of tiles; `width` is each tile's width in the design, used as its flex ratio
+const rows = [
+  [
+    { src: tile1, width: 466, alt: 'Website wireframes sketched in a notebook' },
+    { src: tile2, width: 435, alt: 'A hand holding a smartphone' },
+    { src: tile3, width: 242, alt: 'A woman recording herself on a phone mounted on a tripod' },
+    { src: tile4, width: 466, alt: 'Hands holding a phone showing a social media profile' },
+  ],
+  [
+    { src: tile5, width: 242, alt: 'A hand holding up a festival poster' },
+    { src: tile6, width: 567, alt: 'A microphone in front of a crowd at an outdoor event' },
+    { src: tile7, width: 435, alt: 'A laptop showing a colourful “Design your future” graphic' },
+    { src: tile8, width: 367, alt: 'Code on a dark editor screen' },
+  ],
+]
 
-const tiles = [
-  { src: tile1, alt: 'Website wireframes sketched in a notebook' },
-  { src: tile2, alt: 'A hand holding a smartphone' },
-  { src: tile3, alt: 'A woman recording herself on a phone mounted on a tripod' },
-  { src: tile4, alt: 'Hands holding a phone showing a social media profile' },
-  { src: tile5, alt: 'A hand holding up a festival poster' },
-  { src: tile6, alt: 'A microphone in front of a crowd at an outdoor event' },
-  { src: tile7, alt: 'A laptop showing a colourful “Design your future” graphic' },
-  { src: tile8, alt: 'Code on a dark editor screen' },
+const tagline = [
+  { text: 'Creative thinking', dot: 'text-mint' },
+  { text: 'Clever tech', dot: 'text-cyan' },
 ]
 ---
 
-<section class="bg-lime pt-8 pb-20 lg:pt-14 lg:pb-24">
-  <div class="container-site">
-    <h1 class="text-[clamp(3.25rem,10vw,6.75rem)] leading-[0.95] font-black tracking-tight uppercase">
-      Bit More
-      <!-- prettier-ignore -->
-      <span class="whitespace-nowrap">Media<Dot colour="blue" class="ml-[0.04em] size-[0.17em]" /></span>
+<section class="bg-yellow pt-10 pb-16 sm:pt-16 xl:pt-[13.3rem] xl:pb-[7.1875rem]">
+  <div class="container-site text-coral-ink tracking-pop">
+    <h1 class="text-[clamp(2.6rem,9vw,4.5rem)] leading-[1.1] font-heavy uppercase xl:ml-[3.3rem] xl:text-d100">
+      Bit More Media<span class="text-blue">.</span>
     </h1>
-    <p class="mt-6 font-display text-[clamp(1.4rem,3vw,2rem)] leading-tight font-black tracking-tight uppercase">
-      Creative thinking.
-      <br />
-      Clever tech.
-      <br />
-      Brands that pop. Ideas that stick.
+    <p class="mt-6 text-[clamp(1.35rem,4.2vw,2.5rem)] leading-[1.37] font-heavy uppercase xl:mt-[3.8rem] xl:ml-[3.65rem] xl:text-d65">
+      {tagline.map((line) => (
+        <>
+          <span class="block">
+            {line.text}
+            <span class={line.dot}>.</span>
+          </span>{' '}
+        </>
+      ))}
+      <!-- prettier-ignore -->
+      <span class="block">Brands that pop<span class="text-blue">.</span> Ideas that stick<span class="text-pink">.</span></span>
     </p>
   </div>
 
-  <ul class="mx-auto mt-12 grid max-w-[78rem] gap-4 px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:px-3">
-    {tiles.map((tile, i) => (
-      <li
-        class:list={[
-          'overflow-hidden rounded-2xl border-[6px] border-coral',
-          i > 0 && 'max-sm:hidden',
-        ]}
-      >
-        <Image
-          src={tile.src}
-          alt={tile.alt}
-          widths={[400, 600, 800]}
-          sizes="(min-width: 64rem) 300px, (min-width: 40rem) 50vw, 100vw"
-          class="aspect-[4/3] h-full w-full object-cover"
-          loading={i < 4 ? 'eager' : 'lazy'}
-        />
-      </li>
+  <div class="container-wide mt-10 grid grid-cols-2 gap-3 px-5 sm:flex sm:flex-col sm:gap-[1.05vw] sm:px-[1.2vw] xl:mt-[6.8rem] xl:gap-[1.0625rem] xl:px-[1.28rem]">
+    {rows.map((row, r) => (
+      <ul class="contents sm:flex sm:h-[15.65vw] sm:gap-[1.1vw] xl:h-[16.75rem] xl:gap-[1.1875rem]">
+        {row.map((tile) => (
+          <li
+            class="overflow-hidden rounded-xl border-[6px] border-coral max-sm:aspect-[4/3] sm:rounded-[max(0.75rem,1.17vw)] sm:border-[max(6px,1.1vw)] xl:rounded-[1.25rem] xl:border-[1.1875rem]"
+            style={`flex: ${tile.width} 1 0`}
+          >
+            <Image
+              src={tile.src}
+              alt={tile.alt}
+              widths={[300, 600, 900]}
+              sizes={`(min-width: 40rem) ${Math.round((tile.width / 1712) * 100)}vw, 50vw`}
+              class="size-full rounded-md object-cover xl:rounded-[0.5rem]"
+              loading={r === 0 ? 'eager' : 'lazy'}
+            />
+          </li>
+        ))}
+      </ul>
     ))}
-  </ul>
+  </div>
 
-  <div class="container-site mt-12 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-    <div class="prose-site max-w-2xl">
-      <p>
-        We build brands that people remember – and help you show up like you mean it. From logos and
-        tone of voice to websites, social content and real-life events, we turn{' '}
-        <strong class="font-semibold">good ideas into great experiences.</strong>
-      </p>
-      <p>
-        Choose a package from our Brand Menu, mix and match at The Brand Bar, or explore The
-        Campaign Room, The Social Studio and The Dev Lab. Wherever you’re at, we’ll meet you there –
-        and help you level up.
-      </p>
-    </div>
-    <Button href="#connect" class="self-start lg:self-end">
-      Start a project
-    </Button>
+  <div class="container-site mt-10 space-y-6 text-lg leading-[1.37] font-medium text-coral-deep-ink sm:text-xl xl:mt-[6.1rem] xl:space-y-[3rem] xl:pl-[11.78rem] xl:text-d35">
+    <!-- prettier-ignore -->
+    <p class="max-w-[85rem]">
+      We build brands that people remember and help you show up like you mean it. From logos and tone of voice to websites, social content and real-life events, we turn <strong class="font-black">good ideas into great experiences</strong>.
+    </p>
+    <!-- prettier-ignore -->
+    <p class="max-w-[85rem]">
+      Choose from our curated <strong class="font-black">Brand Menu</strong>, mix and match at <strong class="font-black">The Brand Bar</strong>, or dive into our <strong class="font-black">Dev Lab</strong>, or <strong class="font-black">Social Studio</strong>. Wherever you’re at, we’ll meet you there and help you level up.
+    </p>
   </div>
 </section>

@@ -11,3 +11,6 @@ dist
 
 # macOS
 .DS_Store
+
+# design source files (kept locally, not in git)
+_design/

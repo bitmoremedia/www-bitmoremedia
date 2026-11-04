@@ -1,20 +1,21 @@
 ---
+import type { Theme } from '../data/site'
+
 interface Props {
-  inverse?: boolean
-  class?: string
+  theme: Theme
 }
 
-const { inverse = false, class: className } = Astro.props
+const { theme } = Astro.props
 ---
 
-<span
-  class:list={['inline-flex flex-col font-display leading-[0.9] font-black', className]}
-  aria-label="Bit More Media"
->
-  <span aria-hidden="true" class:list={['text-[0.5em]', inverse ? 'text-lime' : 'text-blue']}>
+<span class="flex flex-col font-heavy leading-none tracking-mark" aria-label="Bit More Media">
+  <span aria-hidden="true" class:list={['text-[0.9rem] xl:text-d24', theme.wordmarkTop]}>
     Bit More
   </span>
-  <span aria-hidden="true" class:list={[inverse ? 'text-white' : 'text-navy']}>
-    Media<span class="text-coral">.</span>
+  <span
+    aria-hidden="true"
+    class:list={['-mt-[0.09em] text-[1.15rem] xl:-mt-[0.22em] xl:text-d31', theme.wordmarkBottom]}
+  >
+    Media.
   </span>
 </span>

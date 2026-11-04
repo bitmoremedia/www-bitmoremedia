@@ -1,63 +1,65 @@
 ---
 import { Image } from 'astro:assets'
 
-import SectionHeading from '../components/SectionHeading.astro'
-import { contact } from '../data/site'
-import phone from '../assets/phone.jpg'
+import Dot from '../components/Dot.astro'
+import { contact, mailto } from '../data/site'
+import phone from '../assets/home/phone.png'
+
+// The design has a contact form here; we use email links instead (no form to host or spam-proof)
+const enquiry = mailto('Website enquiry')
 ---
 
-<section id="connect" class="bg-coral py-20 lg:py-28">
-  <div class="container-site grid gap-12 lg:grid-cols-[1fr_28rem] lg:items-start">
-    <div class="max-w-2xl">
-      <SectionHeading text="Connect" dot="cyan" />
-      <h3 class="mt-6 text-2xl font-black">Let’s build something brilliant</h3>
-      <p class="mt-4 font-semibold">Big idea? Blank slate? Something in between?</p>
-      <div class="prose-site mt-4">
-        <p>
+<section
+  id="connect"
+  class="bg-coral-dark pt-16 pb-16 text-cream sm:pt-20 xl:pt-[9.625rem] xl:pb-[11.8125rem]"
+>
+  <div class="container-site xl:relative">
+    <div class="max-w-[40.5rem]">
+      <h2 class="text-[2.75rem] leading-[0.833] font-heavy xl:text-d60">
+        Connect
+        <Dot colour="bg-cyan" class="relative -top-[0.283em] ml-[0.27em] size-[0.483em]" />
+      </h2>
+      <h3 class="mt-8 text-2xl leading-[1.371] font-heavy xl:mt-[3.1875rem] xl:text-d35">
+        Let’s build something brilliant
+      </h3>
+      <div class="mt-4 space-y-[1.35em] text-base leading-[1.35] sm:text-lg xl:mt-[2.1875rem] xl:text-d20">
+        <p>Big idea? Blank slate? Something in between?</p>
+        <p class="tracking-snug xl:max-w-[33.5rem]">
           We work with businesses of all shapes and stages. Whether you’re just starting out or
           ready to take your brand to the next level, we’d love to hear from you.
         </p>
-        <p>
+        <p class="xl:max-w-[34rem]">
           If you’ve got a project in mind, want to chat about what’s possible, or need help figuring
-          out where to start, get in touch. Drop us an email and we’ll be in touch within 1–2
-          working days. Want to chat sooner? Just give us a call.
+          out where to start, get in touch.
+        </p>
+        <p class="xl:max-w-[35rem]">
+          <a href={enquiry} class="underline underline-offset-4">
+            Drop us an email
+          </a>{' '}
+          – we’ll be in touch within 1–2 working days. Want to chat sooner? Just give us a call.
         </p>
       </div>
-
-      <dl class="mt-10 space-y-6">
-        <div>
-          <dt class="font-display text-sm font-black">Email us</dt>
-          <dd>
-            <a
-              href={`mailto:${contact.email}`}
-              class="font-display text-[clamp(1.25rem,4vw,1.75rem)] font-black break-all underline decoration-2 underline-offset-4 hover:text-white"
-            >
-              {contact.email}
-            </a>
-          </dd>
-        </div>
-        <div>
-          <dt class="font-display text-sm font-black">Call us</dt>
-          <dd>
-            <a
-              href={contact.phoneHref}
-              class="font-display text-[clamp(1.25rem,4vw,1.75rem)] font-black hover:text-white"
-            >
-              {contact.phone}
-            </a>
-          </dd>
-        </div>
-      </dl>
+      <p class="mt-4 text-xl leading-[1.371] break-words sm:text-2xl xl:mt-[1.5625rem] xl:text-d35">
+        <a href={enquiry} class="hover:underline">
+          {contact.email}
+        </a>
+        <br />
+        <a href={contact.phoneHref} class="hover:underline">
+          {contact.phone}
+        </a>
+      </p>
     </div>
 
-    <div class="overflow-hidden rounded-3xl border-[6px] border-white max-lg:hidden lg:mt-24">
-      <Image
-        src={phone}
-        alt="A retro rotary telephone with the handset off the hook"
-        widths={[450, 900]}
-        sizes="450px"
-        class="w-full"
-      />
+    <div class="relative mt-10 max-w-[46.4375rem] rounded-[1.5625rem] bg-white p-4 sm:p-[1.875rem] xl:absolute xl:top-[6.9375rem] xl:left-[55.72rem] xl:mt-0 xl:h-[25.75rem] xl:w-[46.4375rem] xl:pl-[2.125rem]">
+      <div class="relative aspect-[679/351] rounded-[0.625rem] bg-cyan xl:aspect-auto xl:h-full">
+        <Image
+          src={phone}
+          alt="A retro rotary telephone with the handset off the hook"
+          widths={[520, 1040]}
+          sizes="(min-width: 80rem) 32rem, 76vw"
+          class="absolute right-[0.3%] bottom-[6.3%] w-[76%]"
+        />
+      </div>
     </div>
   </div>
 </section>

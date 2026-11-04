@@ -1,18 +1,101 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PlaceholderPage from '../components/PlaceholderPage.astro'
-import { contact } from '../data/site'
+import { company, contact } from '../data/site'
+
+// TODO: check this draft before launch, especially how long enquiries are kept
+const updated = '4 November 2026'
+const h2 = 'pt-6 text-2xl leading-tight font-heavy text-coral-ink xl:text-d31'
+const link = 'underline underline-offset-4'
 ---
 
-<BaseLayout title="Privacy policy | Bit More Media">
-  <PlaceholderPage title="Privacy policy" dot="blue">
+<BaseLayout
+  title="Privacy policy | Bit More Media"
+  description="How Bit More Media uses the information you give us when you get in touch."
+>
+  <PlaceholderPage title="Privacy policy">
+    <p>Last updated {updated}.</p>
     <p>
-      Our full privacy policy is on its way. In the meantime, if you have any questions about how we
-      handle your information, email us at{' '}
-      <a href={`mailto:${contact.email}`} class="font-semibold underline underline-offset-4">
+      This policy explains what information we collect when you use this website or get in touch,
+      what we do with it and the rights you have.
+    </p>
+
+    <h2 class={h2}>Who we are</h2>
+    <p>
+      This website is run by {company.name}, a company registered in England and Wales (company
+      number {company.number}), registered office {company.registeredOffice}. We’re responsible for
+      your personal information under UK data protection law (UK GDPR and the Data Protection Act
+      2018). Questions about this policy? Email{' '}
+      <a href={`mailto:${contact.email}`} class={link}>
         {contact.email}
       </a>
       .
     </p>
+
+    <h2 class={h2}>What we collect</h2>
+    <p>
+      <strong class="font-heavy">When you email or call us:</strong> whatever details you choose to
+      share, such as your name, email address, phone number and what you’d like to talk about.
+    </p>
+    <p>
+      <strong class="font-heavy">When you visit the site:</strong> like most websites, our hosting
+      server keeps standard technical logs (such as your IP address, browser type and the pages
+      requested) to keep the site secure and working.
+    </p>
+
+    <h2 class={h2}>Cookies and tracking</h2>
+    <p>
+      This website doesn’t use cookies, analytics or advertising trackers. Our fonts and images are
+      served from our own server, so visiting the site doesn’t send your details to anyone else.
+    </p>
+
+    <h2 class={h2}>How we use your information</h2>
+    <p>
+      We use the details you send us to reply to your enquiry and, if you become a client, to
+      provide our services. We don’t use them for marketing, we don’t sell them and we don’t share
+      them with anyone else except the service providers below.
+    </p>
+    <p>
+      Our lawful basis is our legitimate interest in replying to people who get in touch with us. If
+      we go on to work together, we’ll use your details as needed to carry out our contract with
+      you.
+    </p>
+
+    <h2 class={h2}>Who else handles your information</h2>
+    <p>
+      <strong class="font-heavy">Kualo</strong> hosts this website in the UK.{' '}
+      <strong class="font-heavy">Google</strong> (Google Workspace) provides our email, so your
+      enquiry is stored in our inbox. Google may store data outside the UK, protected by the
+      safeguards UK law requires. Both act only on our instructions.
+    </p>
+
+    <h2 class={h2}>How long we keep it</h2>
+    <p>
+      If your enquiry doesn’t lead to any work, we delete it within two years. If you become a
+      client, we keep your details for as long as we work together, and then for as long as the law
+      requires us to keep business records (usually six years).
+    </p>
+
+    <h2 class={h2}>Your rights</h2>
+    <p>
+      You can ask us to give you a copy of your information, correct it, delete it or stop using it.
+      Just email{' '}
+      <a href={`mailto:${contact.email}`} class={link}>
+        {contact.email}
+      </a>{' '}
+      and we’ll reply within one month.
+    </p>
+    <p>
+      If you’re unhappy with how we’ve handled your information, please tell us first so we can put
+      it right. You also have the right to complain to the Information Commissioner’s Office (ICO)
+      at{' '}
+      <a href="https://ico.org.uk/make-a-complaint/" class={link}>
+        ico.org.uk
+      </a>{' '}
+      or on 0303 123 1113.
+    </p>
+
+    <h2 class={h2}>Changes to this policy</h2>
+    <p>If we change this policy, we’ll update it here and change the date at the top.</p>
   </PlaceholderPage>
 </BaseLayout>

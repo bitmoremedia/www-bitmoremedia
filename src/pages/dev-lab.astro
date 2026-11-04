@@ -1,0 +1,181 @@
+---
+import { Image } from 'astro:assets'
+
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Button from '../components/Button.astro'
+import ServiceHero from '../components/ServiceHero.astro'
+import { mailto, themes } from '../data/site'
+
+import hero from '../assets/dev/hero.jpg'
+import band from '../assets/dev/band.jpg'
+import discovery from '../assets/dev/icon-discovery.png'
+import design from '../assets/dev/icon-design.png'
+import development from '../assets/dev/icon-development.png'
+import responsive from '../assets/dev/icon-responsive.png'
+import cms from '../assets/dev/icon-cms.png'
+import testing from '../assets/dev/icon-testing.png'
+import support from '../assets/dev/icon-support.png'
+
+// Frosted cards over the photo band; positions and text widths from the design
+const cards = [
+  {
+    title: 'Design-led, user-focused, AI-assisted',
+    text: [
+      'We don’t just build – we design with purpose. AI helps us explore more ideas, faster, from wireframes to final visuals. Then we make sure every click, swipe and scroll feels intuitive and on-brand.',
+    ],
+    position: 'xl:top-[1.6875rem] xl:left-[2.9375rem] xl:w-[39rem]',
+    width: 'xl:max-w-[29.25rem]',
+  },
+  {
+    title: 'Custom, not complicated',
+    text: [
+      'No bloated templates, no unnecessary features.',
+      'We work with AI to create prototypes quickly and test ideas early, so you get smart, streamlined builds that do what they’re supposed to and do it well.',
+    ],
+    position: 'xl:top-[19.1875rem] xl:left-[2.8125rem] xl:w-[39rem]',
+    width: 'xl:max-w-[30.0625rem]',
+  },
+  {
+    title: 'Built to grow',
+    text: [
+      'We use modern, scalable tech that supports your business as it evolves, so you’re not boxed in by today’s decisions. Our builds are clean and flexible, using JavaScript, CSS and frameworks like React Native, with AI features such as chat, search and personalisation ready to plug in across mobile and web.',
+    ],
+    position:
+      'xl:top-[25.9375rem] xl:right-[2.875rem] xl:w-[42.75rem] xl:pb-[3.75rem]! xl:pl-[4.5rem]!',
+    width: 'xl:max-w-[32.0625rem]',
+  },
+]
+
+// What's included – labels break where the design breaks them; `shift` nudges to the design's positions
+const services = [
+  { icon: discovery, label: ['AI-led discovery and planning'] },
+  { icon: design, label: ['Design (UX & UI)'] },
+  {
+    icon: development,
+    label: ['AI-accelerated front-end', '& back-end development'],
+    shift: 'xl:translate-x-[1.6875rem]',
+  },
+  {
+    icon: responsive,
+    label: ['Responsive builds', 'across all devices'],
+    shift: 'xl:translate-x-[1.625rem]',
+  },
+  { icon: cms, label: ['CMS integration with', 'AI content tools'] },
+  {
+    icon: testing,
+    label: ['Automated testing', '& launch support'],
+    shift: 'xl:-translate-x-[1.625rem]',
+  },
+  {
+    icon: support,
+    label: ['Optional post-launch updates,', 'monitoring or maintenance'],
+    shift: 'xl:translate-x-[0.5rem]',
+  },
+]
+---
+
+<BaseLayout
+  title="The Dev Lab | Bit More Media"
+  description="Websites, web apps and mobile apps, built beautifully and built faster. The Dev Lab combines AI with human expertise – every line of code read, reviewed and stood behind."
+  theme={themes.dev}
+>
+  <div class="bg-blue text-pink-ink">
+    <ServiceHero
+      title="Dev Lab"
+      titleColour="text-yellow"
+      textColour="text-pink-ink"
+      frameColour="bg-yellow"
+      image={hero}
+      alt="JavaScript code on a white screen"
+      introWidth="xl:max-w-[41.4375rem]"
+      height="xl:h-[44.4375rem]"
+      top="xl:pt-[9.59rem]"
+    >
+      <p>
+        Your ideas, built beautifully and built faster. Whether it’s a sleek website, a powerful app
+        or a seamless user journey, The Dev Lab combines AI with human expertise to turn your vision
+        into code – clean, responsive and built to grow your brand.
+      </p>
+      <p>
+        AI speeds up the work, but our developers understand how every part of it works, read and
+        review every line of code, and stand behind what we ship. Every project is scoped
+        individually.
+      </p>
+    </ServiceHero>
+
+    <section class="container-wide relative space-y-4 overflow-hidden p-5 text-coral-deep sm:p-8 xl:space-y-0 xl:p-0">
+      <h2 class="sr-only">How we work</h2>
+      <Image
+        src={band}
+        alt=""
+        widths={[800, 1200, 2000]}
+        sizes="(min-width: 107rem) 107rem, 100vw"
+        class="absolute inset-0 size-full object-cover xl:static xl:h-auto"
+      />
+      {cards.map((card) => (
+        <div
+          class:list={[
+            'relative rounded-[0.9375rem] bg-white/80 p-6 sm:max-w-[42.75rem] sm:p-8 xl:absolute xl:pt-[3rem] xl:pr-[2.5rem] xl:pb-[2.875rem] xl:pl-[4.125rem]',
+            card.position,
+          ]}
+        >
+          <h3 class="text-2xl leading-[1.371] tracking-sub xl:text-d35">{card.title}</h3>
+          <div
+            class:list={[
+              'mt-2 text-base leading-[1.35] tracking-snug sm:text-lg xl:mt-[0.5625rem] xl:text-d20',
+              card.width,
+            ]}
+          >
+            {card.text.map((p, i) => (
+              <>
+                {i > 0 && <br />}
+                {p}
+              </>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="container-site pt-16 xl:pt-[9.4375rem]">
+      <h2 class="sr-only">What’s included</h2>
+      <ul class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 xl:-ml-[0.9375rem] xl:grid-cols-[repeat(4,17.8125rem)] xl:gap-x-[3.6875rem] xl:gap-y-[1.8125rem]">
+        {services.map((service) => (
+          <li class:list={['text-center', service.shift]}>
+            <Image
+              src={service.icon}
+              alt=""
+              widths={[290, 570, 855]}
+              sizes="(min-width: 80rem) 18rem, (min-width: 40rem) 30vw, 45vw"
+              class="w-full"
+            />
+            <p class="mt-2 text-sm leading-[1.35] sm:text-base xl:mt-[0.5625rem] xl:text-d20">
+              {service.label.map((line, i) => (
+                <>
+                  {i > 0 && <br class="max-sm:hidden" />}
+                  {i > 0 && <span class="sm:hidden"> </span>}
+                  {line}
+                </>
+              ))}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <div class="container-site pt-16 pb-24 xl:pt-[5rem] xl:pb-[18.25rem]">
+      <p class="text-xl leading-[1.371] tracking-pop sm:text-2xl xl:text-d35 xl:whitespace-nowrap">
+        Ready to bring your idea to life? Let’s build something brilliant –{' '}
+        <br class="max-md:hidden" />
+        custom-scoped, AI-powered and made to grow with you.
+      </p>
+      <Button
+        href={mailto('Quote request: The Dev Lab')}
+        variant="white"
+        class="mt-6 xl:mt-[2.3125rem]"
+      >
+        REQUEST A QUOTE
+      </Button>
+    </div>
+  </div>
+</BaseLayout>

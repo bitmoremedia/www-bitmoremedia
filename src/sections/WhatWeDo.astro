@@ -3,24 +3,27 @@ import Dot from '../components/Dot.astro'
 import { services } from '../data/site'
 ---
 
-<section id="what-we-do" class="bg-blue py-20 text-white lg:py-28">
+<section
+  id="what-we-do"
+  class="bg-blue py-16 text-pink-ink sm:py-20 xl:pt-[10.9375rem] xl:pb-[11.3125rem]"
+>
   <div class="container-site">
     <h2 class="sr-only">What we do</h2>
-    <div class="grid gap-x-16 gap-y-16 md:grid-cols-2">
+    <div class="grid gap-14 md:grid-cols-2 md:gap-x-12 xl:grid-cols-[50.8125rem_auto] xl:gap-x-0 xl:gap-y-[4rem]">
       {services.map((service) => (
-        <article id={service.slug} class="max-w-xl">
-          <Dot colour={service.dot} class="mb-4 size-4" />
-          <h3 class="leading-none font-black tracking-tight text-lime">
-            <span class="block text-2xl">The</span>
-            <span class="block text-4xl sm:text-5xl">{service.name}</span>
+        <article id={service.slug} class:list={['max-w-xl', service.blurbWidth]}>
+          <h3 class="text-[2.5rem] leading-[0.833] font-heavy xl:text-d60">
+            <a
+              href={`/${service.slug}/`}
+              class="decoration-[0.06em] underline-offset-[0.12em] hover:underline"
+            >
+              <span class="block">The</span> <span class="block">{service.name}</span>
+            </a>
           </h3>
-          <p class="mt-5 text-lg leading-relaxed">{service.blurb}</p>
-          <a
-            href={`/${service.slug}/`}
-            class="mt-6 inline-block font-display font-black underline decoration-2 underline-offset-4 hover:text-lime"
-          >
-            Explore the {service.name}
-          </a>
+          <Dot colour="bg-yellow" class="mt-3 size-5 xl:mt-[1.0625rem] xl:size-[1.8125rem]" />
+          <p class="mt-4 text-base leading-[1.35] sm:text-lg xl:mt-[1.5rem] xl:text-d20">
+            {service.blurb}
+          </p>
         </article>
       ))}
     </div>

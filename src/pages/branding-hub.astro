@@ -1,0 +1,170 @@
+---
+import { Image } from 'astro:assets'
+
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Button from '../components/Button.astro'
+import ServiceHero from '../components/ServiceHero.astro'
+import { mailto, themes } from '../data/site'
+
+import hero from '../assets/branding/hero.jpg'
+import essentials from '../assets/branding/essentials.jpg'
+import polish from '../assets/branding/polish.jpg'
+import signature from '../assets/branding/signature.jpg'
+import brandBarImage from '../assets/branding/brand-bar.jpg'
+
+const packages = [
+  {
+    name: 'The Essentials',
+    price: '£299',
+    text: 'Get the foundations right. This package includes a custom logo, colour palette, typography and a cohesive visual identity that captures who you are and how you want to be seen – all working together to create a consistent and recognisable visual presence. Ideal for startups, side projects or established businesses looking to refresh their brand with renewed clarity and purpose.',
+    button: 'Enquire about ESSENTIALS package',
+    subject: 'Enquiry: The Essentials package',
+    width: 'xl:max-w-[75.625rem]',
+    image: essentials,
+    alt: 'A backpack, passport, sunglasses and sun hat laid out with a luggage tag reading “The Essentials”',
+  },
+  {
+    name: 'The Polish',
+    price: '£499',
+    text: 'Take your brand to the next level. You’ll get everything from The Essentials – logo, colour palette, typography and core identity – plus a refined tone of voice, custom templates, and a suite of marketing and social assets designed for consistency across platforms. Perfect for growing businesses ready to look more professional, cohesive and confident.',
+    button: 'Enquire about POLISH package',
+    subject: 'Enquiry: The Polish package',
+    width: 'xl:max-w-[75.625rem]',
+    image: polish,
+    alt: 'A navy suitcase, headphones, scarf and cocktail laid out with a luggage tag reading “The Polish”',
+  },
+  {
+    name: 'The Signature',
+    price: '£799',
+    text: 'Go all in with a full brand system and everything you need to lead with confidence. This top-tier package includes a bespoke logo suite, colour palette, typography, tone of voice, image styling, and comprehensive brand guidelines. You’ll also get branded templates, social assets, and collateral design tailored to your needs – from pitch decks and packaging to signage or merch. Ideal for businesses ready to step into the spotlight with consistency, clarity and authority across every touchpoint.',
+    button: 'Enquire about SIGNATURE package',
+    subject: 'Enquiry: The Signature package',
+    width: 'xl:max-w-[75.125rem]',
+    image: signature,
+    alt: 'A cream suitcase, headphones, tablet and first-class lounge ticket laid out with a luggage tag reading “The Signature”',
+  },
+]
+
+// Brand Bar "menu": [initials, label] – labels break where the design breaks them
+const brandBar = [
+  ['L', ['Logo']],
+  ['CP', ['Colour', 'palette']],
+  ['T', ['Typography']],
+  ['VI', ['Visual', 'identity']],
+  ['ToV', ['Tone', 'of voice']],
+  ['BT', ['Branded', 'templates']],
+  ['SA', ['Social', 'assets']],
+  ['IS', ['Image', 'styling']],
+  ['BG', ['Brand', 'guidelines']],
+  ['M', ['Merchandise']],
+] as const
+
+const rowText = 'xl:pl-[21.625rem]'
+const title = 'text-2xl leading-[1.371] tracking-sub xl:text-d35'
+const body = 'mt-2 text-base leading-[1.35] sm:text-lg xl:mt-[0.4375rem] xl:text-d20'
+---
+
+<BaseLayout
+  title="The Branding Menu | Bit More Media"
+  description="Ready-made brand packages from £299, or mix and match at The Brand Bar. Clarity, consistency and confidence for your brand – wherever you are in your journey."
+  theme={themes.branding}
+>
+  <div class="bg-mint text-orange-ink">
+    <ServiceHero
+      title="Branding Menu"
+      titleColour="text-blue-ink"
+      textColour="text-orange-ink"
+      frameColour="bg-blue"
+      image={hero}
+      alt="A chalkboard sign in an airport lounge listing The Branding Menu: The Essentials, The Polish, The Signature and The Brand Bar"
+      introWidth="xl:max-w-[41rem]"
+      height="xl:h-[42rem]"
+    >
+      <p>
+        A curated collection of brand-building packages – designed to meet you where you are and
+        take you where you want to go. Whether you’re just starting out, ready to refine, or aiming
+        to make a bold statement, The Brand Menu has you covered.
+      </p>
+      <p>
+        Each package is crafted to bring clarity, consistency and confidence to your brand –
+        wherever you are in your journey.
+      </p>
+    </ServiceHero>
+
+    <div class="container-wide space-y-16 pb-20 xl:space-y-[4.5625rem] xl:pb-[8.5rem]">
+      {packages.map((pkg) => (
+        <article class="relative px-5 sm:px-8 xl:min-h-[18.25rem] xl:px-0">
+          <Image
+            src={pkg.image}
+            alt={pkg.alt}
+            widths={[300, 600]}
+            sizes="(min-width: 80rem) 18rem, (min-width: 40rem) 12rem, 60vw"
+            class="mb-6 aspect-[288/292] w-3/5 max-w-60 rounded-[0.9375rem] object-cover sm:float-left sm:mr-8 sm:w-48 xl:absolute xl:top-0 xl:left-0 xl:float-none xl:m-0 xl:w-[18rem] xl:max-w-none"
+          />
+          <div class:list={['sm:overflow-hidden xl:pt-[2.125rem]', rowText]}>
+            <h2 class={title}>{pkg.name}</h2>
+            <p class:list={[body, pkg.width]}>{pkg.text}</p>
+            <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 xl:mt-[0.8125rem] xl:gap-0">
+              <p class="flex items-baseline font-black xl:w-[14.875rem]">
+                <span class="text-xs xl:text-d15">FROM</span>
+                <span class="ml-2 text-[2.5rem] leading-none xl:ml-[0.5rem] xl:text-d50">
+                  {pkg.price}
+                </span>
+                <span class="ml-0.5 text-xs xl:text-d15">+VAT</span>
+              </p>
+              <Button href={mailto(pkg.subject)}>{pkg.button}</Button>
+            </div>
+          </div>
+        </article>
+      ))}
+
+      <article class="relative px-5 pt-4 sm:px-8 xl:mt-[6.4375rem] xl:px-0 xl:pt-0">
+        <Image
+          src={brandBarImage}
+          alt="Shelves of colourful cocktails"
+          widths={[300, 600]}
+          sizes="(min-width: 80rem) 18rem, (min-width: 40rem) 12rem, 60vw"
+          class="mb-6 aspect-[288/360] w-3/5 max-w-60 rounded-[0.9375rem] object-cover sm:float-left sm:mr-8 sm:w-48 xl:absolute xl:top-0 xl:left-0 xl:float-none xl:m-0 xl:w-[18rem] xl:max-w-none"
+        />
+        <div class:list={['sm:overflow-hidden xl:pt-[2.5rem]', rowText]}>
+          <h2 class={title}>The Brand Bar</h2>
+          <p class:list={[body, 'xl:mt-[1.1875rem] xl:max-w-[77rem]']}>
+            Build your brand your way. The brand bar lets you pick exactly what you want - ideal if
+            you want a flexible, tailored approach without committing to a full package. Select what
+            suits you, skip what doesn’t.
+          </p>
+
+          <ul class="mt-10 grid grid-cols-3 gap-x-4 gap-y-8 sm:grid-cols-5 xl:mt-[5.5625rem] xl:grid-cols-[repeat(5,17.25rem)] xl:gap-x-0 xl:gap-y-[1.1875rem]">
+            {brandBar.map(([initials, label]) => (
+              <li class="flex w-[6.75rem] max-w-full flex-col items-center text-center">
+                <span
+                  aria-hidden="true"
+                  class="flex aspect-[108/110] w-full max-w-[6.75rem] items-center justify-center rounded-[0.875rem] bg-white font-serif text-orange-strong text-[2rem] font-bold tracking-pop xl:text-d50"
+                >
+                  {initials}
+                </span>
+                <span class="mt-2 text-sm leading-[1.35] whitespace-nowrap xl:mt-[0.5625rem] xl:text-d20">
+                  {label.map((line, i) => (
+                    <>
+                      {i > 0 && <br />}
+                      {line}
+                    </>
+                  ))}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 xl:mt-[6.125rem] xl:gap-0">
+            <p class="flex items-baseline font-black xl:w-[14.875rem]">
+              <span class="text-xs xl:text-d15">FROM</span>
+              <span class="ml-2 text-[2.5rem] leading-none xl:ml-[0.5rem] xl:text-d50">£99</span>
+              <span class="ml-0.5 text-xs xl:text-d15">+VAT</span>
+            </p>
+            <Button href={mailto('Enquiry: The Brand Bar')}>ENQUIRE ABOUT BRAND BAR</Button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</BaseLayout>

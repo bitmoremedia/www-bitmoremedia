@@ -1,0 +1,167 @@
+---
+import { Image } from 'astro:assets'
+
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Button from '../components/Button.astro'
+import ServiceHero from '../components/ServiceHero.astro'
+import { mailto, themes } from '../data/site'
+
+import hero from '../assets/campaign/hero.jpg'
+import band1 from '../assets/campaign/band-1.jpg'
+import band2 from '../assets/campaign/band-2.jpg'
+import band3 from '../assets/campaign/band-3.jpg'
+import band4 from '../assets/campaign/band-4.jpg'
+import band5 from '../assets/campaign/band-5.jpg'
+
+/*
+ * Full-width photo bands, each with a frosted card. `card` places the card and `width` sets its
+ * text box (both from the design); `circle` is the decorative translucent circle, if any.
+ */
+const bands = [
+  {
+    image: band1,
+    title: 'Creative strategy and messaging',
+    text: [
+      'We work with you to shape the core idea, define the goals, and build a story that resonates – with visuals, tone and messaging that stay consistent across every channel.',
+    ],
+    card: 'xl:right-[2.375rem] xl:bottom-[2.625rem]',
+    width: 'xl:max-w-[27.6875rem]',
+    circle: 'left-0 -top-[1.625rem] size-[23.5rem]',
+  },
+  {
+    image: band2,
+    title: 'Multi-channel planning',
+    text: [
+      'From social media and email to digital ads, print and live events, we map out a timeline and rollout plan to make sure your campaign hits the mark and stays on track.',
+    ],
+    card: 'xl:left-[2.375rem] xl:bottom-[2.625rem]',
+    width: 'xl:max-w-[31.8125rem]',
+    circle: 'left-[84.9375rem] top-[24.75rem] size-[23.5rem]',
+  },
+  {
+    image: band3,
+    title: 'Event design and delivery',
+    text: [
+      'As part of your campaign, we can manage in-person or digital events – from product launches and panels to pop-ups and brand activations.',
+      'Our full event offering includes:',
+    ],
+    list: [
+      'Concept and creative direction',
+      'Venue sourcing, AV and logistics',
+      'Guest experience and curation',
+      'On-the-day management',
+      'Digital and hybrid event delivery',
+      'Post-event content and performance reporting',
+    ],
+    card: 'xl:right-[2.375rem] xl:top-[2.625rem]',
+    width: 'xl:max-w-[33.5625rem]',
+    circle: 'left-[85.125rem] -top-[12.375rem] size-[23.5rem]',
+  },
+  {
+    image: band4,
+    title: 'Content production and scheduling',
+    text: [
+      'Need graphics, video, copy, social posts or branded materials? We create campaign assets that work together – designed to drive interest, engagement and action.',
+    ],
+    card: 'xl:left-[2.375rem] xl:top-[2.625rem]',
+    width: 'xl:max-w-[33.25rem]',
+  },
+  {
+    image: band5,
+    title: 'Performance tracking and wrap-up',
+    text: [
+      'We don’t just launch and leave. After your campaign wraps, we provide insights into reach, engagement and outcomes – so you know what worked and where to go next.',
+    ],
+    card: 'xl:right-[2.375rem] xl:bottom-[2.625rem]',
+    width: 'xl:max-w-[33.75rem]',
+    circle: 'left-[1.1875rem] top-[28.375rem] size-[24.4375rem]',
+  },
+]
+---
+
+<BaseLayout
+  title="The Campaign Room | Bit More Media"
+  description="We help brands plan and deliver standout campaigns and events – creative thinking, clear strategy and smooth delivery, from first concept to final report."
+  theme={themes.campaign}
+>
+  <div class="bg-cyan text-coral-deep-ink-cyan">
+    <ServiceHero
+      title="Campaign Room"
+      titleColour="text-coral-ink-cyan"
+      textColour="text-blue-ink"
+      frameColour="bg-coral"
+      image={hero}
+      alt="A laptop, smartphone, notebook, pen and glasses on a white desk"
+      introWidth="xl:max-w-[39.125rem]"
+      height="xl:h-[40.75rem]"
+      top="xl:pt-[8.34rem]"
+    >
+      <p>
+        Big ideas need more than a logo – they need momentum. We help brands plan and deliver
+        standout campaigns that connect with the right people in the right way, across every
+        touchpoint.
+      </p>
+      <p>
+        Whether you’re launching a new product, hosting an event, raising awareness or building
+        community, we bring creative thinking, clear strategy and smooth delivery, from first
+        concept to final report.
+      </p>
+    </ServiceHero>
+
+    <div class="container-wide space-y-[3.125rem]">
+      {bands.map((band) => (
+        <section class="relative overflow-hidden p-5 sm:p-8 xl:p-0">
+          <Image
+            src={band.image}
+            alt=""
+            widths={[800, 1200, 1800]}
+            sizes="(min-width: 107rem) 107rem, 100vw"
+            class="absolute inset-0 size-full object-cover xl:static xl:h-auto"
+          />
+          {band.circle && (
+            <span
+              aria-hidden="true"
+              class:list={['absolute rounded-full bg-white/70 max-xl:hidden', band.circle]}
+            />
+          )}
+          <div
+            class:list={[
+              'relative rounded-[0.9375rem] bg-white/80 p-6 sm:max-w-[42.25rem] sm:p-8 xl:absolute xl:w-[42.25rem] xl:py-[4rem] xl:pr-[3rem] xl:pl-[4.375rem]',
+              band.card,
+            ]}
+          >
+            <h2 class="text-2xl leading-[1.371] tracking-sub xl:text-d35">{band.title}</h2>
+            <div
+              class:list={[
+                'mt-2 space-y-[1.35em] text-base leading-[1.35] tracking-snug sm:text-lg xl:mt-[0.625rem] xl:text-d20',
+                band.width,
+              ]}
+            >
+              {band.text.map((p) => (
+                <p>{p}</p>
+              ))}
+            </div>
+            {band.list && (
+              <ul class="list-disc pl-[2.8em] text-base leading-[1.35] tracking-snug sm:text-lg xl:text-d20">
+                {band.list.map((item) => (
+                  <li class="pl-[0.4em]">{item}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <div class="container-site pt-16 pb-20 xl:pt-[6.375rem] xl:pb-[9.375rem]">
+      <p class="text-xl leading-[1.375] tracking-pop sm:text-2xl xl:text-d32 xl:whitespace-nowrap">
+        Every campaign is unique – so we build a plan that fits your goals, audience and budget.{' '}
+        <br class="max-md:hidden" />
+        Ready to create one that works for you?
+      </p>
+      <Button href={mailto('Enquiry: The Campaign Room')} class="mt-6 xl:mt-[1.8125rem]">
+        LET’S CHAT ABOUT CAMPAIGNS
+      </Button>
+    </div>
+  </div>
+</BaseLayout>

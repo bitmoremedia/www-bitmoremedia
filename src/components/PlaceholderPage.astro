@@ -1,29 +1,24 @@
 ---
 import Button from './Button.astro'
-import SectionHeading from './SectionHeading.astro'
-import type { DotColour } from '../data/site'
 
 interface Props {
-  kicker?: string
   title: string
-  dot: DotColour
 }
 
-const { kicker, title, dot } = Astro.props
+const { title } = Astro.props
 ---
 
-<section class="bg-lime py-24 lg:py-32">
-  <div class="container-site max-w-3xl">
-    {kicker && <p class="font-display text-3xl leading-none font-black tracking-tight">{kicker}</p>}
-    <SectionHeading as="h1" text={title} dot={dot} class="leading-none sm:text-7xl" />
-    <div class="prose-site mt-8">
+<section class="bg-yellow py-24 text-coral-ink xl:py-[10rem]">
+  <div class="container-site max-w-[60rem]">
+    <h1 class="text-[2.75rem] leading-none font-heavy xl:text-d65">
+      {title}
+      <span class="text-blue">.</span>
+    </h1>
+    <div class="mt-8 space-y-4 text-lg leading-[1.35] font-medium text-coral-deep-ink xl:text-d22">
       <slot />
     </div>
     <div class="mt-10 flex flex-wrap gap-4">
-      <Button href="/#connect">Start a project</Button>
-      <Button href="/" variant="navy">
-        Back to home
-      </Button>
+      <Button href="/">Back to home</Button>
     </div>
   </div>
 </section>

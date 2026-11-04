@@ -1,30 +1,23 @@
 ---
 interface Props {
   href: string
-  variant?: 'orange' | 'navy'
-  size?: 'md' | 'sm'
+  variant?: 'orange' | 'white'
   class?: string
 }
 
-const { href, variant = 'orange', size = 'md', class: className } = Astro.props
+const { href, variant = 'orange', class: className } = Astro.props
 
 const variants = {
-  orange: 'bg-orange text-navy hover:bg-navy hover:text-white',
-  navy: 'bg-navy text-white hover:bg-blue',
-}
-
-const sizes = {
-  md: 'px-7 py-3.5 text-base',
-  sm: 'px-6 py-2.5 text-sm',
+  orange: 'bg-orange-strong text-white',
+  white: 'bg-white text-coral-ink',
 }
 ---
 
 <a
   href={href}
   class:list={[
-    'inline-flex items-center justify-center rounded-full font-display font-black whitespace-nowrap transition-colors',
+    'inline-flex min-h-12 items-center justify-center rounded-xl px-6 py-2 text-center text-lg leading-tight font-black transition hover:-translate-y-0.5 hover:shadow-lg xl:min-h-[3.875rem] xl:px-[2.25rem] xl:text-d25',
     variants[variant],
-    sizes[size],
     className,
   ]}
 >

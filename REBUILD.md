@@ -2,7 +2,7 @@
 
 _Written October 2026. The last commit to this repo was February 2019._
 
-> **Status:** a first version of the new homepage is built on the `bmm-www-2` branch (Astro + Tailwind). Outstanding items now live in `FOLLOW-UPS.md`.
+> **Status:** the new site (homepage plus the four service pages, from the "pop colours 2026" designs) is built on the `bmm-www-2` branch (Astro + Tailwind). Outstanding items now live in `FOLLOW-UPS.md`.
 
 This file covers two things:
 
@@ -15,18 +15,18 @@ This file covers two things:
 
 ### Stack
 
-| Concern | What's used | Version | Notes |
-| --- | --- | --- | --- |
-| Framework | Gatsby (React static site generator) | 2.0.8 | Gatsby is now on v5 and its future is uncertain since Netlify acquired it |
-| UI | React | 16.5.2 | Class components and `StaticQuery`, from before hooks |
-| Styling | Tailwind CSS | 0.6.6 | Pre-1.0 config format and a custom colour file. None of it carries over to modern Tailwind |
-| CSS pruning | PurgeCSS 1.x run as a post-build step | 1.1.0 | Modern Tailwind does this itself |
-| Images | `gatsby-image` + `gatsby-plugin-sharp` (duotone heroes, traced-SVG placeholders) | 2.x | Deprecated. Old `sharp` native binaries |
-| State | `unstated` (only used for the mobile nav open/closed flag) | 2.1.1 | Unmaintained |
-| Scrolling | `react-scroll` for the "scroll down" arrow | 1.7.10 | Native CSS `scroll-behavior` does this now |
-| IE support | `object-fit-images` polyfill + an IE10 flexbox hack in CSS | – | Not needed anymore |
-| Analytics | `gatsby-plugin-google-analytics`, property `UA-72779821-1` | – | **Dead.** Universal Analytics stopped collecting data in July 2023 |
-| Formatting | Prettier 1.14 | – | |
+| Concern     | What's used                                                                      | Version | Notes                                                                                      |
+| ----------- | -------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------ |
+| Framework   | Gatsby (React static site generator)                                             | 2.0.8   | Gatsby is now on v5 and its future is uncertain since Netlify acquired it                  |
+| UI          | React                                                                            | 16.5.2  | Class components and `StaticQuery`, from before hooks                                      |
+| Styling     | Tailwind CSS                                                                     | 0.6.6   | Pre-1.0 config format and a custom colour file. None of it carries over to modern Tailwind |
+| CSS pruning | PurgeCSS 1.x run as a post-build step                                            | 1.1.0   | Modern Tailwind does this itself                                                           |
+| Images      | `gatsby-image` + `gatsby-plugin-sharp` (duotone heroes, traced-SVG placeholders) | 2.x     | Deprecated. Old `sharp` native binaries                                                    |
+| State       | `unstated` (only used for the mobile nav open/closed flag)                       | 2.1.1   | Unmaintained                                                                               |
+| Scrolling   | `react-scroll` for the "scroll down" arrow                                       | 1.7.10  | Native CSS `scroll-behavior` does this now                                                 |
+| IE support  | `object-fit-images` polyfill + an IE10 flexbox hack in CSS                       | –       | Not needed anymore                                                                         |
+| Analytics   | `gatsby-plugin-google-analytics`, property `UA-72779821-1`                       | –       | **Dead.** Universal Analytics stopped collecting data in July 2023                         |
+| Formatting  | Prettier 1.14                                                                    | –       |                                                                                            |
 
 There are no tests, no CI and no `node_modules` checked out. I haven't tried to install or build it, but with Gatsby 2, sharp from 2018 and Tailwind 0.6, getting it to run on a current Node/macOS (Apple Silicon) would be a project in itself. **We should treat the current code as reference material, not something to upgrade.**
 
@@ -38,13 +38,13 @@ There are no tests, no CI and no `node_modules` checked out. I haven't tried to 
 
 ### Where it's hosted (checked October 2026)
 
-| Thing | Where | Evidence |
-| --- | --- | --- |
-| Website | **Kualo** (UK shared hosting, paid). Apache on `91.197.228.236` | IP belongs to Kualo Limited. The live HTML has `generator: Gatsby 2.0.8`, so it's this codebase |
-| DNS | **Kualo** nameservers (`ns1`–`ns4.kualo.net`) | `dig NS` |
-| Domain registration | PublicDomainRegistry (PDR), the wholesale registrar Kualo resells. Probably bought through Kualo. **Expires 3 July 2027** | `whois` |
-| Email | **Google Workspace** | MX records point at `aspmx.l.google.com` |
-| Wedding site | **Firebase Hosting**, project `wedsite-6155f` | `gem-russ-getmarried.bitmoremedia.com` is a CNAME to `wedsite-6155f.firebaseapp.com`, and there's a `firebase=wedsite-6155f` TXT record |
+| Thing               | Where                                                                                                                     | Evidence                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Website             | **Kualo** (UK shared hosting, paid). Apache on `91.197.228.236`                                                           | IP belongs to Kualo Limited. The live HTML has `generator: Gatsby 2.0.8`, so it's this codebase                                         |
+| DNS                 | **Kualo** nameservers (`ns1`–`ns4.kualo.net`)                                                                             | `dig NS`                                                                                                                                |
+| Domain registration | PublicDomainRegistry (PDR), the wholesale registrar Kualo resells. Probably bought through Kualo. **Expires 3 July 2027** | `whois`                                                                                                                                 |
+| Email               | **Google Workspace**                                                                                                      | MX records point at `aspmx.l.google.com`                                                                                                |
+| Wedding site        | **Firebase Hosting**, project `wedsite-6155f`                                                                             | `gem-russ-getmarried.bitmoremedia.com` is a CNAME to `wedsite-6155f.firebaseapp.com`, and there's a `firebase=wedsite-6155f` TXT record |
 
 Email and the wedding site already live elsewhere. We're **staying on Kualo**: the domain, DNS and email setup stay exactly as they are, and the rebuild just replaces the files in the web root. Moving hosting (e.g. to Firebase) can wait for another day.
 
@@ -114,15 +114,15 @@ Whatever we deploy to next, these rules need to come across. That's especially t
 
 The homepage is a **single long scrolling page** with a sticky nav that jumps to sections. Here's what's in it, from top to bottom:
 
-| # | Section | Background | Content |
-| --- | --- | --- | --- |
-| – | Header | lime | "Bit More Media." wordmark. Desktop nav: Branding hub, Campaign room, Social studio, Dev lab, Who we are, plus a **Connect** pill button. Mobile shows the wordmark and the Connect pill only (no hamburger in the mockup) |
-| 1 | Hero | lime | Big "BIT MORE MEDIA." heading with a blue full stop, a three-line strapline, a 4×2 image grid (rounded corners, coral border) that becomes a single image on mobile, two intro paragraphs, and a "Start a project" orange pill |
-| 2 | What we do | royal blue | 2×2 grid (1 column on mobile) of the four service areas: **The Branding Hub**, **The Campaign Room**, **The Social Studio**, **The Dev Lab**. Each has a coloured dot, a "The" kicker, a heading, a blurb and an "Explore the …" link |
-| 3 | Who we are | mint | "Our story" (3 paragraphs), three value cards (**Curious** lime/ladybird, **Clear** orange/droplet, **Clever** cyan/brain) side by side on desktop and stacked on mobile, then a "This is our brand. But what could yours be?" CTA → Branding Hub |
-| 4 | Our clients | cyan | Intro line and a logo wall: Accenture, Currys, Pret, Virgin Money, BlackRock, Sky, BNY, PwC, BT, Nando's, RSA, EY, Bupa, McDonald's. 5 columns on desktop, 3 on mobile |
-| 5 | Connect | coral | Intro copy, phone number and a retro phone image (desktop only). The mockup also has an enquiry form, but **we're dropping the form**: this section just shows the email address (`mailto:` link) and phone number. The designer needs to know so they can rework the layout and the "Fill in the form or email us…" copy |
-| – | Footer | navy | Wordmark and one-line description. Columns for Services, Contact (phone, email) and Follow us (Instagram, LinkedIn, TikTok). Bottom line with ©, privacy policy link and company details |
+| #   | Section     | Background | Content                                                                                                                                                                                                                                                                                                                   |
+| --- | ----------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| –   | Header      | lime       | "Bit More Media." wordmark. Desktop nav: Branding hub, Campaign room, Social studio, Dev lab, Who we are, plus a **Connect** pill button. Mobile shows the wordmark and the Connect pill only (no hamburger in the mockup)                                                                                                |
+| 1   | Hero        | lime       | Big "BIT MORE MEDIA." heading with a blue full stop, a three-line strapline, a 4×2 image grid (rounded corners, coral border) that becomes a single image on mobile, two intro paragraphs, and a "Start a project" orange pill                                                                                            |
+| 2   | What we do  | royal blue | 2×2 grid (1 column on mobile) of the four service areas: **The Branding Hub**, **The Campaign Room**, **The Social Studio**, **The Dev Lab**. Each has a coloured dot, a "The" kicker, a heading, a blurb and an "Explore the …" link                                                                                     |
+| 3   | Who we are  | mint       | "Our story" (3 paragraphs), three value cards (**Curious** lime/ladybird, **Clear** orange/droplet, **Clever** cyan/brain) side by side on desktop and stacked on mobile, then a "This is our brand. But what could yours be?" CTA → Branding Hub                                                                         |
+| 4   | Our clients | cyan       | Intro line and a logo wall: Accenture, Currys, Pret, Virgin Money, BlackRock, Sky, BNY, PwC, BT, Nando's, RSA, EY, Bupa, McDonald's. 5 columns on desktop, 3 on mobile                                                                                                                                                    |
+| 5   | Connect     | coral      | Intro copy, phone number and a retro phone image (desktop only). The mockup also has an enquiry form, but **we're dropping the form**: this section just shows the email address (`mailto:` link) and phone number. The designer needs to know so they can rework the layout and the "Fill in the form or email us…" copy |
+| –   | Footer      | navy       | Wordmark and one-line description. Columns for Services, Contact (phone, email) and Follow us (Instagram, LinkedIn, TikTok). Bottom line with ©, privacy policy link and company details                                                                                                                                  |
 
 Recurring design elements to build as components:
 
@@ -134,15 +134,15 @@ Recurring design elements to build as components:
 
 **Colour palette** (eyeballed from the PDF; get exact hex values from the source file):
 
-| Token | Approx. | Used for |
-| --- | --- | --- |
-| `lime` | `#E8FF3A` | hero background, headings on blue, Curious card |
-| `blue` | `#4263C0` | What we do background, wordmark dot |
-| `mint` | `#7DF0B8` | Who we are background |
-| `cyan` | `#00E5FF` | clients background, Clever card |
-| `coral` | `#FF7B7B` | Connect background, image borders |
-| `orange` | `#FF7A3D` | buttons, Clear card |
-| `navy` | `#1E1C3E` | text, footer, nav button |
+| Token    | Approx.   | Used for                                        |
+| -------- | --------- | ----------------------------------------------- |
+| `lime`   | `#E8FF3A` | hero background, headings on blue, Curious card |
+| `blue`   | `#4263C0` | What we do background, wordmark dot             |
+| `mint`   | `#7DF0B8` | Who we are background                           |
+| `cyan`   | `#00E5FF` | clients background, Clever card                 |
+| `coral`  | `#FF7B7B` | Connect background, image borders               |
+| `orange` | `#FF7A3D` | buttons, Clear card                             |
+| `navy`   | `#1E1C3E` | text, footer, nav button                        |
 
 **Typography**: there are two faces. Headings use a very heavy geometric sans (Black weight). Body text uses a light geometric sans that looks like Futura PT or Avenir Next. **We need the actual font names and licences from the designer.** If they're Adobe Fonts or commercial, that affects how we load them.
 
@@ -160,16 +160,16 @@ The nav items could jump to homepage sections now and point to full pages later.
 
 ### Recommended stack
 
-| Concern | Recommendation | Why |
-| --- | --- | --- |
-| Framework | **Astro** (current major) | Built for content-led marketing sites. It ships zero JS by default and outputs plain static HTML. Components can be `.astro` files, with React islands only if we ever need interactivity |
-| Styling | **Tailwind CSS v4** with the palette and fonts as `@theme` tokens | Familiar from the old site, but v4 config is CSS-first and pruning is built in, so there's no PurgeCSS step |
-| Images | Astro's built-in `<Image>` / `<Picture>` (sharp) | Responsive AVIF/WebP and lazy loading, which replaces gatsby-image |
-| Content | Copy in Markdown/MDX or Astro content collections | Keeps text out of components so editing copy doesn't mean editing layout. Leaves the door open to a CMS later if non-devs need to edit |
-| Contact | No form. A `mailto:` email link and a `tel:` phone link | Nothing to host, secure or filter for spam, and it keeps the site 100% static |
-| Hosting | **Stay on Kualo**, uploading Astro's static `dist/` folder to the web root | Already paid for, and it holds the domain, DNS and email setup, so there are no DNS changes and no risk to email. Plain static files run on Apache, and redirects and caching stay in `.htaccess`. Because the output is static, we can move it to Firebase, Cloudflare Pages or anywhere else later without code changes |
-| Analytics | **Cloudflare Web Analytics** (free, cookieless, a JS snippet that works without moving DNS to Cloudflare), or GA4 if you want Google | Plausible and Fathom are paid. Cookieless analytics avoids a cookie banner under PECR, whereas GA4 needs a consent banner |
-| Quality | Prettier, ESLint, `astro check` (TypeScript), Lighthouse CI or Playwright smoke test in GitHub Actions | |
+| Concern   | Recommendation                                                                                                                       | Why                                                                                                                                                                                                                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Framework | **Astro** (current major)                                                                                                            | Built for content-led marketing sites. It ships zero JS by default and outputs plain static HTML. Components can be `.astro` files, with React islands only if we ever need interactivity                                                                                                                                 |
+| Styling   | **Tailwind CSS v4** with the palette and fonts as `@theme` tokens                                                                    | Familiar from the old site, but v4 config is CSS-first and pruning is built in, so there's no PurgeCSS step                                                                                                                                                                                                               |
+| Images    | Astro's built-in `<Image>` / `<Picture>` (sharp)                                                                                     | Responsive AVIF/WebP and lazy loading, which replaces gatsby-image                                                                                                                                                                                                                                                        |
+| Content   | Copy in Markdown/MDX or Astro content collections                                                                                    | Keeps text out of components so editing copy doesn't mean editing layout. Leaves the door open to a CMS later if non-devs need to edit                                                                                                                                                                                    |
+| Contact   | No form. A `mailto:` email link and a `tel:` phone link                                                                              | Nothing to host, secure or filter for spam, and it keeps the site 100% static                                                                                                                                                                                                                                             |
+| Hosting   | **Stay on Kualo**, uploading Astro's static `dist/` folder to the web root                                                           | Already paid for, and it holds the domain, DNS and email setup, so there are no DNS changes and no risk to email. Plain static files run on Apache, and redirects and caching stay in `.htaccess`. Because the output is static, we can move it to Firebase, Cloudflare Pages or anywhere else later without code changes |
+| Analytics | **Cloudflare Web Analytics** (free, cookieless, a JS snippet that works without moving DNS to Cloudflare), or GA4 if you want Google | Plausible and Fathom are paid. Cookieless analytics avoids a cookie banner under PECR, whereas GA4 needs a consent banner                                                                                                                                                                                                 |
+| Quality   | Prettier, ESLint, `astro check` (TypeScript), Lighthouse CI or Playwright smoke test in GitHub Actions                               |                                                                                                                                                                                                                                                                                                                           |
 
 Why not just upgrade Gatsby? Nothing in the current codebase survives the redesign. Gatsby's GraphQL data layer is overkill for a site of about six pages, and the ecosystem has largely moved on. A clean start is less work than an upgrade.
 
@@ -207,30 +207,36 @@ scripts/deploy.sh                build + rsync (or lftp) dist/ to Kualo
 ### Build phases
 
 **Phase 0: Set up**
+
 - Collect the source design files (Figma?), exact colours, font files and licences, image assets (hero tiles, value-card cut-outs, phone, client logos as SVG), and final copy, including the placeholders listed under open questions.
 - Decide whether to start fresh in this repo (on a `rebuild` branch, archiving the old code under a git tag such as `v1-gatsby`) or in a new repo. **I recommend tagging and starting fresh here**, so the history and remote stay in one place.
 
 **Phase 1: Scaffold**
+
 - `npm create astro@latest`, add Tailwind v4, Prettier and TypeScript.
 - Define design tokens (colours, fonts, type scale, radii, border widths, spacing) in `global.css` from the design file.
 - Base layout, header and footer.
 
 **Phase 2: Homepage**
+
 - Build each section as a component, mobile-first. Desktop and mobile breakpoints come straight from the two PDFs.
 - Anchor IDs for nav jump links, `scroll-behavior: smooth`, and `scroll-margin-top` to clear the sticky header.
 - Decide the mobile nav behaviour (see open questions).
 
 **Phase 3: Connect section and privacy page**
+
 - Connect section with `mailto:` and `tel:` links (phone formatted as `tel:+447399501731`).
 - Privacy policy page.
 
 **Phase 4: Polish**
+
 - Accessibility: colour contrast (white body text on royal blue and navy text on coral need checking), focus states, alt text, `prefers-reduced-motion`.
 - SEO: title and description, Open Graph/Twitter image, `sitemap.xml` (Astro integration), `robots.txt`, `Organization`/`LocalBusiness` JSON-LD.
 - Performance: preload heading fonts, size images correctly, aim for Lighthouse 95+.
 - Favicon and app icons from the new wordmark.
 
 **Phase 5: Launch on Kualo**
+
 - **Back up the live site first.** Download the current web root (usually `public_html/`) from cPanel or over SFTP, including the hand-uploaded `.htaccess`, so we can roll back and so we can diff it against the repo's copy.
 - Write the new `public/.htaccess`, starting from the existing rules:
   - Keep: apex → `https://www.` redirect, force HTTPS, the `/gem-russ-getmarried` redirect.
@@ -251,11 +257,12 @@ scripts/deploy.sh                build + rsync (or lftp) dist/ to Kualo
 - After going live, check the www/apex/HTTPS redirects, the old URLs, the 404 page and the wedding redirect. Then turn on analytics and submit the sitemap to Google Search Console.
 
 **Phase 6: Service pages**
+
 - Branding Hub (Brand Menu and Brand Bar), Campaign Room, Social Studio and Dev Lab, built from the same components as designs arrive.
 
 ### Open questions / placeholders in the design
 
-- [ ] **Email address**: the design says `[your email address]`. Should it be `getintouch@bitmoremedia.com`?
+- [x] **Email address**: `getintouch@bitmoremedia.com` (confirmed).
 - [ ] **Social links**: Instagram, LinkedIn and TikTok URLs.
 - [ ] **Company details** for the footer (name, number, registered office) if it's a limited company.
 - [ ] **Privacy policy** text.
