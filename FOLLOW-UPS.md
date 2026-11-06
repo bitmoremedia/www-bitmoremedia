@@ -67,5 +67,5 @@ What's still needed to finish the new site. It's built from the "pop colours 202
 - [x] Accessibility pass: an axe-core audit of every page at desktop and mobile widths finds nothing beyond the contrast notes above. Keyboard order is logical, focus is visible everywhere and animations are turned off for people who prefer reduced motion. Still worth a manual VoiceOver run before launch.
 - [ ] Lighthouse pass once the final images are in.
 - [x] Deploys stay manual (decided): `npm run deploy -- --dry-run`, then `npm run deploy`. No GitHub Action.
-- [ ] Merge `bmm-www-2` into `master` once it's live. The old Gatsby site stays in git history; tag it (e.g. `v1-gatsby`) before merging.
+- [x] Merged `bmm-www-2` into `master` on 6 November 2026. The old Gatsby site is tagged `v1-gatsby`.
 - [x] `_design/` (design PDFs, about 56MB) is in `.gitignore` and kept locally only. Back it up somewhere else (e.g. Google Drive).
