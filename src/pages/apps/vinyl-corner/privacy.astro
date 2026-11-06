@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import PlaceholderPage from '../../../components/PlaceholderPage.astro'
+import { company, contact, mailto } from '../../../data/site'
+
+// Written from what the app does as of build 0.1.0 (November 2026). Update it if the app gains
+// analytics, accounts, a server of ours, or sends anything new off the device.
+const updated = '4 November 2026'
+const h2 = 'pt-6 text-2xl leading-tight font-heavy text-coral-ink xl:text-d31'
+const link = 'underline underline-offset-4'
+---
+
+<BaseLayout
+  title="Vinyl Corner privacy policy | Bit More Media"
+  description="What the Vinyl Corner app does with your information: it collects nothing for us."
+>
+  <PlaceholderPage title="Vinyl Corner privacy policy">
+    <p>Last updated {updated}.</p>
+    <p>
+      In short: Vinyl Corner doesn’t collect any information about you for us. There’s no account
+      with us, no analytics, no advertising and no tracking, and the app doesn’t send anything to a
+      server of ours. Your music library is read on your device, and anything the app saves stays on
+      your device or in your own iCloud.
+    </p>
+
+    <h2 class={h2}>Who we are</h2>
+    <p>
+      Vinyl Corner is made by {company.name}, a company registered in England and Wales (company
+      number {company.number}), registered office {company.registeredOffice}. Questions about this
+      policy? Email{' '}
+      <a href={mailto('Vinyl Corner privacy')} class={link}>
+        {contact.email}
+      </a>
+      .
+    </p>
+
+    <h2 class={h2}>Your music service</h2>
+    <p>
+      <strong class="font-heavy">Apple Music:</strong> with your permission, the app reads your
+      Apple Music library (albums, playlists and play counts), searches the Apple Music catalogue
+      and plays music through Apple’s Music app. This goes directly between your device and Apple,
+      under{' '}
+      <a href="https://www.apple.com/legal/privacy/" class={link}>
+        Apple’s privacy policy
+      </a>
+      .
+    </p>
+    <p>
+      <strong class="font-heavy">Spotify:</strong> if you sign in to Spotify, the app reads your
+      saved albums and playlists, searches Spotify’s catalogue and controls playback in the Spotify
+      app. Your sign-in is kept in your device’s keychain. This goes directly between your device
+      and Spotify, under{' '}
+      <a href="https://www.spotify.com/legal/privacy-policy/" class={link}>
+        Spotify’s privacy policy
+      </a>
+      .
+    </p>
+    <p>
+      To find new releases and missing album covers, the app also looks up artist and album names in
+      Apple’s public iTunes catalogue. These lookups don’t include who you are.
+    </p>
+
+    <h2 class={h2}>What stays on your device</h2>
+    <p>
+      The app keeps a copy of your library, your shelves, your rankings and your settings on your
+      device so it opens quickly. Deleting the app deletes them.
+    </p>
+    <p>
+      <strong class="font-heavy">Camera and photos:</strong> when you scan a shelf of records, the
+      album names are read from the picture on your device and then searched for in your music
+      service. The picture itself isn’t saved or sent anywhere. If you choose a photo instead, the
+      app only sees that one photo.
+    </p>
+    <p>
+      <strong class="font-heavy">Apple Intelligence:</strong> where your device supports it, the app
+      can tidy album titles using the language model built into your device. This runs on the device
+      and nothing is sent off it.
+    </p>
+    <p>
+      <strong class="font-heavy">Widgets:</strong> what’s playing is shared with the app’s widgets
+      through storage on your device.
+    </p>
+
+    <h2 class={h2}>iCloud</h2>
+    <p>
+      Your shelves, rankings, hidden records, chosen covers, what you’ve played and your settings
+      sync between your devices through your own private iCloud account. We can’t see this data.
+      Each device can stop syncing with “Sync across devices” in the app’s settings, and you can
+      delete the app’s iCloud data in your device’s iCloud settings.
+    </p>
+
+    <h2 class={h2}>Crash reports</h2>
+    <p>
+      The app keeps its own crash and performance reports on your device. They’re only sent to us if
+      you choose to share them, for example by email when reporting a problem. If you’ve agreed in
+      your device’s settings to share analytics with app developers, Apple may also send us
+      anonymous crash reports.
+    </p>
+    <p>
+      If you’re testing the app through TestFlight, Apple shares some information with us, such as
+      your name and email address if we invited you, your device model and any feedback or crash
+      reports you send. See{' '}
+      <a href="https://www.apple.com/legal/privacy/data/en/test-flight/" class={link}>
+        Apple’s TestFlight privacy notice
+      </a>
+      . We only use it to improve the app.
+    </p>
+
+    <h2 class={h2}>Your rights</h2>
+    <p>
+      Because we don’t collect information about you, there’s normally nothing for us to give you,
+      correct or delete. If you’ve emailed us, you can ask for a copy of that email or for us to
+      delete it, and we’ll reply within one month. You also have the right to complain to the
+      Information Commissioner’s Office (ICO) at{' '}
+      <a href="https://ico.org.uk/make-a-complaint/" class={link}>
+        ico.org.uk
+      </a>
+      .
+    </p>
+
+    <h2 class={h2}>Changes to this policy</h2>
+    <p>If we change this policy, we’ll update it here and change the date at the top.</p>
+  </PlaceholderPage>
+</BaseLayout>

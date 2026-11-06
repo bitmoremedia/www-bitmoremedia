@@ -1,0 +1,93 @@
+---
+import '@fontsource-variable/figtree'
+import '../styles/global.css'
+
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import { company, contact, themes, type Theme } from '../data/site'
+
+interface Props {
+  title?: string
+  description?: string
+  theme?: Theme
+  // Footer colours default to the page theme; override when the last section differs
+  footer?: { bg: string; text: string }
+  // Keep utility pages out of search results
+  noindex?: boolean
+}
+
+const {
+  title = 'Bit More Media | Creative thinking. Clever tech.',
+  description = 'Bit More Media is a two-person studio for branding, campaigns, social media and digital builds. Brands that pop. Ideas that stick.',
+  theme = themes.home,
+  footer = { bg: theme.bg, text: theme.nav },
+  noindex = false,
+} = Astro.props
+
+const canonical = new URL(Astro.url.pathname, Astro.site)
+const ogImage = new URL('/og.jpg', Astro.site)
+
+// Tells search engines who runs the site (schema.org Organization)
+const organisation = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Bit More Media',
+  legalName: company.name,
+  url: Astro.site?.href,
+  email: contact.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '7 Three Rivers Business Park, Felixstowe Road, Foxhall',
+    addressLocality: 'Ipswich',
+    postalCode: 'IP10 0BF',
+    addressCountry: 'GB',
+  },
+  identifier: { '@type': 'PropertyValue', propertyID: 'Companies House', value: company.number },
+}
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content={theme.hex} />
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bit More Media" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Bit More Media. Creative thinking. Clever tech. Brands that pop. Ideas that stick."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {Astro.url.pathname === '/' && (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(organisation)} />
+    )}
+  </head>
+  <body class={footer.bg}>
+    <a
+      href="#main"
+      class="sr-only z-50 rounded-xl bg-white px-5 py-3 font-black text-blue focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+    >
+      Skip to content
+    </a>
+    <Header theme={theme} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer {...footer} />
+  </body>
+</html>

@@ -1,0 +1,21 @@
+---
+import type { Theme } from '../data/site'
+
+interface Props {
+  theme: Theme
+}
+
+const { theme } = Astro.props
+---
+
+<span class="flex flex-col font-heavy leading-none tracking-mark" aria-label="Bit More Media">
+  <span aria-hidden="true" class:list={['text-[0.9rem] xl:text-d24', theme.wordmarkTop]}>
+    Bit More
+  </span>
+  <span
+    aria-hidden="true"
+    class:list={['-mt-[0.09em] text-[1.15rem] xl:-mt-[0.22em] xl:text-d31', theme.wordmarkBottom]}
+  >
+    Media.
+  </span>
+</span>

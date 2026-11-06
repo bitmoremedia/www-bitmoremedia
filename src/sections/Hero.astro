@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets'
+
+import tile1 from '../assets/home/tile-1.jpg'
+import tile2 from '../assets/home/tile-2.jpg'
+import tile3 from '../assets/home/tile-3.jpg'
+import tile4 from '../assets/home/tile-4.jpg'
+import tile5 from '../assets/home/tile-5.jpg'
+import tile6 from '../assets/home/tile-6.jpg'
+import tile7 from '../assets/home/tile-7.jpg'
+import tile8 from '../assets/home/tile-8.jpg'
+
+// Two rows of tiles; `width` is each tile's width in the design, used as its flex ratio
+const rows = [
+  [
+    { src: tile1, width: 466, alt: 'Website wireframes sketched in a notebook' },
+    { src: tile2, width: 435, alt: 'A hand holding a smartphone' },
+    { src: tile3, width: 242, alt: 'A woman recording herself on a phone mounted on a tripod' },
+    { src: tile4, width: 466, alt: 'Hands holding a phone showing a social media profile' },
+  ],
+  [
+    { src: tile5, width: 242, alt: 'A hand holding up a festival poster' },
+    { src: tile6, width: 567, alt: 'A microphone in front of a crowd at an outdoor event' },
+    { src: tile7, width: 435, alt: 'A laptop showing a colourful “Design your future” graphic' },
+    { src: tile8, width: 367, alt: 'Code on a dark editor screen' },
+  ],
+]
+
+const tagline = [
+  { text: 'Creative thinking', dot: 'text-mint' },
+  { text: 'Clever tech', dot: 'text-cyan' },
+]
+---
+
+<section class="bg-yellow pt-10 pb-16 sm:pt-16 xl:pt-[13.3rem] xl:pb-[7.1875rem]">
+  <div class="container-site text-coral-ink tracking-pop">
+    <h1 class="text-[clamp(2.6rem,9vw,4.5rem)] leading-[1.1] font-heavy uppercase xl:ml-[3.3rem] xl:text-d100">
+      Bit More Media<span class="text-blue">.</span>
+    </h1>
+    <p class="mt-6 text-[clamp(1.35rem,4.2vw,2.5rem)] leading-[1.37] font-heavy uppercase xl:mt-[3.8rem] xl:ml-[3.65rem] xl:text-d65">
+      {tagline.map((line) => (
+        <>
+          <span class="block">
+            {line.text}
+            <span class={line.dot}>.</span>
+          </span>{' '}
+        </>
+      ))}
+      <!-- prettier-ignore -->
+      <span class="block">Brands that pop<span class="text-blue">.</span> Ideas that stick<span class="text-pink">.</span></span>
+    </p>
+  </div>
+
+  <div class="container-wide mt-10 grid grid-cols-2 gap-3 px-5 sm:flex sm:flex-col sm:gap-[1.05vw] sm:px-[1.2vw] xl:mt-[6.8rem] xl:gap-[1.0625rem] xl:px-[1.28rem]">
+    {rows.map((row, r) => (
+      <ul class="contents sm:flex sm:h-[15.65vw] sm:gap-[1.1vw] xl:h-[16.75rem] xl:gap-[1.1875rem]">
+        {row.map((tile) => (
+          <li
+            class="overflow-hidden rounded-xl border-[6px] border-coral bg-coral max-sm:aspect-[4/3] sm:rounded-[max(0.75rem,1.17vw)] sm:border-[max(6px,1.1vw)] xl:rounded-[1.25rem] xl:border-[1.1875rem]"
+            style={`flex: ${tile.width} 1 0`}
+          >
+            <Image
+              src={tile.src}
+              alt={tile.alt}
+              widths={[300, 600, 900]}
+              sizes={`(min-width: 40rem) ${Math.round((tile.width / 1712) * 100)}vw, 50vw`}
+              class="size-full rounded-md object-cover xl:rounded-[0.5rem]"
+              loading={r === 0 ? 'eager' : 'lazy'}
+            />
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+
+  <div class="container-site mt-10 space-y-6 text-lg leading-[1.37] font-medium text-coral-deep-ink sm:text-xl xl:mt-[6.1rem] xl:space-y-[3rem] xl:pl-[11.78rem] xl:text-d35">
+    <!-- prettier-ignore -->
+    <p class="max-w-[85rem]">
+      We build brands that people remember and help you show up like you mean it. From logos and tone of voice to websites, social content and real-life events, we turn <strong class="font-black">good ideas into great experiences</strong>.
+    </p>
+    <!-- prettier-ignore -->
+    <p class="max-w-[85rem]">
+      Choose from our curated <strong class="font-black">Brand Menu</strong>, mix and match at <strong class="font-black">The Brand Bar</strong>, or dive into our <strong class="font-black">Dev Lab</strong>, or <strong class="font-black">Social Studio</strong>. Wherever you’re at, we’ll meet you there and help you level up.
+    </p>
+  </div>
+</section>

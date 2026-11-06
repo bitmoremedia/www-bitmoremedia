@@ -1,0 +1,14 @@
+---
+interface Props {
+  // A bg-* class, e.g. "bg-blue"
+  colour: string
+  class?: string
+}
+
+const { colour, class: className } = Astro.props
+---
+
+<span
+  aria-hidden="true"
+  class:list={['inline-block shrink-0 rounded-full', colour, className]}
+></span>

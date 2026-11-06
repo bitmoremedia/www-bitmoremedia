@@ -1,0 +1,124 @@
+---
+import Wordmark from './Wordmark.astro'
+import { nav, type Theme } from '../data/site'
+
+interface Props {
+  theme: Theme
+}
+
+const { theme } = Astro.props
+const path = Astro.url.pathname
+---
+
+<header class:list={['relative z-40', theme.bg]}>
+  <div class="container-wide relative grid h-18 grid-cols-[1fr_auto] items-center gap-6 px-5 sm:px-8 lg:grid-cols-[1fr_auto_1fr] xl:flex xl:h-[7.25rem] xl:items-start xl:justify-between xl:px-[4.625rem]">
+    <a href="/" class="justify-self-start xl:pt-[2.4375rem]">
+      <Wordmark theme={theme} />
+    </a>
+
+    <!-- On desktop the links start 372px in, as in the designs, rather than being centred -->
+    <nav
+      aria-label="Main"
+      class:list={['max-lg:hidden xl:absolute xl:left-[23.25rem]', theme.navTop]}
+    >
+      <ul
+        class:list={[
+          'flex items-center gap-8 text-base tracking-pop xl:gap-[5.0625rem] xl:text-d24',
+          theme.nav,
+        ]}
+      >
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={path === item.href ? 'page' : undefined}
+              class="decoration-2 underline-offset-[0.25em] hover:underline aria-[current=page]:underline"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class:list={['flex items-center gap-5 justify-self-end', theme.navTop]}>
+      <a
+        href="/#connect"
+        class:list={[
+          'font-black tracking-pop uppercase decoration-2 underline-offset-[0.25em] hover:underline xl:text-d24',
+          theme.connect,
+        ]}
+      >
+        Connect
+      </a>
+      <button
+        type="button"
+        class:list={['-mr-2 p-2 lg:hidden', theme.nav]}
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-menu-toggle
+      >
+        <span class="sr-only">Menu</span>
+        <svg
+          viewBox="0 0 24 24"
+          class="size-7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <path d="M3 6h18M3 12h18M3 18h18" data-menu-icon="open" />
+          <path d="M5 5l14 14M19 5L5 19" data-menu-icon="close" class="hidden" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    aria-label="Main"
+    class:list={['absolute inset-x-0 top-full pb-8 shadow-lg lg:hidden', theme.bg]}
+    hidden
+  >
+    <ul class:list={['container-site space-y-4 text-2xl', theme.nav]}>
+      {nav.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            aria-current={path === item.href ? 'page' : undefined}
+            class="aria-[current=page]:underline"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]')
+  const menu = document.getElementById('mobile-menu')
+
+  if (toggle && menu) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open))
+      menu.hidden = !open
+      toggle.querySelector('[data-menu-icon="open"]')?.classList.toggle('hidden', open)
+      toggle.querySelector('[data-menu-icon="close"]')?.classList.toggle('hidden', !open)
+    }
+
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'))
+    // Close after following an in-page link such as "Who we are"
+    menu.addEventListener('click', (event) => {
+      if ((event.target as HTMLElement).closest('a')) setOpen(false)
+    })
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !menu.hidden) {
+        setOpen(false)
+        toggle.focus()
+      }
+    })
+  }
+</script>

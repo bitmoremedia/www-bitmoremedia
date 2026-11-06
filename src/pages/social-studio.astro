@@ -1,0 +1,114 @@
+---
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Button from '../components/Button.astro'
+import ServiceHero from '../components/ServiceHero.astro'
+import { mailto, themes } from '../data/site'
+
+import hero from '../assets/social/hero.jpg'
+
+const strips = import.meta.glob<{ default: ImageMetadata }>('../assets/social/*-[123].jpg', {
+  eager: true,
+})
+const stripsFor = (name: string) =>
+  [1, 2, 3].map((n) => strips[`../assets/social/${name}-${n}.jpg`].default)
+
+// Each block has a stack of three photo strips; `width` is the text box width from the design
+const blocks = [
+  {
+    title: 'Content creation',
+    text: 'We bring your brand to life with graphics, animations, video clips, carousels and copy that resonates. Whether you need daily content or a monthly bundle, we deliver assets that reflect your voice and values.',
+    images: stripsFor('content'),
+    width: 'xl:max-w-[31.5rem]',
+  },
+  {
+    title: 'Platform management',
+    text: 'From scheduling and posting to monitoring engagement and replying to comments, we take the day-to-day off your plate. Perfect for busy businesses who want a polished, consistent presence without the hassle.',
+    images: stripsFor('platform'),
+    width: 'xl:max-w-[32.875rem]',
+  },
+  {
+    title: 'Growth and engagement',
+    text: 'We use data-driven tactics to help you grow your following and increase reach – from hashtag strategies to community building and collaborations. No gimmicks, just thoughtful, organic growth.',
+    images: stripsFor('growth'),
+    width: 'xl:max-w-[33.5rem]',
+  },
+  {
+    title: 'Reporting and insights',
+    text: 'Get clear, actionable reports that show what’s working and where to improve. We track performance across platforms and adjust strategy to keep your content sharp and effective.',
+    images: stripsFor('reporting'),
+    width: 'xl:max-w-[33.875rem]',
+  },
+]
+---
+
+<BaseLayout
+  title="The Social Studio | Bit More Media"
+  description="Content creation, platform management, growth and reporting. The Social Studio helps you show up, stand out and stay consistent on social media."
+  theme={themes.social}
+>
+  <div class="bg-coral-dark text-cream">
+    <ServiceHero
+      title="Social Studio"
+      titleColour="text-mint-ink"
+      textColour="text-cream"
+      frameColour="bg-mint"
+      image={hero}
+      alt="A row of young people leaning against a yellow wall, all looking at their phones"
+      introWidth="xl:max-w-[37.25rem]"
+      height="xl:h-[46.4375rem]"
+      top="xl:pt-[9.72rem]"
+    >
+      <p>
+        Build your presence where your audience already is. From content planning and post creation
+        to platform management and growth strategies. The Social Studio helps you show up, stand out
+        and stay consistent.
+      </p>
+    </ServiceHero>
+
+    <div class="container-site grid gap-14 md:grid-cols-2 md:gap-x-10 xl:grid-cols-[51.25rem_auto] xl:gap-x-0 xl:gap-y-[8.125rem]">
+      {blocks.map((block) => (
+        <article class="xl:w-[34.25rem]">
+          <div aria-hidden="true">
+            {block.images.map((image) => (
+              <Image
+                src={image}
+                alt=""
+                widths={[560, 1100]}
+                sizes="(min-width: 80rem) 34rem, (min-width: 48rem) 45vw, 100vw"
+                class="aspect-[548/146] w-full object-cover"
+              />
+            ))}
+          </div>
+          <h2 class="relative -mt-[0.6em] text-[2.25rem] leading-[1.2] font-black tracking-sub [text-shadow:0_0.125rem_0.3rem_rgb(0_0_0/0.5)] xl:text-d50">
+            {block.title}
+          </h2>
+          <p
+            class:list={[
+              'mt-1 text-base leading-[1.35] tracking-snug sm:text-lg xl:mt-[0.25rem] xl:text-d20',
+              block.width,
+            ]}
+          >
+            {block.text}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <div class="container-site pt-16 pb-20 xl:pt-[6.5rem] xl:pb-[7.5625rem] xl:pl-[13.0625rem]">
+      <p class="text-xl leading-[1.371] tracking-pop sm:text-2xl xl:text-d35 xl:whitespace-nowrap">
+        Ready to take social seriously? Let’s turn your presence into performance{' '}
+        <br class="max-md:hidden" />– with content, strategy and support tailored to your brand.
+      </p>
+      <Button
+        href={mailto('Enquiry: The Social Studio')}
+        variant="white"
+        class="mt-6 xl:mt-[3.4375rem]"
+      >
+        TALK TO US ABOUT THE STUDIO
+      </Button>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import { company, contact } from '../data/site'
+
+interface Props {
+  // Text colour, and background to match the last section of the page
+  text: string
+  bg: string
+}
+
+const { text, bg } = Astro.props
+const year = new Date().getFullYear()
+const link = 'underline-offset-4 hover:underline'
+---
+
+<!-- Not in the designs: a slim footer so every page links to the privacy policy -->
+<footer class:list={[bg, text]}>
+  <div class="container-site border-t border-current/30 py-8 text-sm xl:text-d16">
+    <div class="flex flex-wrap gap-x-8 gap-y-2">
+      <span>© {year} Bit More Media</span>
+      <a href={`mailto:${contact.email}`} class={link}>
+        {contact.email}
+      </a>
+      <a href="/privacy/" class={link}>
+        Privacy policy
+      </a>
+    </div>
+    <p class="mt-3 font-medium">
+      {company.name}. Registered in England and Wales, company number {company.number}. Registered
+      office: {company.registeredOffice}.
+    </p>
+  </div>
+</footer>
